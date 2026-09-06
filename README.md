@@ -17,9 +17,6 @@ Una web app 100% gratuita, instalable y que funciona sin conexión — construid
 121 verbos irregulares (de uso esencial a avanzado), cada uno con:
 infinitivo, pasado simple, participio pasado, IPA de las tres formas, traducción, nivel CEFR (A1–B2), categoría semántica, ejemplo bilingüe, error frecuente y verbos relacionados.
 
-### Identidad de marca
-Logo e icono propios (badge navy `#0D2652` con la marca "iv"), favicon e iconos de instalación a juego, y una cabecera de bienvenida con el lockup tipográfico "irregular verbs" en serif — el icono de la barra superior se invierte automáticamente a blanco en modo oscuro para mantener el contraste.
-
 ### Biblioteca y búsqueda
 - Buscador instantáneo por inglés, español o cualquier forma verbal.
 - Filtros por nivel CEFR, "más usados", favoritos, aprendidos y pendientes.
@@ -57,59 +54,6 @@ Memory (emparejar verbo/traducción), Ahorcado, Ordenar letras y Completar hueco
 ### PWA
 Instalable en móvil y escritorio, con manifest y Service Worker (estrategia cache-first + stale-while-revalidate) para funcionar completamente sin conexión tras la primera visita.
 
-## 🏗️ Arquitectura
-
-```
-irregularverbs/
-├── index.html            # Estructura y todas las vistas (SPA por secciones)
-├── manifest.json          # Configuración PWA
-├── sw.js                  # Service Worker (offline-first)
-├── robots.txt / sitemap.xml
-├── css/
-│   └── styles.css         # Sistema de diseño: tokens, componentes, temas, responsive
-├── js/
-│   ├── verbs.js            # Base de datos de verbos (fuente única de la verdad)
-│   ├── gapSentences.js     # Banco de 500 frases contextuales para "Completar huecos"
-│   ├── storage.js          # Capa de persistencia sobre localStorage
-│   ├── core.js             # Utils, filtros/búsqueda y motor de logros
-│   ├── ui.js                # Router de vistas, toasts, modal, render de tarjetas, voz
-│   ├── stats.js            # Gráficas en <canvas> sin librerías
-│   ├── quiz.js              # Estudio, Flashcards, Test, Examen, Escritura, Escucha
-│   ├── games.js             # Memory, Ahorcado, Ordenar letras, Completar huecos
-│   └── app.js                # Controlador principal: wiring, routing, init
-├── icons/                  # Iconos e imagen de marca (favicon, PWA, badge, logo)
-├── favicon.ico              # Favicon multi-resolución para navegadores
-└── docs/screenshots/        # Capturas para este README
-```
-
-Cada módulo se adjunta a un único espacio de nombres global `App` (`App.Storage`, `App.UI`, `App.Quiz`…) para evitar colisiones y mantener el código desacoplado sin necesidad de un bundler. Todos los scripts se cargan como `<script>` clásicos (no ES modules) precisamente para que la app funcione al abrir `index.html` directamente con `file://`, donde los módulos ES tienen restricciones de CORS en varios navegadores.
-
-## 🚀 Instalación
-
-No requiere instalación de dependencias.
-
-```bash
-git clone https://github.com/TU-USUARIO/TU-REPOSITORIO.git
-cd TU-REPOSITORIO
-```
-
-Después simplemente abre `index.html` en tu navegador, o sirve la carpeta con cualquier servidor estático para poder probar la PWA con Service Worker (los SW requieren `http(s)://`, no `file://`):
-
-```bash
-python3 -m http.server 8080
-# abre http://localhost:8080
-```
-
-## 🌐 Despliegue en GitHub Pages
-
-1. Sube este repositorio a GitHub.
-2. Ve a **Settings → Pages**.
-3. En "Source", selecciona la rama `main` y la carpeta `/ (root)`.
-4. Guarda: GitHub Pages publicará la web en `https://TU-USUARIO.github.io/TU-REPOSITORIO/`.
-5. Actualiza esa URL en `robots.txt`, `sitemap.xml` y las etiquetas Open Graph de `index.html`.
-
-No hace falta build ni configuración adicional: es HTML/CSS/JS estático.
-
 ## 🛠️ Tecnologías
 
 - HTML5 semántico
@@ -124,13 +68,6 @@ distribución libres para fines no comerciales, con atribución obligatoria.
 Queda prohibida la venta, monetización o eliminación de la autoría sin
 permiso explícito y por escrito. Ver [LICENSE.md](LICENSE.md) para el texto
 completo (español/inglés).
-
-## 🗺️ Roadmap
-
-- [ ] Sistema de niveles/XP sobre los logros actuales.
-- [ ] Soporte multi-idioma de la interfaz (actualmente en español).
-- [ ] Sincronización opcional en la nube (hoy el progreso vive solo en el dispositivo).
-- [ ] Modo "Ordenar verbos" (secuenciar una lista de verbos según un criterio).
 
 ---
 
