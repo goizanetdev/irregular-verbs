@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IrregularVerbs — Aprende los verbos irregulares en inglés</title>
+<meta name="description" content="Aprende y domina los verbos irregulares en inglés jugando: flashcards, tests, exámenes, juegos y estadísticas de progreso. 100% gratis y funciona sin conexión.">
+<meta name="theme-color" content="#0D2652">
+
+<!-- Open Graph -->
+<meta property="og:title" content="IrregularVerbs — Aprende los verbos irregulares en inglés">
+<meta property="og:description" content="La forma más divertida de dominar los verbos irregulares en inglés: flashcards, tests, exámenes y minijuegos.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="icons/icon-512.png">
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="icons/favicon-64.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#mainContent">Saltar al contenido</a>
+
+<!-- ============================== APP BAR ============================== -->
+<header class="app-bar">
+  <div class="brand">
+    <img class="brand-mark" src="icons/logo-mark.png" alt="" width="28" height="30">
+    <span class="brand-word">irregular verbs</span>
+  </div>
+  <div class="app-bar-actions">
+    <button class="icon-btn" id="themeToggleBtn" aria-label="Cambiar tema claro/oscuro">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ============================== NAV ============================== -->
+<nav class="main-nav" aria-label="Navegación principal">
+  <button class="nav-item active" data-view="view-home" data-action="nav">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+    <span>Inicio</span>
+  </button>
+  <button class="nav-item" data-view="view-library" data-action="nav">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v18H6.5A2.5 2.5 0 0 0 4 22.5v-18Z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg>
+    <span>Verbos</span>
+  </button>
+  <button class="nav-item" data-view="view-games" data-action="nav">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="12" rx="4"/><path d="M7 11v4M5 13h4"/><circle cx="16" cy="12" r="1"/><circle cx="18.5" cy="15" r="1"/></svg>
+    <span>Juegos</span>
+  </button>
+  <button class="nav-item" data-view="view-progress" data-action="nav">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+    <span>Progreso</span>
+  </button>
+  <button class="nav-item" data-view="view-settings" data-action="nav">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+    <span>Ajustes</span>
+  </button>
+</nav>
+
+<main id="mainContent">
+
+  <!-- ============================== HOME ============================== -->
+  <section id="view-home" class="view active">
+    <h1 class="section-title">¡Hola! 👋</h1>
+    <p class="section-sub">Sigue practicando para dominar los verbos irregulares.</p>
+
+    <div class="dash-grid">
+      <div class="card stat-tile accent-violet">
+        <div class="row-between" style="align-items:flex-start;">
+          <div class="num" id="dashLearned">0</div>
+          <button class="icon-btn info-btn learned-info-btn" aria-label="¿Qué es un verbo aprendido?" style="width:24px;height:24px;margin-top:2px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5"/><path d="M12 8h.01"/></svg>
+          </button>
+        </div>
+        <div class="label">Verbos aprendidos</div>
+      </div>
+      <div class="card stat-tile accent-coral"><div class="num" id="dashStreak">0</div><div class="label">Días de racha 🔥</div></div>
+      <div class="card stat-tile accent-teal"><div class="num" id="dashPct">0%</div><div class="label">Completado</div></div>
+      <div class="card stat-tile accent-gold"><div class="num" id="dashAccuracyToday">—</div><div class="label">Precisión de hoy</div></div>
+    </div>
+
+    <h2 class="section-title" style="font-size:1.15rem;margin-bottom:14px;">Modos de práctica</h2>
+    <div class="mode-grid">
+      <button class="card mode-card" data-action="open-study-setup">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
+        <h3>Modo estudio</h3><p>Repasa verbo a verbo con pronunciación y traducción.</p>
+      </button>
+      <button class="card mode-card" data-action="open-flash-setup">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2"><rect x="3" y="5" width="14" height="10" rx="2"/><rect x="7" y="9" width="14" height="10" rx="2" fill="var(--surface)"/></svg></div>
+        <h3>Flashcards</h3><p>Tarjetas que giran para repasar rápido.</p>
+      </button>
+      <button class="card mode-card" data-action="open-test-setup">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Test</h3><p>Preguntas variadas con corrección inmediata.</p>
+      </button>
+      <button class="card mode-card" data-action="open-exam-intro">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Examen</h3><p>50 preguntas contrarreloj con nota final.</p>
+      </button>
+      <button class="card mode-card" data-action="open-writing-setup">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+        <h3>Escritura</h3><p>Escribe las tres formas de cada verbo.</p>
+      </button>
+      <button class="card mode-card" data-action="open-listening-setup">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg></div>
+        <h3>Escucha</h3><p>Escucha la pronunciación y escribe el verbo.</p>
+      </button>
+      <button class="card mode-card" data-action="open-table-test-setup">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 10v10"/></svg></div>
+        <h3>Examen en tabla</h3><p>Elige nivel, nº de preguntas y dificultad.</p>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================== LIBRARY ============================== -->
+  <section id="view-library" class="view">
+    <h1 class="section-title">Verbos irregulares</h1>
+    <p class="section-sub" id="libraryCount">121 verbos disponibles</p>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input class="input" id="librarySearch" type="search" placeholder="Buscar en inglés, español o cualquier forma verbal…" aria-label="Buscar verbo">
+    </div>
+
+    <div class="chip-row" id="levelChips" role="group" aria-label="Filtrar por nivel">
+      <button class="filter-chip active" data-level="all">Todos</button>
+      <button class="filter-chip" data-level="most">Más usados</button>
+      <button class="filter-chip" data-level="A1">A1</button>
+      <button class="filter-chip" data-level="A2">A2</button>
+      <button class="filter-chip" data-level="B1">B1</button>
+      <button class="filter-chip" data-level="B2">B2</button>
+    </div>
+    <div class="chip-row" id="statusChips" role="group" aria-label="Filtrar por estado">
+      <button class="filter-chip active" data-status="all">Todos</button>
+      <button class="filter-chip" data-status="favorites">★ Favoritos</button>
+      <button class="filter-chip" data-status="learned">✓ Aprendidos</button>
+      <button class="filter-chip" data-status="pending">Pendientes</button>
+    </div>
+
+    <div class="verb-grid" id="verbGrid"></div>
+  </section>
+
+  <!-- ============================== SELECCIÓN PERSONALIZADA ============================== -->
+  <section id="view-custom-selection" class="view">
+    <div class="row-between mb-16">
+      <button class="btn btn-secondary btn-sm" id="customSelectionBackBtn">← Volver</button>
+      <button class="btn btn-outline btn-sm" id="customSelectionClearBtn">Vaciar selección</button>
+    </div>
+    <h1 class="section-title">Selección personalizada</h1>
+    <p class="section-sub">Busca y marca los verbos que estás estudiando ahora (por ejemplo, los 5 de esta semana).</p>
+
+    <div class="custom-selection-count-bar" id="customSelectionCountBar">0 verbos seleccionados</div>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input class="input" id="customSelectionSearch" type="search" placeholder="Buscar en inglés, español o cualquier forma verbal…" aria-label="Buscar verbo">
+    </div>
+    <div class="chip-row" id="customSelectionFilterChips" style="margin-bottom:8px;">
+      <button class="filter-chip active" data-filter="all">Todos</button>
+      <button class="filter-chip" data-filter="selected">✓ Seleccionados</button>
+    </div>
+    <div class="chip-row" id="customSelectionLevelChips" style="margin-bottom:16px;">
+      <button class="filter-chip active" data-level="all">Todos los niveles</button>
+      <button class="filter-chip" data-level="A1">A1</button>
+      <button class="filter-chip" data-level="A2">A2</button>
+      <button class="filter-chip" data-level="B1">B1</button>
+      <button class="filter-chip" data-level="B2">B2</button>
+    </div>
+
+    <div class="verb-grid" id="customSelectionGrid"></div>
+  </section>
+
+  <!-- ============================== STUDY SETUP ============================== -->
+  <section id="view-study-setup" class="view">
+    <button class="btn btn-secondary btn-sm mb-16" data-action="nav" data-view="view-home">← Volver</button>
+    <h1 class="section-title">Modo estudio</h1>
+    <p class="section-sub">Elige qué verbos quieres repasar.</p>
+
+    <div class="selection-mode-tabs" id="studySelectionTabs">
+      <button class="filter-chip active" data-tab="cefr">Por nivel CEFR</button>
+      <button class="filter-chip" data-tab="custom">🔍 Personalizado</button>
+    </div>
+
+    <div id="studyCefrPanel">
+      <div class="card" style="padding:18px;margin-bottom:18px;">
+        <div class="level-check-grid" id="studyLevelChecks">
+          <label class="level-check"><input type="checkbox" value="A1" checked> A1</label>
+          <label class="level-check"><input type="checkbox" value="A2" checked> A2</label>
+          <label class="level-check"><input type="checkbox" value="B1" checked> B1</label>
+          <label class="level-check"><input type="checkbox" value="B2" checked> B2</label>
+        </div>
+        <div class="row mt-16">
+          <button class="btn btn-outline btn-sm" id="studySelectAllBtn">Seleccionar todos</button>
+          <button class="btn btn-outline btn-sm" id="studySelectNoneBtn">Ninguno</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="studyCustomPanel" style="display:none;">
+      <div class="custom-summary-box">
+        <p class="count-line" id="studyCustomSummary">0 verbos seleccionados</p>
+        <div class="custom-summary-chips" id="studyCustomSummaryChips"></div>
+        <button class="btn btn-outline btn-block" data-action="manage-custom-selection" data-return="view-study-setup">✏️ Elegir verbos (buscador) →</button>
+      </div>
+    </div>
+
+    <p class="text-muted mb-16" id="studySetupCount"></p>
+    <button class="btn btn-primary btn-block" id="studySetupStartBtn">Empezar estudio →</button>
+  </section>
+
+  <!-- ============================== STUDY ============================== -->
+  <section id="view-study" class="view">
+    <div class="row-between mb-16">
+      <button class="btn btn-secondary btn-sm" data-action="nav" data-view="view-home">← Volver</button>
+      <button class="btn btn-outline btn-sm" data-action="open-study-setup">Cambiar niveles</button>
+    </div>
+    <div class="study-stage">
+      <div class="study-progress">
+        <div class="progress-track"><div class="progress-fill" id="studyProgressFill" style="width:0%"></div></div>
+        <p class="text-center text-muted mt-16" id="studyProgressLabel" style="font-size:0.8rem;"></p>
+      </div>
+      <div class="card study-card">
+        <div class="study-word-row">
+          <div class="study-word" id="studyWord">—</div>
+          <button class="icon-btn" id="studySpeak" aria-label="Escuchar pronunciación">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+          </button>
+        </div>
+        <div class="study-ipa" id="studyIpa">—</div>
+        <div id="studyTriadHost" class="study-triad-host"></div>
+        <div class="study-translation" id="studyTranslation">Toca «Mostrar traducción»</div>
+        <div class="study-example" id="studyExample"></div>
+        <div class="study-mistake" id="studyMistake"></div>
+      </div>
+      <div class="study-controls">
+        <button class="btn btn-outline" id="studyPrev">← Anterior</button>
+        <button class="btn btn-secondary" id="studyToggleTranslation">Mostrar traducción</button>
+        <button class="btn btn-primary" id="studyNext">Siguiente →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== FLASHCARDS SETUP ============================== -->
+  <section id="view-flashcards-setup" class="view">
+    <button class="btn btn-secondary btn-sm mb-16" data-action="nav" data-view="view-home">← Volver</button>
+    <h1 class="section-title">Flashcards</h1>
+    <p class="section-sub">Elige qué verbos quieres repasar.</p>
+
+    <div class="selection-mode-tabs" id="flashSelectionTabs">
+      <button class="filter-chip active" data-tab="cefr">Por nivel CEFR</button>
+      <button class="filter-chip" data-tab="custom">🔍 Personalizado</button>
+    </div>
+
+    <div id="flashCefrPanel">
+      <div class="card" style="padding:18px;margin-bottom:18px;">
+        <div class="level-check-grid" id="flashLevelChecks">
+          <label class="level-check"><input type="checkbox" value="A1" checked> A1</label>
+          <label class="level-check"><input type="checkbox" value="A2" checked> A2</label>
+          <label class="level-check"><input type="checkbox" value="B1" checked> B1</label>
+          <label class="level-check"><input type="checkbox" value="B2" checked> B2</label>
+        </div>
+        <div class="row mt-16">
+          <button class="btn btn-outline btn-sm" id="flashSelectAllBtn">Seleccionar todos</button>
+          <button class="btn btn-outline btn-sm" id="flashSelectNoneBtn">Ninguno</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="flashCustomPanel" style="display:none;">
+      <div class="custom-summary-box">
+        <p class="count-line" id="flashCustomSummary">0 verbos seleccionados</p>
+        <div class="custom-summary-chips" id="flashCustomSummaryChips"></div>
+        <button class="btn btn-outline btn-block" data-action="manage-custom-selection" data-return="view-flashcards-setup">✏️ Elegir verbos (buscador) →</button>
+      </div>
+    </div>
+
+    <p class="text-muted mb-16" id="flashSetupCount"></p>
+    <button class="btn btn-primary btn-block" id="flashSetupStartBtn">Empezar flashcards →</button>
+  </section>
+
+  <!-- ============================== FLASHCARDS ============================== -->
+  <section id="view-flashcards" class="view">
+    <div class="row-between mb-16">
+      <button class="btn btn-secondary btn-sm" data-action="nav" data-view="view-home">← Volver</button>
+      <span class="text-muted" id="flashProgress"></span>
+    </div>
+    <div class="flash-wrap">
+      <div class="flashcard" id="flashcard">
+        <div class="flashcard-inner">
+          <div class="flashcard-face front" id="flashFront">—</div>
+          <div class="flashcard-face back" id="flashBack">—</div>
+        </div>
+      </div>
+      <p class="text-muted text-center" style="font-size:0.85rem">Toca la tarjeta para girarla</p>
+      <div class="study-controls">
+        <button class="btn btn-outline" id="flashPrev">← Anterior</button>
+        <button class="btn btn-primary" id="flashNext">Siguiente →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== TEST ============================== -->
+  <section id="view-test-setup" class="view">
+    <button class="btn btn-secondary btn-sm mb-16" data-action="nav" data-view="view-home">← Volver</button>
+    <h1 class="section-title">Modo test</h1>
+    <p class="section-sub">Elige niveles, número de preguntas y tipo.</p>
+
+    <div class="selection-mode-tabs" id="testSelectionTabs">
+      <button class="filter-chip active" data-tab="cefr">Por nivel CEFR</button>
+      <button class="filter-chip" data-tab="custom">🔍 Personalizado</button>
+    </div>
+
+    <div id="testCefrPanel">
+      <div class="card" style="padding:18px;margin-bottom:16px;">
+        <h3 style="margin-bottom:10px;font-size:0.95rem;">Niveles</h3>
+        <div class="level-check-grid" id="testLevelChecks">
+          <label class="level-check"><input type="checkbox" value="A1" checked> A1</label>
+          <label class="level-check"><input type="checkbox" value="A2" checked> A2</label>
+          <label class="level-check"><input type="checkbox" value="B1" checked> B1</label>
+          <label class="level-check"><input type="checkbox" value="B2" checked> B2</label>
+        </div>
+      </div>
+    </div>
+
+    <div id="testCustomPanel" style="display:none;">
+      <div class="custom-summary-box">
+        <p class="count-line" id="testCustomSummary">0 verbos seleccionados</p>
+        <div class="custom-summary-chips" id="testCustomSummaryChips"></div>
+        <button class="btn btn-outline btn-block" data-action="manage-custom-selection" data-return="view-test-setup">✏️ Elegir verbos (buscador) →</button>
+      </div>
+    </div>
+
+    <div class="card" style="padding:18px;margin-bottom:16px;">
+      <h3 style="margin-bottom:10px;font-size:0.95rem;">Número de preguntas</h3>
+      <div class="chip-row" id="testCountChips" style="margin-bottom:0;">
+        <button class="filter-chip active" data-count="10">10</button>
+        <button class="filter-chip" data-count="20">20</button>
+        <button class="filter-chip" data-count="30">30</button>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:10px;font-size:0.95rem;">Tipo de preguntas</h3>
+    <div class="mode-grid">
+      <button class="card mode-card" data-action="test-start" data-type="mcq"><h3>Elige la respuesta</h3><p>Test de opción múltiple. Con teclado: pulsa 1-4.</p></button>
+      <button class="card mode-card" data-action="test-start" data-type="writePast"><h3>Escribe el pasado</h3><p>Escribe el pasado simple.</p></button>
+      <button class="card mode-card" data-action="test-start" data-type="writeParticiple"><h3>Escribe el participio</h3><p>Escribe el past participle.</p></button>
+      <button class="card mode-card" data-action="test-start" data-type="writeTranslation"><h3>Escribe la traducción</h3><p>Traduce el verbo al español.</p></button>
+      <button class="card mode-card" data-action="test-start" data-type="mixed"><h3>Mezcla</h3><p>Combina todos los tipos anteriores.</p></button>
+    </div>
+  </section>
+
+  <section id="view-test-play" class="view">
+    <div class="quiz-head">
+      <button class="btn btn-secondary btn-sm" data-action="nav" data-view="view-test-setup">← Salir</button>
+      <div class="quiz-meta">
+        <span id="testProgress"></span>
+        <span>Aciertos: <strong id="testScore">0 / 0</strong></span>
+      </div>
+    </div>
+    <div class="card quiz-question" id="testQuestion">
+      <p class="qtext">—</p>
+      <p class="qhint text-muted"></p>
+    </div>
+    <div class="quiz-options" id="testOptions"></div>
+    <div class="quiz-write-row" id="testWriteRow" style="display:none;">
+      <input class="input" id="testWriteInput" type="text" placeholder="Escribe tu respuesta" autocomplete="off">
+      <button class="btn btn-primary" id="testCheckBtn">Comprobar</button>
+    </div>
+    <div class="quiz-feedback" id="testFeedback"></div>
+    <button class="btn btn-primary btn-block mt-16" id="testNextBtn">Siguiente pregunta →</button>
+  </section>
+
+  <section id="view-test-result" class="view">
+    <h1 class="section-title">Resultado del test</h1>
+    <div class="dash-grid">
+      <div class="card stat-tile accent-violet"><div class="num" id="testResultScore">—</div><div class="label">Aciertos</div></div>
+      <div class="card stat-tile accent-teal"><div class="num" id="testResultPct">—</div><div class="label">Precisión</div></div>
+    </div>
+    <h2 class="section-title" style="font-size:1.1rem;">Revisión</h2>
+    <div id="testReview" class="mb-16"></div>
+    <div class="row">
+      <button class="btn btn-primary btn-block" id="testRetryBtn">Repetir</button>
+      <button class="btn btn-secondary btn-block" data-action="nav" data-view="view-test-setup">Cambiar opciones</button>
+    </div>
+  </section>
+
+  <!-- ============================== EXAM ============================== -->
+  <section id="view-exam-intro" class="view">
+    <button class="btn btn-secondary btn-sm mb-16" data-action="nav" data-view="view-home">← Volver</button>
+    <h1 class="section-title">Modo examen</h1>
+    <p class="section-sub">50 preguntas cronometradas. Al finalizar verás tu nota y una revisión completa. Con teclado: pulsa 1-4 para elegir respuesta.</p>
+
+    <div class="selection-mode-tabs" id="examSelectionTabs">
+      <button class="filter-chip active" data-tab="cefr">Por nivel CEFR</button>
+      <button class="filter-chip" data-tab="custom">🔍 Personalizado</button>
+    </div>
+
+    <div id="examCefrPanel">
+      <div class="card" style="padding:18px;margin-bottom:16px;">
+        <h3 style="margin-bottom:10px;font-size:0.95rem;">Niveles</h3>
+        <div class="level-check-grid" id="examLevelChecks">
+          <label class="level-check"><input type="checkbox" value="A1" checked> A1</label>
+          <label class="level-check"><input type="checkbox" value="A2" checked> A2</label>
+          <label class="level-check"><input type="checkbox" value="B1" checked> B1</label>
+          <label class="level-check"><input type="checkbox" value="B2" checked> B2</label>
+        </div>
+        <div class="row mt-16">
+          <button class="btn btn-outline btn-sm" id="examSelectAllBtn">Seleccionar todos</button>
+          <button class="btn btn-outline btn-sm" id="examSelectNoneBtn">Ninguno</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="examCustomPanel" style="display:none;">
+      <div class="custom-summary-box">
+        <p class="count-line" id="examCustomSummary">0 verbos seleccionados</p>
+        <div class="custom-summary-chips" id="examCustomSummaryChips"></div>
+        <p class="text-muted" style="font-size:0.82rem;margin-bottom:12px;">El examen necesita al menos 5 verbos distintos.</p>
+        <button class="btn btn-outline btn-block" data-action="manage-custom-selection" data-return="view-exam-intro">✏️ Elegir verbos (buscador) →</button>
+      </div>
+    </div>
+
+    <p class="text-muted mb-16" id="examSetupCount"></p>
+
+    <button class="btn btn-primary btn-block mb-16" id="examStartBtn">Comenzar examen</button>
+    <button class="btn btn-outline btn-block" data-action="nav" data-view="view-exam-history">📜 Ver historial de exámenes</button>
+  </section>
+
+  <section id="view-exam-history" class="view">
+    <button class="btn btn-secondary btn-sm mb-16" data-action="nav" data-view="view-exam-intro">← Volver</button>
+    <h1 class="section-title">Historial de exámenes</h1>
+    <p class="section-sub">Repasa tus intentos anteriores.</p>
+    <div id="examHistoryList"></div>
+  </section>
+
+  <section id="view-exam-play" class="view">
+    <div class="quiz-head">
+      <span class="quiz-meta" id="examProgress"></span>
+      <span class="quiz-meta">⏱ <strong id="examTimer">00:00</strong></span>
+    </div>
+    <div class="progress-track mb-16"><div class="progress-fill" id="examProgressFill" style="width:0%"></div></div>
+    <div class="card quiz-question" id="examQuestion">
+      <p class="qtext">—</p>
+      <p class="qhint text-muted"></p>
+    </div>
+    <div class="quiz-options" id="examOptions"></div>
+    <div class="quiz-write-row" id="examWriteRow" style="display:none;">
+      <input class="input" id="examWriteInput" type="text" placeholder="Escribe tu respuesta" autocomplete="off">
+      <button class="btn btn-primary" id="examCheckBtn">Siguiente</button>
+    </div>
+  </section>
+
+  <section id="view-exam-result" class="view">
+    <h1 class="section-title">Resultado del examen</h1>
+    <div class="dash-grid">
+      <div class="card stat-tile accent-violet"><div class="num" id="examResultScore">—</div><div class="label">Nota final</div></div>
+      <div class="card stat-tile accent-teal"><div class="num" id="examResultTime">—</div><div class="label">Tiempo total</div></div>
+    </div>
+    <h2 class="section-title" style="font-size:1.1rem;">Revisión completa</h2>
+    <div id="examReview" class="mb-16"></div>
+    <div class="row">
+      <button class="btn btn-primary btn-block" id="examRetryBtn">Repetir examen</button>
+      <button class="btn btn-secondary btn-block" data-action="nav" data-view="view-home">Ir a inicio</button>
+    </div>
+  </section>
+
+  <!-- ============================== WRITING SETUP ============================== -->
+  <section id="view-writing-setup" class="view">
+    <button class="btn btn-secondary btn-sm mb-16" data-action="nav" data-view="view-home">← Volver</button>
+    <h1 class="section-title">Escritura</h1>
+    <p class="section-sub">Elige qué verbos quieres repasar.</p>
+
+    <div class="selection-mode-tabs" id="writeSelectionTabs">
+      <button class="filter-chip active" data-tab="cefr">Por nivel CEFR</button>
+      <button class="filter-chip" data-tab="custom">🔍 Personalizado</button>
+    </div>
+
+    <div id="writeCefrPanel">
+      <div class="card" style="padding:18px;margin-bottom:18px;">
+        <div class="level-check-grid" id="writeLevelChecks">
+          <label class="level-check"><input type="checkbox" value="A1" checked> A1</label>
+          <label class="level-check"><input type="checkbox" value="A2" checked> A2</label>
+          <label class="level-check"><input type="checkbox" value="B1" checked> B1</label>
+          <label class="level-check"><input type="checkbox" value="B2" checked> B2</label>
+        </div>
+        <div class="row mt-16">
+          <button class="btn btn-outline btn-sm" id="writeSelectAllBtn">Seleccionar todos</button>
+          <button class="btn btn-outline btn-sm" id="writeSelectNoneBtn">Ninguno</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="writeCustomPanel" style="display:none;">
+      <div class="custom-summary-box">
+        <p class="count-line" id="writeCustomSummary">0 verbos seleccionados</p>
+        <div class="custom-summary-chips" id="writeCustomSummaryChips"></div>
+        <button class="btn btn-outline btn-block" data-action="manage-custom-selection" data-return="view-writing-setup">✏️ Elegir verbos (buscador) →</button>
+      </div>
+    </div>
+
+    <p class="text-muted mb-16" id="writeSetupCount"></p>
+    <button class="btn btn-primary btn-block" id="writeSetupStartBtn">Empezar escritura →</button>
+  </section>
+
+  <!-- ============================== WRITING ============================== -->
+  <section id="view-writing" class="view">
+    <div class="row-between mb-16">
+      <button class="btn btn-secondary btn-sm" data-action="nav" data-view="view-home">← Volver</button>
+      <span class="text-muted" id="writeProgress"></span>
+    </div>
+    <div class="card" style="padding:24px;text-align:center;">
+      <p class="text-muted" id="writeTranslationHint" style="margin-bottom:6px;"></p>
+      <div class="study-word" id="writeInfinitiveLabel" style="font-size:1.8rem;margin-bottom:18px;"></div>
+      <div id="writeInputs" style="display:flex;flex-direction:column;gap:12px;text-align:left;">
+        <div class="field"><label for="writePastInput">Pasado simple</label><input class="input" id="writePastInput" autocomplete="off"></div>
+        <div class="field"><label for="writeParticipleInput">Participio pasado</label><input class="input" id="writeParticipleInput" autocomplete="off"></div>
+        <div class="field"><label for="writeThirdInput" id="writeThirdLabel">Traducción</label><input class="input" id="writeThirdInput" autocomplete="off"></div>
+      </div>
+      <div class="quiz-feedback" id="writeFeedback"></div>
+      <div class="row mt-16">
+        <button class="btn btn-primary btn-block" id="writeCheckBtn">Comprobar</button>
+        <button class="btn btn-primary btn-block" id="writeNextBtn" style="display:none;">Siguiente →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== LISTENING SETUP ============================== -->
+  <section id="view-listening-setup" class="view">
+    <button class="btn btn-secondary btn-sm mb-16" data-action="nav" data-view="view-home">← Volver</button>
+    <h1 class="section-title">Escucha</h1>
+    <p class="section-sub">Elige qué verbos quieres repasar.</p>
+
+    <div class="selection-mode-tabs" id="listenSelectionTabs">
+      <button class="filter-chip active" data-tab="cefr">Por nivel CEFR</button>
+      <button class="filter-chip" data-tab="custom">🔍 Personalizado</button>
+    </div>
+
+    <div id="listenCefrPanel">
+      <div class="card" style="padding:18px;margin-bottom:18px;">
+        <div class="level-check-grid" id="listenLevelChecks">
+          <label class="level-check"><input type="checkbox" value="A1" checked> A1</label>
+          <label class="level-check"><input type="checkbox" value="A2" checked> A2</label>
+          <label class="level-check"><input type="checkbox" value="B1" checked> B1</label>
+          <label class="level-check"><input type="checkbox" value="B2" checked> B2</label>
+        </div>
+        <div class="row mt-16">
+          <button class="btn btn-outline btn-sm" id="listenSelectAllBtn">Seleccionar todos</button>
+          <button class="btn btn-outline btn-sm" id="listenSelectNoneBtn">Ninguno</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="listenCustomPanel" style="display:none;">
+      <div class="custom-summary-box">
+        <p class="count-line" id="listenCustomSummary">0 verbos seleccionados</p>
+        <div class="custom-summary-chips" id="listenCustomSummaryChips"></div>
+        <button class="btn btn-outline btn-block" data-action="manage-custom-selection" data-return="view-listening-setup">✏️ Elegir verbos (buscador) →</button>
+      </div>
+    </div>
+
+    <p class="text-muted mb-16" id="listenSetupCount"></p>
+    <button class="btn btn-primary btn-block" id="listenSetupStartBtn">Empezar escucha →</button>
+  </section>
+
+  <!-- ============================== LISTENING ============================== -->
+  <section id="view-listening" class="view">
+    <div class="row-between mb-16">
+      <button class="btn btn-secondary btn-sm" data-action="nav" data-view="view-home">← Volver</button>
+      <span class="text-muted" id="listenProgress"></span>
+    </div>
+    <div class="card" style="padding:32px 24px;text-align:center;">
+      <button class="icon-btn" id="listenPlayBtn" style="width:72px;height:72px;background:var(--violet);color:#fff;margin:0 auto 20px;" aria-label="Reproducir pronunciación">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:32px;height:32px;"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>
+      </button>
+      <p class="text-muted mb-16" id="listenFormHint">Escucha con atención y escribe el infinitivo del verbo.</p>
+      <input class="input" id="listenInput" type="text" placeholder="Escribe lo que oyes…" autocomplete="off">
+      <div class="quiz-feedback" id="listenFeedback"></div>
+      <div class="row mt-16">
+        <button class="btn btn-primary btn-block" id="listenCheckBtn">Comprobar</button>
+        <button class="btn btn-primary btn-block" id="listenNextBtn" style="display:none;">Siguiente →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== TABLE TEST (examen por niveles en tabla) ============================== -->
+  <section id="view-table-test-setup" class="view">
+    <button class="btn btn-secondary btn-sm mb-16" data-action="nav" data-view="view-home">← Volver</button>
+    <h1 class="section-title">Examen en tabla</h1>
+    <p class="section-sub">Elige los niveles, el número de preguntas y la dificultad.</p>
+
+    <div class="selection-mode-tabs" id="tableTestSelectionTabs">
+      <button class="filter-chip active" data-tab="cefr">Por nivel CEFR</button>
+      <button class="filter-chip" data-tab="custom">🔍 Personalizado</button>
+    </div>
+
+    <div id="tableTestCefrPanel">
+      <div class="card" style="padding:18px;margin-bottom:16px;">
+        <h3 style="margin-bottom:10px;font-size:0.95rem;">Niveles</h3>
+        <div class="level-check-grid" id="tableTestLevelChecks">
+          <label class="level-check"><input type="checkbox" value="A1" checked> A1</label>
+          <label class="level-check"><input type="checkbox" value="A2" checked> A2</label>
+          <label class="level-check"><input type="checkbox" value="B1" checked> B1</label>
+          <label class="level-check"><input type="checkbox" value="B2" checked> B2</label>
+        </div>
+      </div>
+    </div>
+
+    <div id="tableTestCustomPanel" style="display:none;">
+      <div class="custom-summary-box">
+        <p class="count-line" id="tableTestCustomSummary">0 verbos seleccionados</p>
+        <div class="custom-summary-chips" id="tableTestCustomSummaryChips"></div>
+        <p class="text-muted" style="font-size:0.82rem;margin-bottom:12px;">Se recomiendan al menos 5 verbos distintos.</p>
+        <button class="btn btn-outline btn-block" data-action="manage-custom-selection" data-return="view-table-test-setup">✏️ Elegir verbos (buscador) →</button>
+      </div>
+    </div>
+
+    <div class="card" style="padding:18px;margin-bottom:16px;">
+      <h3 style="margin-bottom:10px;font-size:0.95rem;">Número de preguntas</h3>
+      <div class="chip-row" id="tableTestCountChips" style="margin-bottom:0;">
+        <button class="filter-chip active" data-count="5">5</button>
+        <button class="filter-chip" data-count="10">10</button>
+        <button class="filter-chip" data-count="15">15</button>
+        <button class="filter-chip" data-count="20">20</button>
+      </div>
+    </div>
+
+    <div class="card" style="padding:18px;margin-bottom:16px;">
+      <h3 style="margin-bottom:10px;font-size:0.95rem;">Dificultad</h3>
+      <div class="chip-row" id="tableTestDiffChips" style="margin-bottom:0;">
+        <button class="filter-chip active" data-diff="easy">Fácil · 1 hueco por fila</button>
+        <button class="filter-chip" data-diff="medium">Medio · 2 huecos por fila</button>
+        <button class="filter-chip" data-diff="hard">Difícil · 3 huecos por fila</button>
+      </div>
+    </div>
+
+    <p class="text-muted mb-16" id="tableTestCount"></p>
+    <button class="btn btn-primary btn-block" id="tableTestStartBtn">Generar examen →</button>
+  </section>
+
+  <section id="view-table-test-play" class="view">
+    <div class="row-between mb-16">
+      <button class="btn btn-secondary btn-sm" data-action="nav" data-view="view-table-test-setup">← Salir</button>
+      <span class="text-muted" id="tableTestMeta"></span>
+    </div>
+    <div class="exam-table-wrap">
+      <table class="exam-table" id="tableTestTable">
+        <thead>
+          <tr><th>Infinitivo</th><th>Pasado simple</th><th>Participio</th><th>Traducción</th></tr>
+        </thead>
+        <tbody id="tableTestBody"></tbody>
+      </table>
+    </div>
+    <div id="tableTestResultBox" class="card text-center mb-16" style="padding:18px;display:none;"></div>
+    <div class="row">
+      <button class="btn btn-primary btn-block" id="tableTestCorrectBtn">Corregir examen</button>
+      <button class="btn btn-secondary btn-block" id="tableTestRetryBtn">Generar otro</button>
+    </div>
+  </section>
+
+  <!-- ============================== GAMES ============================== -->
+  <section id="view-games" class="view">
+    <h1 class="section-title">Juegos</h1>
+    <p class="section-sub">Aprende jugando con estos minijuegos.</p>
+
+    <div class="card" style="padding:16px 18px;margin-bottom:18px;">
+      <h3 style="margin-bottom:10px;font-size:0.88rem;color:var(--text-muted);">Verbos a incluir en los juegos</h3>
+
+      <div class="selection-mode-tabs" id="gamesSelectionTabs">
+        <button class="filter-chip active" data-tab="cefr">Por nivel CEFR</button>
+        <button class="filter-chip" data-tab="custom">🔍 Personalizado</button>
+      </div>
+
+      <div id="gamesCefrPanel">
+        <div class="level-check-grid" id="gamesLevelChecks">
+          <label class="level-check"><input type="checkbox" value="A1" checked> A1</label>
+          <label class="level-check"><input type="checkbox" value="A2" checked> A2</label>
+          <label class="level-check"><input type="checkbox" value="B1" checked> B1</label>
+          <label class="level-check"><input type="checkbox" value="B2" checked> B2</label>
+        </div>
+      </div>
+
+      <div id="gamesCustomPanel" style="display:none;">
+        <p class="count-line mb-16" id="gamesCustomSummary">0 verbos seleccionados</p>
+        <div class="custom-summary-chips" id="gamesCustomSummaryChips"></div>
+        <button class="btn btn-outline btn-block" data-action="manage-custom-selection" data-return="view-games">✏️ Elegir verbos (buscador) →</button>
+      </div>
+    </div>
+
+    <div class="mode-grid">
+      <button class="card mode-card" data-action="game-memory"><h3>🧠 Memory</h3><p>Empareja el verbo con su traducción.</p></button>
+      <button class="card mode-card" data-action="game-hangman"><h3>🪢 Ahorcado</h3><p>Adivina el verbo letra a letra.</p></button>
+      <button class="card mode-card" data-action="game-order"><h3>🔤 Ordenar letras</h3><p>Reconstruye el infinitivo.</p></button>
+      <button class="card mode-card" data-action="game-gaps"><h3>✏️ Completar huecos</h3><p>500 frases: rellena la forma correcta.</p></button>
+      <button class="card mode-card" data-action="game-roulette"><h3>🎡 Ruleta</h3><p>Gira y responde sobre el verbo que salga.</p></button>
+    </div>
+  </section>
+
+  <section id="view-game-memory" class="view">
+    <div class="row-between mb-16">
+      <button class="btn btn-secondary btn-sm" data-action="nav" data-view="view-games">← Volver</button>
+      <button class="btn btn-outline btn-sm" id="memoryRestartBtn">Reiniciar</button>
+    </div>
+    <div class="row-between mb-16"><span id="memoryMoves" class="text-muted"></span><span id="memoryPairs" class="text-muted"></span></div>
+    <div class="game-board memory-grid" id="memoryBoard"></div>
+  </section>
+
+  <section id="view-game-hangman" class="view">
+    <div class="row-between mb-16">
+      <button class="btn btn-secondary btn-sm" data-action="nav" data-view="view-games">← Volver</button>
+      <button class="btn btn-outline btn-sm" id="hangmanRestartBtn">Reiniciar</button>
+    </div>
+    <div class="card" style="padding:24px;">
+      <pre class="hangman-figure" id="hangmanFigure"></pre>
+      <div class="hangman-word" id="hangmanWord"></div>
+      <p class="text-center text-muted" id="hangmanHint"></p>
+      <p class="text-center text-muted" style="font-size:0.72rem;margin-top:2px;">⌨️ También puedes jugar escribiendo las letras con tu teclado</p>
+      <p class="text-center mb-16" id="hangmanStatus" style="font-weight:700;"></p>
+      <div class="hangman-letters" id="hangmanLetters"></div>
+    </div>
+  </section>
+
+  <section id="view-game-order" class="view">
+    <div class="row-between mb-16">
+      <button class="btn btn-secondary btn-sm" data-action="nav" data-view="view-games">← Volver</button>
+      <button class="btn btn-outline btn-sm" id="orderRestartBtn">Reiniciar</button>
+    </div>
+    <div class="card" style="padding:24px;">
+      <p class="text-center text-muted" id="orderHint"></p>
+      <p class="text-center text-muted" style="font-size:0.72rem;margin-top:2px;">⌨️ Escribe las letras con tu teclado · Retroceso = Borrar · Enter = siguiente</p>
+      <div class="order-letters" id="orderSlots"></div>
+      <div class="order-letters" id="orderTiles"></div>
+      <p class="text-center mt-16" id="orderStatus" style="font-weight:700;"></p>
+      <button class="btn btn-secondary btn-block mt-16" id="orderClearBtn">Borrar</button>
+    </div>
+  </section>
+
+  <section id="view-game-gaps" class="view">
+    <div class="row-between mb-16">
+      <button class="btn btn-secondary btn-sm" data-action="nav" data-view="view-games">← Volver</button>
+      <button class="btn btn-outline btn-sm" id="gapRestartBtn">Reiniciar</button>
+    </div>
+    <div class="gap-card card">
+      <div class="gap-top-row">
+        <span class="verb-chip" id="gapLevelChip">A1</span>
+        <span class="gap-score-pill">Puntuación: <strong id="gapScore">0 / 0</strong></span>
+      </div>
+      <p class="gap-sentence" id="gapSentence"></p>
+      <div class="gap-translation-box">
+        <p id="gapTranslation"></p>
+      </div>
+      <p class="gap-hint-badge" id="gapHint"></p>
+      <div class="quiz-feedback" id="gapFeedback"></div>
+      <div class="row mt-16">
+        <button class="btn btn-primary btn-block" id="gapCheckBtn">Comprobar</button>
+        <button class="btn btn-primary btn-block" id="gapNextBtn" style="display:none;">Siguiente →</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-game-roulette" class="view">
+    <div class="row-between mb-16">
+      <button class="btn btn-secondary btn-sm" data-action="nav" data-view="view-games">← Volver</button>
+      <span class="text-muted" id="rouletteScore"></span>
+    </div>
+    <div class="card" style="padding:24px;text-align:center;">
+      <div class="reel-window" id="rouletteReel"><div class="reel-item">?</div></div>
+      <button class="btn btn-primary btn-block mt-16" id="rouletteSpinBtn">🎡 Girar la ruleta</button>
+      <div id="rouletteQuestion" style="display:none;margin-top:20px;">
+        <p class="qtext" id="rouletteQtext" style="font-size:1.1rem;"></p>
+        <p class="text-muted mb-16" id="rouletteHint"></p>
+        <div class="quiz-options" id="rouletteOptions"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PROGRESS (stats + achievements) ============================== -->
+  <section id="view-progress" class="view">
+    <h1 class="section-title">Tu progreso</h1>
+    <p class="section-sub">Estadísticas y logros de tu aprendizaje.</p>
+
+    <div class="dash-grid">
+      <div class="card stat-tile accent-violet">
+        <div class="row-between" style="align-items:flex-start;">
+          <div class="num" id="statLearned">0</div>
+          <button class="icon-btn info-btn learned-info-btn" aria-label="¿Qué es un verbo aprendido?" style="width:24px;height:24px;margin-top:2px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 16v-5"/><path d="M12 8h.01"/></svg>
+          </button>
+        </div>
+        <div class="label">Aprendidos</div>
+      </div>
+      <div class="card stat-tile accent-coral"><div class="num" id="statAttempts">0</div><div class="label">Intentos totales</div></div>
+      <div class="card stat-tile accent-teal"><div class="num" id="statAccuracy">0%</div><div class="label">Precisión</div></div>
+      <div class="card stat-tile accent-gold"><div class="num" id="statStreak">0</div><div class="label">Racha (días)</div></div>
+    </div>
+
+    <div class="card chart-card">
+      <h3 style="margin-bottom:10px;">Porcentaje de la base de verbos aprendida</h3>
+      <canvas id="chartDonut" data-height="180" style="max-width:220px;margin:0 auto;display:block;"></canvas>
+    </div>
+
+    <div class="card chart-card">
+      <h3 style="margin-bottom:10px;">Actividad de los últimos 7 días</h3>
+      <canvas id="chartWeekly" data-height="160"></canvas>
+    </div>
+
+    <div class="card chart-card">
+      <h3 style="margin-bottom:10px;">Verbos aprendidos por nivel CEFR</h3>
+      <canvas id="chartLevel" data-height="160"></canvas>
+    </div>
+
+    <div class="card chart-card">
+      <h3 style="margin-bottom:10px;">Errores más repetidos</h3>
+      <ul class="error-list" id="errorList"></ul>
+      <button class="btn btn-primary btn-block mt-16" data-action="open-errors-setup">🎯 Practicar solo mis errores</button>
+    </div>
+
+    <div class="row-between" style="margin:24px 0 14px;align-items:baseline;">
+      <h2 class="section-title" style="font-size:1.15rem;margin:0;">Logros 🏅</h2>
+      <span class="text-muted" id="achProgressLabel" style="font-size:0.85rem;"></span>
+    </div>
+    <div id="achGrid"></div>
+  </section>
+
+  <!-- ============================== SOLO MIS ERRORES ============================== -->
+  <section id="view-errors-setup" class="view">
+    <button class="btn btn-secondary btn-sm mb-16" data-action="nav" data-view="view-progress">← Volver</button>
+    <h1 class="section-title">Solo mis errores</h1>
+    <p class="section-sub" id="errorsSetupCount">Elige cómo quieres repasar los verbos que más te cuestan.</p>
+
+    <div class="mode-grid" id="errorsModeGrid">
+      <button class="card mode-card" data-action="errors-start" data-mode="study">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg></div>
+        <h3>Modo estudio</h3><p>Repasa uno a uno los verbos que fallas.</p>
+      </button>
+      <button class="card mode-card" data-action="errors-start" data-mode="flash">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2"><rect x="3" y="5" width="14" height="10" rx="2"/><rect x="7" y="9" width="14" height="10" rx="2" fill="var(--surface)"/></svg></div>
+        <h3>Flashcards</h3><p>Tarjetas rápidas solo con tus fallos.</p>
+      </button>
+      <button class="card mode-card" data-action="errors-start" data-mode="test">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2"><path d="m9 11 3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Test</h3><p>Preguntas variadas sobre tus errores.</p>
+      </button>
+      <button class="card mode-card" data-action="errors-start" data-mode="writing">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--violet)" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+        <h3>Escritura</h3><p>Escribe las tres formas de cada fallo.</p>
+      </button>
+      <button class="card mode-card" data-action="errors-start" data-mode="listening">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--coral)" stroke-width="2"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg></div>
+        <h3>Escucha</h3><p>Escucha y escribe los verbos que fallas.</p>
+      </button>
+      <button class="card mode-card" data-action="errors-start" data-mode="exam">
+        <div class="mode-icon"><svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Examen</h3><p>Examen cronometrado (mín. 5 fallos distintos).</p>
+      </button>
+    </div>
+
+    <div id="errorsEmptyState" class="empty-state" style="display:none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+      <p>Aún no tienes errores registrados. ¡Sigue practicando y vuelve por aquí cuando falles alguno!</p>
+    </div>
+  </section>
+
+  <!-- ============================== SETTINGS ============================== -->
+  <section id="view-settings" class="view">
+    <h1 class="section-title">Ajustes</h1>
+    <div class="card" style="padding:6px 16px;margin-bottom:20px;">
+      <div class="settings-row">
+        <div><div class="label">Modo oscuro</div><div class="desc">Cambia la apariencia de la app</div></div>
+        <button class="switch" id="darkModeSwitch" role="switch" aria-checked="false" aria-label="Modo oscuro"><span class="switch-knob"></span></button>
+      </div>
+      <div class="settings-row">
+        <div><div class="label">Sonidos</div><div class="desc">Efectos de acierto y error</div></div>
+        <button class="switch" id="soundsSwitch" role="switch" aria-checked="true" aria-label="Sonidos"><span class="switch-knob"></span></button>
+      </div>
+      <div class="settings-row">
+        <div><div class="label">Animaciones</div><div class="desc">Transiciones y confeti de logros</div></div>
+        <button class="switch" id="animationsSwitch" role="switch" aria-checked="true" aria-label="Animaciones"><span class="switch-knob"></span></button>
+      </div>
+    </div>
+
+    <div class="card" style="padding:6px 16px;margin-bottom:20px;">
+      <div class="settings-row">
+        <div><div class="label">Exportar progreso</div><div class="desc">Descarga un archivo .json de respaldo</div></div>
+        <button class="btn btn-secondary btn-sm" id="exportBtn">Exportar</button>
+      </div>
+      <div class="settings-row">
+        <div><div class="label">Importar progreso</div><div class="desc">Restaura desde un archivo .json</div></div>
+        <label class="btn btn-secondary btn-sm" for="importFileInput" style="cursor:pointer;">Importar
+          <input type="file" id="importFileInput" accept="application/json" class="visually-hidden">
+        </label>
+      </div>
+      <div class="settings-row">
+        <div><div class="label">Resetear progreso</div><div class="desc">Borra todos tus datos guardados</div></div>
+        <button class="btn btn-danger btn-sm" id="resetBtn">Resetear</button>
+      </div>
+    </div>
+
+    <div class="card" style="padding:16px;">
+      <p class="text-muted" style="font-size:0.85rem;">IrregularVerbs · Hecho con HTML, CSS y JavaScript vanilla. Funciona sin conexión una vez cargada.</p>
+      <p class="text-muted" style="font-size:0.85rem;">© 2026 <strong>goizanetdev</strong>. Uso y modificación libres para fines no comerciales, con atribución obligatoria. <a href="LICENSE.md">Ver licencia</a>.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== TOASTS / MODAL ============================== -->
+<div class="toast-region" id="toastRegion" aria-live="polite"></div>
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modalBody" role="dialog" aria-modal="true"></div>
+</div>
+
+<script src="js/verbs.js"></script>
+<script src="js/gapSentences.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/core.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/stats.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/games.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
