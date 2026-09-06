@@ -51,9 +51,6 @@ Memory (emparejar verbo/traducción), Ahorcado, Ordenar letras y Completar hueco
 - Exportar/importar el progreso como `.json`, y resetear todo con confirmación.
 - Navegable 100% por teclado: `aria-label`s en controles interactivos, contraste AA, foco visible, respuestas de opción múltiple con las teclas 1-4, y Ahorcado/Ordenar letras jugables por completo con el teclado físico.
 
-### PWA
-Instalable en móvil y escritorio, con manifest y Service Worker (estrategia cache-first + stale-while-revalidate) para funcionar completamente sin conexión tras la primera visita.
-
 ## 🛠️ Tecnologías
 
 - HTML5 semántico
