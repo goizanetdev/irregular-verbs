@@ -6,24 +6,7 @@ Copyright © 2026 **goizanetdev**. Todos los derechos reservados a la autora.
 
 ## Español
 
-### La autora (goizanetdev)
-
-Como titular de los derechos de este proyecto, la autora puede hacer con él
-literalmente cualquier cosa, incluyendo (sin limitarse a):
-
-- Vender el proyecto o cobrar por él, si en algún momento lo decide.
-- Cambiar esta licencia cuando quiera, incluso otorgar una licencia distinta
-  a una persona concreta (más permisiva o más restrictiva que esta).
-- Usarlo en su portfolio, en clase, en una empresa, o en cualquier otro
-  contexto.
-- Conceder permisos especiales puntuales a terceros (por ejemplo, autorizar
-  a alguien en concreto a usarlo comercialmente).
-- Combinarlo con otros proyectos propios, reescribirlo o modificarlo sin
-  restricción alguna.
-
-La autora nunca necesita pedirse permiso a sí misma.
-
-### Terceros (cualquier otra persona)
+### Terceros
 
 **Sí pueden, libremente:**
 
@@ -56,24 +39,6 @@ o implícita.
 ---
 
 ## English
-
-### The author (goizanetdev)
-
-As the rights holder of this project, the author may do literally anything
-with it, including (without limitation):
-
-- Sell the project or charge for it, at any time she decides to.
-- Change this license at any time, including granting a different license
-  to a specific person (either more permissive or more restrictive than
-  this one).
-- Use it in her portfolio, in teaching, at a company, or in any other
-  context.
-- Grant special one-off permissions to third parties (for example,
-  authorizing a specific person to use it commercially).
-- Combine it with her other projects, rewrite it, or modify it without any
-  restriction.
-
-The author never needs to ask herself for permission.
 
 ### Third parties (anyone else)
 
