@@ -324,7 +324,9 @@
       return newlyUnlocked;
     },
     celebrate(achievement) {
-      App.UI.toast(`🏅 Logro desbloqueado: ${achievement.name}`, { duration: 3400 });
+      const name = (App.I18n && App.I18n.t(`ach.${achievement.id}.name`)) || achievement.name;
+      const msg = (App.I18n ? App.I18n.t("ach.unlockedToast") : "🏅 Logro desbloqueado: {name}").replace("{name}", name);
+      App.UI.toast(msg, { duration: 3400 });
       if (!App.Storage.getSettings().animations) return;
       const colors = ["#6C5CE7", "#FF6857", "#17C3B2", "#FFB800"];
       for (let i = 0; i < 24; i++) {

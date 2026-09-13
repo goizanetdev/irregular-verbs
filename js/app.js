@@ -5,6 +5,7 @@
 (function (App) {
   "use strict";
   const { $, $$, el, showView, toast, confirmDialog, closeModal, speak } = App.UI;
+  const t = App.I18n.t;
 
   /* -------------------------------- Theme ------------------------------------ */
   function applyTheme() {
@@ -32,6 +33,10 @@
     $("#animationsSwitch").classList.toggle("on", !!s.animations);
     $("#animationsSwitch").setAttribute("aria-checked", String(!!s.animations));
     document.body.classList.toggle("no-animations", !s.animations);
+    App.I18n.applyStaticDom();
+    const lang = App.I18n.getLang();
+    $("#langBtnEs").classList.toggle("active", lang === "es");
+    $("#langBtnEu").classList.toggle("active", lang === "eu");
   }
 
   /* -------------------------------- Dashboard --------------------------------- */
@@ -91,7 +96,7 @@
     const list = $("#errorList");
     list.innerHTML = "";
     if (!top.length) {
-      list.appendChild(el("li", {}, ["Todavía no hay errores registrados. ¡Sigue así!"]));
+      list.appendChild(el("li", {}, [t("app.noErrorsYet")]));
       return;
     }
     top.forEach(([verbId, count]) => {
@@ -99,7 +104,7 @@
       if (!verb) return;
       list.appendChild(el("li", {}, [
         el("span", {}, [`${verb.infinitive} (${verb.pastSimple} · ${verb.pastParticiple})`]),
-        el("span", { class: "text-muted" }, [`${count} error${count === 1 ? "" : "es"}`]),
+        el("span", { class: "text-muted" }, [t("app.errorCount").replace("{count}", count).replace("{plural}", count === 1 ? "" : "es")]),
       ]));
     });
   }
@@ -109,7 +114,7 @@
     const ids = App.Storage.getErrorVerbIds();
     const n = ids.length;
     $("#errorsSetupCount").textContent = n
-      ? `Tienes ${n} verbo${n === 1 ? "" : "s"} distinto${n === 1 ? "" : "s"} con errores registrados.`
+      ? t("app.errorsSetupCount").replace("{n}", n).replace(/{pluralN}/g, n === 1 ? "" : "s")
       : "";
     $("#errorsModeGrid").style.display = n ? "grid" : "none";
     $("#errorsEmptyState").style.display = n ? "none" : "block";
@@ -117,7 +122,7 @@
 
   function startErrorsMode(mode) {
     const ids = App.Storage.getErrorVerbIds();
-    if (!ids.length) { toast("Todavía no tienes errores registrados."); return; }
+    if (!ids.length) { toast(t("app.noErrorsToastYet")); return; }
     switch (mode) {
       case "study":
         goto("view-study");
@@ -152,23 +157,36 @@
     }
   }
 
+  const ACH_CATEGORY_KEYS = {
+    "Primeros pasos": "cat.firstSteps",
+    "Progreso": "cat.progress",
+    "Verbos aprendidos": "cat.learnedVerbs",
+    "Constancia": "cat.consistency",
+    "Precisión": "cat.accuracy",
+    "Por modos": "cat.byMode",
+    "Dificultad": "cat.difficulty",
+    "Logros especiales": "cat.special",
+    "Los grandes": "cat.theGreats",
+  };
+
   function refreshAchievements() {
     const grid = $("#achGrid");
     grid.innerHTML = "";
     const unlockedCount = App.Achievements.all.filter((a) => App.Storage.isUnlocked(a.id)).length;
-    $("#achProgressLabel").textContent = `${unlockedCount} / ${App.Achievements.all.length} desbloqueados`;
+    $("#achProgressLabel").textContent = App.I18n.t("progress.achUnlocked")
+      .replace("{n}", unlockedCount).replace("{total}", App.Achievements.all.length);
     App.Achievements.categories.forEach((cat) => {
       const items = App.Achievements.all.filter((a) => a.category === cat);
       if (!items.length) return;
-      grid.appendChild(el("h3", { class: "ach-category-title" }, [cat]));
+      grid.appendChild(el("h3", { class: "ach-category-title" }, [App.I18n.t(ACH_CATEGORY_KEYS[cat] || cat)]));
       const catGrid = el("div", { class: "ach-grid" });
       items.forEach((a) => {
         const unlocked = App.Storage.isUnlocked(a.id);
         const isHiddenSecret = a.secret && !unlocked;
         catGrid.appendChild(el("div", { class: `card ach-card ${unlocked ? "unlocked" : ""} ${isHiddenSecret ? "secret" : ""}` }, [
           el("div", { class: "ach-icon" }, [isHiddenSecret ? "❔" : a.icon]),
-          el("div", { class: "ach-name" }, [isHiddenSecret ? "Logro secreto" : a.name]),
-          el("div", { class: "ach-desc" }, [isHiddenSecret ? "Sigue practicando para descubrirlo…" : a.desc]),
+          el("div", { class: "ach-name" }, [isHiddenSecret ? App.I18n.t("ach.secretName") : App.I18n.t(`ach.${a.id}.name`)]),
+          el("div", { class: "ach-desc" }, [isHiddenSecret ? App.I18n.t("ach.secretDesc") : App.I18n.t(`ach.${a.id}.desc`)]),
         ]));
       });
       grid.appendChild(catGrid);
@@ -179,7 +197,7 @@
   /* -------------------------------- Library view ------------------------------- */
   function refreshLibrary() {
     const verbs = App.Filters.getFilteredVerbs();
-    $("#libraryCount").textContent = `${verbs.length} de ${App.Verbs.length} verbos`;
+    $("#libraryCount").textContent = t("app.libraryCount").replace("{n}", verbs.length).replace("{total}", App.Verbs.length);
     App.UI.renderVerbGrid($("#verbGrid"), verbs);
   }
   const debouncedLibraryRefresh = App.Utils.debounce(refreshLibrary, 180);
@@ -199,12 +217,12 @@
     list.innerHTML = "";
     const results = App.Storage.getExamResults().slice().reverse();
     if (!results.length) {
-      list.appendChild(el("p", { class: "text-muted" }, ["Todavía no has completado ningún examen."]));
+      list.appendChild(el("p", { class: "text-muted" }, [t("app.noExamsYet")]));
       return;
     }
     results.forEach((r) => {
       const pct = r.total ? Math.round((r.score / r.total) * 100) : 0;
-      const dateStr = new Date(r.date).toLocaleString("es-ES", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
+      const dateStr = new Date(r.date).toLocaleString(App.I18n.getLang() === "eu" ? "eu-ES" : "es-ES", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
       const mins = Math.floor(r.seconds / 60).toString().padStart(2, "0");
       const secs = (r.seconds % 60).toString().padStart(2, "0");
       const card = el("div", { class: "card exam-history-card" }, [
@@ -212,11 +230,11 @@
           el("span", { class: "exam-history-score" }, [`${r.score} / ${r.total} (${pct}%)`]),
           el("span", { class: "exam-history-date" }, [dateStr]),
         ]),
-        el("div", { class: "exam-history-meta" }, [`⏱ ${mins}:${secs} · Toca para revisar las preguntas`]),
+        el("div", { class: "exam-history-meta" }, [t("app.examHistoryMeta").replace("{mins}", mins).replace("{secs}", secs)]),
       ]);
       card.addEventListener("click", () => {
         const wrap = el("div", {}, [
-          el("h3", {}, [`Examen del ${dateStr}`]),
+          el("h3", {}, [t("app.examOfDate").replace("{date}", dateStr)]),
           el("p", { class: "text-muted mb-16" }, [`${r.score} / ${r.total} (${pct}%) · ${mins}:${secs}`]),
           (() => { const box = el("div", {}); App.UI.renderReview(box, r.review || []); return box; })(),
         ]);
@@ -241,11 +259,11 @@
           const sel = getSelectionFor("test");
           testConfig.type = target.dataset.type;
           if (sel.verbIds) {
-            if (!sel.verbIds.length) { toast("Tu selección personalizada está vacía. Añade verbos primero."); break; }
+            if (!sel.verbIds.length) { toast(t("app.emptyCustomSelectionAdd")); break; }
             testConfig.levels = null;
             testConfig.verbIds = sel.verbIds;
           } else {
-            if (!sel.levels.length) { toast("Selecciona al menos un nivel."); break; }
+            if (!sel.levels.length) { toast(t("app.selectAtLeastOneLevel")); break; }
             testConfig.levels = sel.levels;
             testConfig.verbIds = null;
           }
@@ -339,13 +357,13 @@
     if (mode === "custom") {
       const n = App.Storage.getCustomSelection().length;
       box.textContent = n
-        ? `${n} verbo${n === 1 ? "" : "s"} en tu selección personalizada.`
-        : "Tu selección personalizada está vacía. Elige verbos con el buscador de arriba.";
+        ? t("app.nVerbsInCustomSelection").replace("{n}", n).replace("{plural}", n === 1 ? "" : "s")
+        : t("app.emptyCustomSelectionSearch");
       return;
     }
     const levels = getCheckedLevels(`${prefix}LevelChecks`);
     const n = levels.length ? App.Verbs.filter((v) => levels.includes(v.level)).length : 0;
-    box.textContent = `${n} verbos disponibles con esta selección.`;
+    box.textContent = t("app.availableWithSelection").replace("{n}", n);
   }
 
   const SETUP_COUNT_UPDATERS = {
@@ -362,7 +380,7 @@
     if (!box) return;
     const ids = App.Storage.getCustomSelection();
     const n = ids.length;
-    box.textContent = n ? `${n} verbo${n === 1 ? "" : "s"} seleccionado${n === 1 ? "" : "s"}.` : "Aún no has elegido ningún verbo.";
+    box.textContent = n ? t("app.nVerbsSelectedDot").replace("{n}", n).replace(/{plural}/g, n === 1 ? "" : "s") : t("app.noVerbChosenYet");
     const chipsBox = $(`#${prefix}CustomSummaryChips`);
     if (!chipsBox) return;
     chipsBox.innerHTML = "";
@@ -371,7 +389,7 @@
     const MAX_SHOWN = 10;
     verbs.slice(0, MAX_SHOWN).forEach((v) => chipsBox.appendChild(el("span", {}, [v.infinitive])));
     if (verbs.length > MAX_SHOWN) {
-      chipsBox.appendChild(el("span", { class: "more" }, [`+${verbs.length - MAX_SHOWN} más`]));
+      chipsBox.appendChild(el("span", { class: "more" }, [t("app.moreChip").replace("{n}", verbs.length - MAX_SHOWN)]));
     }
   }
 
@@ -398,7 +416,7 @@
 
   function updateCustomSelectionCountBar() {
     const n = App.Storage.getCustomSelection().length;
-    $("#customSelectionCountBar").textContent = `${n} verbo${n === 1 ? "" : "s"} seleccionado${n === 1 ? "" : "s"}`;
+    $("#customSelectionCountBar").textContent = t("app.nVerbsSelectedBar").replace("{n}", n).replace(/{plural}/g, n === 1 ? "" : "s");
   }
 
   function renderCustomSelectionGrid() {
@@ -417,7 +435,7 @@
     if (!verbs.length) {
       grid.appendChild(el("div", { class: "empty-state" }, [
         document.createRange().createContextualFragment(`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>`),
-        el("p", {}, ["No se encontraron verbos con esta búsqueda."]),
+        el("p", {}, [t("ui.noResultsFilters")]),
       ]));
       return;
     }
@@ -426,7 +444,7 @@
       const picked = selected.has(v.id);
       const card = el("article", {
         class: `card verb-pick-card ${picked ? "picked" : ""}`,
-        tabindex: "0", role: "button", "aria-label": `${picked ? "Quitar" : "Añadir"} ${v.infinitive} de tu selección`,
+        tabindex: "0", role: "button", "aria-label": `${picked ? t("ui.removeFromSelection") : t("ui.addToSelection")} (${v.infinitive})`,
         onclick: () => {
           App.Storage.toggleCustomSelectionVerb(v.id);
           updateCustomSelectionCountBar();
@@ -468,7 +486,7 @@
       App.Storage.clearCustomSelection();
       updateCustomSelectionCountBar();
       renderCustomSelectionGrid();
-      toast("Selección personalizada vaciada");
+      toast(t("app.customSelectionCleared"));
     });
     $("#customSelectionBackBtn").addEventListener("click", () => {
       goto(customSelectionReturnView || "view-home");
@@ -497,12 +515,12 @@
     $("#studySetupStartBtn").addEventListener("click", () => {
       const sel = getSelectionFor("study");
       if (sel.verbIds) {
-        if (!sel.verbIds.length) { toast("Tu selección personalizada está vacía. Añade verbos primero."); return; }
+        if (!sel.verbIds.length) { toast(t("app.emptyCustomSelectionAdd")); return; }
         goto("view-study");
         App.Quiz.Study.start(null, sel.verbIds);
         return;
       }
-      if (!sel.levels.length) { toast("Selecciona al menos un nivel."); return; }
+      if (!sel.levels.length) { toast(t("app.selectAtLeastOneLevel")); return; }
       goto("view-study");
       App.Quiz.Study.start(sel.levels);
     });
@@ -526,12 +544,12 @@
     $("#flashSetupStartBtn").addEventListener("click", () => {
       const sel = getSelectionFor("flash");
       if (sel.verbIds) {
-        if (!sel.verbIds.length) { toast("Tu selección personalizada está vacía. Añade verbos primero."); return; }
+        if (!sel.verbIds.length) { toast(t("app.emptyCustomSelectionAdd")); return; }
         goto("view-flashcards");
         App.Quiz.Flash.start(null, sel.verbIds);
         return;
       }
-      if (!sel.levels.length) { toast("Selecciona al menos un nivel."); return; }
+      if (!sel.levels.length) { toast(t("app.selectAtLeastOneLevel")); return; }
       goto("view-flashcards");
       App.Quiz.Flash.start(sel.levels);
     });
@@ -555,12 +573,12 @@
     $("#listenSetupStartBtn").addEventListener("click", () => {
       const sel = getSelectionFor("listen");
       if (sel.verbIds) {
-        if (!sel.verbIds.length) { toast("Tu selección personalizada está vacía. Añade verbos primero."); return; }
+        if (!sel.verbIds.length) { toast(t("app.emptyCustomSelectionAdd")); return; }
         goto("view-listening");
         App.Quiz.Listening.start(null, sel.verbIds);
         return;
       }
-      if (!sel.levels.length) { toast("Selecciona al menos un nivel."); return; }
+      if (!sel.levels.length) { toast(t("app.selectAtLeastOneLevel")); return; }
       goto("view-listening");
       App.Quiz.Listening.start(sel.levels);
     });
@@ -591,11 +609,11 @@
     $("#tableTestStartBtn").addEventListener("click", () => {
       const sel = getSelectionFor("tableTest");
       if (sel.verbIds) {
-        if (!sel.verbIds.length) { toast("Tu selección personalizada está vacía. Añade verbos primero."); return; }
+        if (!sel.verbIds.length) { toast(t("app.emptyCustomSelectionAdd")); return; }
         tableTestConfig.levels = null;
         tableTestConfig.verbIds = sel.verbIds;
       } else {
-        if (!sel.levels.length) { toast("Selecciona al menos un nivel."); return; }
+        if (!sel.levels.length) { toast(t("app.selectAtLeastOneLevel")); return; }
         tableTestConfig.levels = sel.levels;
         tableTestConfig.verbIds = null;
       }
@@ -656,7 +674,7 @@
       const sel = getSelectionFor("exam");
       if (sel.verbIds) {
         if (sel.verbIds.length < 5) {
-          toast(`El examen necesita al menos 5 verbos distintos (tienes ${sel.verbIds.length}). Añade más en tu selección personalizada.`);
+          toast(t("app.examNeedMoreCustom").replace("{n}", sel.verbIds.length));
           return;
         }
         examConfig.levels = null;
@@ -664,7 +682,7 @@
         App.Quiz.Exam.start(null, sel.verbIds);
         return;
       }
-      if (!sel.levels.length) { toast("Selecciona al menos un nivel."); return; }
+      if (!sel.levels.length) { toast(t("app.selectAtLeastOneLevel")); return; }
       examConfig.levels = sel.levels;
       examConfig.verbIds = null;
       App.Quiz.Exam.start(sel.levels, null);
@@ -713,12 +731,12 @@
     $("#writeSetupStartBtn").addEventListener("click", () => {
       const sel = getSelectionFor("write");
       if (sel.verbIds) {
-        if (!sel.verbIds.length) { toast("Tu selección personalizada está vacía. Añade verbos primero."); return; }
+        if (!sel.verbIds.length) { toast(t("app.emptyCustomSelectionAdd")); return; }
         goto("view-writing");
         App.Quiz.Writing.start(null, sel.verbIds);
         return;
       }
-      if (!sel.levels.length) { toast("Selecciona al menos un nivel."); return; }
+      if (!sel.levels.length) { toast(t("app.selectAtLeastOneLevel")); return; }
       goto("view-writing");
       App.Quiz.Writing.start(sel.levels);
     });
@@ -739,8 +757,10 @@
   function wireGames() {
     $("#memoryRestartBtn").addEventListener("click", () => App.Games.Memory.start());
     $("#hangmanRestartBtn").addEventListener("click", () => App.Games.Hangman.start());
+    $("#hangmanNextBtn").addEventListener("click", () => App.Games.Hangman.start());
     $("#orderRestartBtn").addEventListener("click", () => App.Games.OrderLetters.start());
     $("#orderClearBtn").addEventListener("click", () => App.Games.OrderLetters.clear());
+    $("#orderNextBtn").addEventListener("click", () => App.Games.OrderLetters.start());
     $("#gapRestartBtn").addEventListener("click", () => App.Games.FillGaps.start());
     $("#gapCheckBtn").addEventListener("click", () => App.Games.FillGaps.check());
     $("#gapNextBtn").addEventListener("click", () => App.Games.FillGaps.next());
@@ -759,20 +779,20 @@
       btn.addEventListener("click", (e) => {
         e.stopPropagation();
         const wrap = el("div", {}, [
-          el("h3", {}, ["¿Qué es un verbo «aprendido»?"]),
-          el("p", { class: "text-muted", html: 'Un verbo se considera <strong>aprendido</strong> cuando consigues <strong>3 aciertos más que fallos</strong> con él.' }),
-          el("p", { class: "text-muted mt-16", html: 'Puedes practicarlo en cualquier modo: <strong>Estudio, Test, Examen, Escritura, Escucha o minijuegos</strong>.' }),
-          el("p", { class: "text-muted mt-16" }, [el("strong", {}, ["Por ejemplo:"])]),
+          el("h3", {}, [t("modal.learnedInfo.title")]),
+          el("p", { class: "text-muted", html: t("modal.learnedInfo.p1") }),
+          el("p", { class: "text-muted mt-16", html: t("modal.learnedInfo.p2") }),
+          el("p", { class: "text-muted mt-16" }, [el("strong", {}, [t("modal.learnedInfo.p3label")])]),
           el("ul", { class: "text-muted", style: "margin:8px 0 0 18px;padding:0;" }, [
-            el("li", { html: '✅ 4 aciertos y ❌ 1 fallo → tienes <strong>3 aciertos de ventaja</strong> → <strong>aprendido</strong>' }),
-            el("li", { html: '✅ 5 aciertos y ❌ 2 fallos → tienes <strong>3 aciertos de ventaja</strong> → <strong>aprendido</strong>' }),
+            el("li", { html: t("modal.learnedInfo.li1") }),
+            el("li", { html: t("modal.learnedInfo.li2") }),
           ]),
-          el("p", { class: "text-muted mt-16", html: 'Una vez aprendido, el verbo <strong>no se pierde por un solo fallo</strong>. Seguirá apareciendo como aprendido mientras tengas al menos <strong>1 acierto de ventaja</strong>.' }),
-          el("p", { class: "text-muted mt-16" }, [el("strong", {}, ["⚠️ ¿Cuándo deja de estar aprendido?"])]),
-          el("p", { class: "text-muted", html: 'Si acumulas suficientes fallos y llegas a tener <strong>0 aciertos de ventaja o menos</strong>, el verbo dejará de estar aprendido.' }),
-          el("p", { class: "text-muted", html: 'No pasa nada: <strong>solo tendrás que practicarlo de nuevo</strong> hasta conseguir 3 aciertos de ventaja.' }),
+          el("p", { class: "text-muted mt-16", html: t("modal.learnedInfo.p4") }),
+          el("p", { class: "text-muted mt-16" }, [el("strong", {}, [t("modal.learnedInfo.p5label")])]),
+          el("p", { class: "text-muted", html: t("modal.learnedInfo.p6") }),
+          el("p", { class: "text-muted", html: t("modal.learnedInfo.p7") }),
           el("div", { class: "modal-actions" }, [
-            el("button", { class: "btn btn-primary", onclick: () => App.UI.closeModal() }, ["Entendido"]),
+            el("button", { class: "btn btn-primary", onclick: () => App.UI.closeModal() }, [t("modal.learnedInfo.btn")]),
           ]),
         ]);
         App.UI.openModal(wrap);
@@ -783,6 +803,8 @@
   function wireSettings() {
     $("#themeToggleBtn").addEventListener("click", toggleTheme);
     $("#darkModeSwitch").addEventListener("click", toggleTheme);
+    $("#langBtnEs").addEventListener("click", () => { App.I18n.setLang("es"); applySettingsUI(); });
+    $("#langBtnEu").addEventListener("click", () => { App.I18n.setLang("eu"); applySettingsUI(); });
     $("#soundsSwitch").addEventListener("click", () => {
       const now = !App.Storage.getSettings().sounds;
       App.Storage.setSetting("sounds", now);
@@ -800,7 +822,7 @@
       a.href = url; a.download = `irregularverbs-progreso-${new Date().toISOString().slice(0, 10)}.json`;
       a.click();
       URL.revokeObjectURL(url);
-      toast("Progreso exportado");
+      toast(t("app.progressExported"));
     });
     $("#importFileInput").addEventListener("change", (e) => {
       const file = e.target.files[0];
@@ -809,21 +831,21 @@
       reader.onload = () => {
         try {
           App.Storage.importJSON(reader.result);
-          toast("Progreso importado correctamente");
+          toast(t("app.progressImported"));
           refreshDashboard(); refreshLibrary(); refreshAchievements();
         } catch (err) {
-          toast("El archivo no es válido");
+          toast(t("app.invalidFile"));
         }
       };
       reader.readAsText(file);
       e.target.value = "";
     });
     $("#resetBtn").addEventListener("click", async () => {
-      const ok = await confirmDialog("Resetear progreso", "Se borrarán todos tus datos: favoritos, verbos aprendidos, estadísticas y logros. Esta acción no se puede deshacer.", "Resetear");
+      const ok = await confirmDialog(t("app.resetProgressTitle"), t("app.resetProgressMsg"), t("app.resetProgressConfirm"));
       if (ok) {
         App.Storage.resetAll();
         applyTheme(); applySettingsUI(); refreshDashboard(); refreshLibrary(); refreshAchievements();
-        toast("Progreso reseteado");
+        toast(t("app.progressReset"));
       }
     });
   }

@@ -281,6 +281,10 @@ body {
 }
 .filter-chip.active { background: var(--violet); border-color: var(--violet); color: #fff; }
 
+.lang-switch { display: flex; gap: 4px; background: var(--bg); border: 1.5px solid var(--border); border-radius: var(--r-pill); padding: 3px; }
+.lang-switch-btn { padding: 6px 12px; border-radius: var(--r-pill); font-size: 0.8rem; font-weight: 600; color: var(--text-muted); transition: all var(--dur-fast) var(--ease); }
+.lang-switch-btn.active { background: var(--violet); color: #fff; }
+
 /* -------------------------------- Grids ---------------------------------- */
 .verb-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 @media (min-width: 640px) { .verb-grid { grid-template-columns: repeat(2, 1fr); } }

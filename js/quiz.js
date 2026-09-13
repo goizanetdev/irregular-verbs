@@ -6,6 +6,7 @@
   "use strict";
   const { $, el, toast, speak, playTone } = App.UI;
 
+  const t = App.I18n.t;
   function shuffle(arr) {
     const a = arr.slice();
     for (let i = a.length - 1; i > 0; i--) {
@@ -51,7 +52,7 @@
       this.list = shuffle(base);
       this.index = 0;
       this.showTranslation = false;
-      if (!this.list.length) { toast("No hay verbos con los niveles/filtros seleccionados."); return; }
+      if (!this.list.length) { toast(t("quiz.noVerbsSelection")); return; }
       this.render();
     },
     render() {
@@ -59,7 +60,7 @@
       if (!verb) return;
       $("#studyWord").textContent = verb.infinitive;
       $("#studyIpa").textContent = `/${verb.ipa.infinitive}/ → /${verb.ipa.pastSimple}/ → /${verb.ipa.pastParticiple}/`;
-      $("#studyTranslation").textContent = this.showTranslation ? verb.translation : "Toca «Mostrar traducción»";
+      $("#studyTranslation").textContent = this.showTranslation ? verb.translation : t("study.showTranslation");
       $("#studyTranslation").style.opacity = this.showTranslation ? "1" : "0.5";
       $("#studyExample").innerHTML = `<strong>${verb.example.en}</strong><br>${verb.example.es}`;
       $("#studyMistake").textContent = "⚠️ " + verb.mistake;
@@ -73,7 +74,7 @@
     },
     next() {
       if (this.index < this.list.length - 1) { this.index++; this.showTranslation = false; this.render(); }
-      else { toast("¡Has terminado esta sesión de estudio!"); App.Storage.recordSessionResult("study", null, 0); App.Achievements.check(); }
+      else { toast(t("quiz.studyDone")); App.Storage.recordSessionResult("study", null, 0); App.Achievements.check(); }
     },
     prev() {
       if (this.index > 0) { this.index--; this.showTranslation = false; this.render(); }
@@ -97,7 +98,7 @@
       const base = resolveBase(levels, verbIds);
       this.list = shuffle(base);
       this.index = 0;
-      if (!this.list.length) { toast("No hay verbos con los niveles/filtros seleccionados."); return; }
+      if (!this.list.length) { toast(t("quiz.noVerbsSelection")); return; }
       $("#flashcard").classList.remove("flipped");
       this.render();
     },
@@ -115,7 +116,7 @@
     next() {
       $("#flashcard").classList.remove("flipped");
       if (this.index < this.list.length - 1) { this.index++; this.render(); }
-      else { toast("¡Fin del mazo de flashcards!"); App.Storage.recordSessionResult("flash", null, 0); App.Achievements.check(); }
+      else { toast(t("quiz.flashDone")); App.Storage.recordSessionResult("flash", null, 0); App.Achievements.check(); }
     },
     prev() {
       $("#flashcard").classList.remove("flipped");
@@ -136,7 +137,7 @@
       this.count = count || 10;
       let base = resolveBase(this.levels, verbIds);
       if (base.length < 4 && !(verbIds && verbIds.length)) base = App.Verbs.slice();
-      if (!base.length) { toast("No hay verbos disponibles con esta selección."); return; }
+      if (!base.length) { toast(t("quiz.noVerbsAvailable")); return; }
       let pickList = shuffle(base);
       while (pickList.length < this.count) pickList = pickList.concat(shuffle(base));
       this.questions = pickList.slice(0, this.count).map((verb) => ({ verb, qtype: this.resolveType() }));
@@ -154,7 +155,7 @@
       this.answered = false;
       this.current = this.questions[this.index];
       const { verb, qtype } = this.current;
-      $("#testProgress").textContent = `Pregunta ${this.results.length + 1} / ${this.total}`;
+      $("#testProgress").textContent = t("quiz.questionCounter").replace("{n}", this.results.length + 1).replace("{total}", this.total);
       $("#testScore").textContent = `${this.score} / ${this.results.length}`;
       $("#testFeedback").className = "quiz-feedback";
       $("#testFeedback").textContent = "";
@@ -163,10 +164,10 @@
       optBox.innerHTML = "";
       $("#testWriteRow").style.display = "none";
       $("#testOptions").style.display = "grid";
-      $("#testNextBtn").textContent = "Saltar pregunta →";
+      $("#testNextBtn").textContent = t("quiz.skipQuestion");
 
       if (qtype === "mcq") {
-        qBox.querySelector(".qtext").textContent = `¿Cuál es el pasado simple de "${verb.infinitive}"?`;
+        qBox.querySelector(".qtext").textContent = t("quiz.mcqQuestion").replace("{verb}", verb.infinitive);
         qBox.querySelector(".qhint").textContent = verb.translation;
         const options = App.Utils.smartVerbOptions(verb, "pastSimple");
         options.forEach((opt) => {
@@ -179,13 +180,13 @@
         $("#testOptions").style.display = "none";
         $("#testWriteRow").style.display = "flex";
         const map = {
-          writePast: { label: `Escribe el pasado simple de "${verb.infinitive}"`, answer: verb.pastSimple },
-          writeParticiple: { label: `Escribe el participio pasado de "${verb.infinitive}"`, answer: verb.pastParticiple },
-          writeTranslation: { label: `Traduce al español "${verb.infinitive}"`, answer: verb.translation },
+          writePast: { label: t("quiz.writePastLabel").replace("{verb}", verb.infinitive), answer: verb.pastSimple },
+          writeParticiple: { label: t("quiz.writeParticipleLabel").replace("{verb}", verb.infinitive), answer: verb.pastParticiple },
+          writeTranslation: { label: t("quiz.writeTranslationLabel").replace("{verb}", verb.infinitive), answer: verb.translation },
         };
         const conf = map[qtype];
         qBox.querySelector(".qtext").textContent = conf.label;
-        qBox.querySelector(".qhint").textContent = "Escribe tu respuesta y pulsa Comprobar";
+        qBox.querySelector(".qhint").textContent = t("quiz.writeHint");
         $("#testWriteInput").value = "";
         $("#testWriteInput").focus();
         this._writeAnswer = conf.answer;
@@ -211,7 +212,7 @@
       const correct = App.Utils.answersMatch(rawVal, this._writeAnswer);
       this.answered = true;
       if (correct) this.score++;
-      this.results.push({ infinitive: verb.infinitive, given: rawVal || "(vacío)", correct, correctVal: this._writeAnswer });
+      this.results.push({ infinitive: verb.infinitive, given: rawVal || t("quiz.emptyAnswer"), correct, correctVal: this._writeAnswer });
       this.showFeedback(correct, verb, this._writeAnswer);
       App.Storage.recordAnswer(verb.id, correct);
     },
@@ -220,12 +221,12 @@
       box.classList.add("show", correct ? "ok" : "bad");
       playTone(correct ? "correct" : "incorrect");
       if (correct) {
-        box.textContent = "✅ ¡Correcto!";
+        box.textContent = t("quiz.correctFeedback");
       } else {
-        box.innerHTML = `❌ Incorrecto. La respuesta correcta es <strong>${correctText || verb.pastSimple}</strong>.<br><span class="text-muted">${verb.mistake}</span>`;
+        box.innerHTML = t("quiz.incorrectFeedback").replace("{answer}", correctText || verb.pastSimple).replace("{mistake}", verb.mistake);
       }
       $("#testScore").textContent = `${this.score} / ${this.results.length}`;
-      $("#testNextBtn").textContent = "Siguiente pregunta →";
+      $("#testNextBtn").textContent = t("test.nextQuestion");
     },
     next() {
       if (!this.answered) {
@@ -258,8 +259,8 @@
       const pool = base.length >= 5 ? base : (verbIds && verbIds.length ? base : currentPool());
       if (pool.length < 5) {
         toast(verbIds && verbIds.length
-          ? `Necesitas al menos 5 verbos distintos con errores para el examen (tienes ${pool.length}).`
-          : "Necesitas más verbos disponibles para un examen.");
+          ? t("quiz.examNeedErrors").replace("{n}", pool.length)
+          : t("quiz.examNeedMore"));
         return;
       }
       const count = Math.min(50, pool.length * 3);
@@ -282,7 +283,7 @@
     renderQuestion() {
       const q = this.questions[this.index];
       if (!q) return this.finish();
-      $("#examProgress").textContent = `Pregunta ${this.index + 1} / ${this.questions.length}`;
+      $("#examProgress").textContent = t("quiz.questionCounter").replace("{n}", this.index + 1).replace("{total}", this.questions.length);
       $("#examProgressFill").style.width = `${((this.index) / this.questions.length) * 100}%`;
       const qBox = $("#examQuestion");
       const optBox = $("#examOptions");
@@ -291,14 +292,14 @@
       optBox.style.display = q.qtype === "mcq" ? "grid" : "none";
 
       if (q.qtype === "mcq") {
-        qBox.querySelector(".qtext").textContent = `¿Cuál es el pasado simple de "${q.verb.infinitive}"?`;
+        qBox.querySelector(".qtext").textContent = t("quiz.mcqQuestion").replace("{verb}", q.verb.infinitive);
         const options = App.Utils.smartVerbOptions(q.verb, "pastSimple");
         options.forEach((opt) => optBox.appendChild(el("button", {
           class: "quiz-option", onclick: (e) => this.answer(opt === q.verb.pastSimple, opt),
         }, [opt])));
       } else {
-        const label = q.qtype === "writePast" ? "pasado simple" : "participio pasado";
-        qBox.querySelector(".qtext").textContent = `Escribe el ${label} de "${q.verb.infinitive}"`;
+        const label = q.qtype === "writePast" ? t("quiz.writePastLabelShort") : t("quiz.writeParticipleLabelShort");
+        qBox.querySelector(".qtext").textContent = t("quiz.writeFormLabel").replace("{form}", label).replace("{verb}", q.verb.infinitive);
         $("#examWriteInput").value = "";
         $("#examWriteInput").focus();
       }
@@ -318,7 +319,7 @@
       const q = this.questions[this.index];
       const answer = q.qtype === "writePast" ? q.verb.pastSimple : q.verb.pastParticiple;
       const correct = App.Utils.answersMatch($("#examWriteInput").value, answer);
-      this.answer(correct, $("#examWriteInput").value || "(vacío)");
+      this.answer(correct, $("#examWriteInput").value || t("quiz.emptyAnswer"));
     },
     finish() {
       clearInterval(this.timerHandle);
@@ -347,7 +348,7 @@
       const base = resolveBase(levels, verbIds);
       this.list = shuffle(base);
       this.index = 0; this.score = 0;
-      if (!this.list.length) { toast("No hay verbos con los niveles/filtros seleccionados."); return; }
+      if (!this.list.length) { toast(t("quiz.noVerbsSelection")); return; }
       this.render();
     },
     render() {
@@ -357,7 +358,7 @@
       $("#writePastInput").value = "";
       $("#writeParticipleInput").value = "";
       $("#writeThirdInput").value = "";
-      $("#writeThirdLabel").textContent = "Traducción";
+      $("#writeThirdLabel").textContent = t("writing.translation");
       $("#writeFeedback").className = "quiz-feedback";
       $("#writeFeedback").textContent = "";
       $("#writeProgress").textContent = `${this.index + 1} / ${this.list.length} · Aciertos: ${this.score}`;
@@ -377,8 +378,11 @@
       box.classList.add("show", allOk ? "ok" : "bad");
       const mark = (ok) => (ok ? "✅" : "❌");
       box.innerHTML = allOk
-        ? "✅ ¡Las tres formas son correctas!"
-        : `${mark(pastOk)} Pasado: <strong>${v.pastSimple}</strong> &nbsp; ${mark(partOk)} Participio: <strong>${v.pastParticiple}</strong> &nbsp; ${mark(transOk)} Traducción: <strong>${v.translation}</strong>`;
+        ? t("quiz.writingAllCorrect")
+        : t("quiz.writingResultTemplate")
+            .replace("{markPast}", mark(pastOk)).replace("{past}", v.pastSimple)
+            .replace("{markPart}", mark(partOk)).replace("{part}", v.pastParticiple)
+            .replace("{markTrans}", mark(transOk)).replace("{trans}", v.translation);
       $("#writeInputs").querySelectorAll("input").forEach((i) => (i.disabled = true));
       $("#writeNextBtn").style.display = "inline-flex";
     },
@@ -387,7 +391,7 @@
       $("#writeInputs").querySelectorAll("input").forEach((i) => (i.disabled = false));
       if (this.index < this.list.length - 1) { this.index++; this.render(); }
       else {
-        toast("¡Sesión de escritura completada!");
+        toast(t("quiz.writingDone"));
         App.Storage.recordSessionResult("writing", this.score, this.list.length);
         App.Achievements.check();
       }
@@ -400,15 +404,15 @@
   const Listening = {
     list: [], index: 0, score: 0, field: "infinitive",
     FIELD_LABELS: {
-      infinitive: "el infinitivo",
-      pastSimple: "el pasado simple",
-      pastParticiple: "el participio pasado",
+      infinitive: "quiz.listenFieldInfinitive",
+      pastSimple: "quiz.listenFieldPast",
+      pastParticiple: "quiz.listenFieldParticiple",
     },
     start(levels, verbIds) {
       const base = resolveBase(levels, verbIds);
       this.list = shuffle(base);
       this.index = 0; this.score = 0;
-      if (!this.list.length) { toast("No hay verbos con los niveles/filtros seleccionados."); return; }
+      if (!this.list.length) { toast(t("quiz.noVerbsSelection")); return; }
       this.render();
     },
     render() {
@@ -417,8 +421,8 @@
       $("#listenInput").disabled = false;
       $("#listenFeedback").className = "quiz-feedback";
       $("#listenFeedback").textContent = "";
-      $("#listenProgress").textContent = `${this.index + 1} / ${this.list.length} · Aciertos: ${this.score}`;
-      $("#listenFormHint").textContent = `Escucha con atención y escribe ${this.FIELD_LABELS[this.field]} del verbo.`;
+      $("#listenProgress").textContent = t("quiz.listeningProgress").replace("{n}", this.index + 1).replace("{total}", this.list.length).replace("{score}", this.score);
+      $("#listenFormHint").textContent = t("quiz.listeningFormHint").replace("{field}", t(this.FIELD_LABELS[this.field]));
       $("#listenNextBtn").style.display = "none";
       this.play();
     },
@@ -435,14 +439,14 @@
       playTone(ok ? "correct" : "incorrect");
       const box = $("#listenFeedback");
       box.classList.add("show", ok ? "ok" : "bad");
-      box.innerHTML = ok ? "✅ ¡Correcto!" : `❌ Era <strong>${answer}</strong> (${this.FIELD_LABELS[this.field]} de "${v.infinitive}")`;
+      box.innerHTML = ok ? t("quiz.listeningCorrect") : t("quiz.listeningWrong").replace("{answer}", answer).replace("{field}", t(this.FIELD_LABELS[this.field])).replace("{verb}", v.infinitive);
       $("#listenInput").disabled = true;
       $("#listenNextBtn").style.display = "inline-flex";
     },
     next() {
       if (this.index < this.list.length - 1) { this.index++; this.render(); }
       else {
-        toast("¡Ejercicio de escucha completado!");
+        toast(t("quiz.listeningDone"));
         App.Storage.recordSessionResult("listening", this.score, this.list.length);
         App.Achievements.check();
       }
@@ -453,10 +457,10 @@
      EXAMEN EN TABLA — nivel(es) + nº de preguntas + dificultad (huecos/fila)
      ========================================================================= */
   const COLUMNS = [
-    { key: "infinitive", label: "Infinitivo", get: (v) => v.infinitive },
-    { key: "pastSimple", label: "Pasado simple", get: (v) => v.pastSimple },
-    { key: "pastParticiple", label: "Participio", get: (v) => v.pastParticiple },
-    { key: "translation", label: "Traducción", get: (v) => v.translation },
+    { key: "infinitive", labelKey: "common.infinitive", get: (v) => v.infinitive },
+    { key: "pastSimple", labelKey: "common.pastSimple", get: (v) => v.pastSimple },
+    { key: "pastParticiple", labelKey: "common.participle", get: (v) => v.pastParticiple },
+    { key: "translation", labelKey: "common.translation", get: (v) => v.translation },
   ];
   const DIFF_BLANKS = { easy: 1, medium: 2, hard: 3 };
 
@@ -467,7 +471,7 @@
       this.difficulty = difficulty;
       let base = resolveBase(levels, verbIds);
       if (base.length < 4 && !(verbIds && verbIds.length)) base = App.Verbs.slice();
-      if (!base.length) { toast("No hay verbos disponibles con esta selección."); return; }
+      if (!base.length) { toast(t("quiz.noVerbsAvailable")); return; }
       let pickList = shuffle(base);
       while (pickList.length < count) pickList = pickList.concat(shuffle(base));
       const chosen = pickList.slice(0, count);
@@ -491,7 +495,7 @@
           if (isBlank) {
             tr.appendChild(el("td", {}, [
               el("div", { class: "cell-answer-wrap" }, [
-                el("input", { type: "text", autocomplete: "off", "data-row": String(rowIdx), "data-col": col.key, placeholder: col.label }),
+                el("input", { type: "text", autocomplete: "off", "data-row": String(rowIdx), "data-col": col.key, placeholder: t(col.labelKey) }),
                 el("span", { class: "cell-hint", "data-hint-row": String(rowIdx), "data-hint-col": col.key }),
               ]),
             ]));
@@ -501,7 +505,7 @@
         });
         tbody.appendChild(tr);
       });
-      $("#tableTestMeta").textContent = `${this.rows.length} preguntas`;
+      $("#tableTestMeta").textContent = t("tableTest.questionsCount").replace("{n}", this.rows.length);
       $("#tableTestResultBox").style.display = "none";
     },
 
@@ -524,7 +528,7 @@
           if (ok) correctCells++;
           else {
             rowOk = false;
-            if (hint) hint.textContent = `Correcto: ${correctVal}`;
+            if (hint) hint.textContent = t("tableTest.correctHint").replace("{value}", correctVal);
           }
         });
         App.Storage.recordAnswer(row.verb.id, rowOk);
@@ -534,7 +538,7 @@
       if (this.difficulty === "hard") App.Storage.recordHardExerciseResult(pct);
       const box = $("#tableTestResultBox");
       box.style.display = "block";
-      box.innerHTML = `<h3 style="font-family:var(--font-display);margin-bottom:6px;">Resultado: ${correctCells} / ${totalCells} (${pct}%)</h3><p class="text-muted">En rojo, debajo de cada fallo verás la respuesta correcta. Los acentos, mayúsculas y espacios no cuentan como error.</p>`;
+      box.innerHTML = `<h3 style="font-family:var(--font-display);margin-bottom:6px;">${t("tableTest.resultTitle2").replace("{correct}", correctCells).replace("{total}", totalCells).replace("{pct}", pct)}</h3><p class="text-muted">${t("tableTest.resultNote")}</p>`;
       playTone(pct >= 70 ? "correct" : "incorrect");
       App.Achievements.check();
     },

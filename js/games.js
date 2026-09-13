@@ -7,6 +7,7 @@
   "use strict";
   const { $, el, toast, playTone } = App.UI;
   const { shuffle, sample, pick } = App.Quiz;
+  const t = App.I18n.t;
 
   function pool(min) {
     if (App.Filters.gameSelectionMode === "custom") {
@@ -43,13 +44,13 @@
       this.cards.forEach((c) => {
         const cardEl = el("button", {
           class: `memory-card ${c.matched ? "matched" : c.revealed ? "revealed" : "hidden-face"}`,
-          "aria-label": c.revealed || c.matched ? c.text : "Carta oculta",
+          "aria-label": c.revealed || c.matched ? c.text : t("game.memory.hiddenCard"),
           onclick: () => this.flip(c.uid),
         }, [c.revealed || c.matched ? c.text : "?"]);
         board.appendChild(cardEl);
       });
-      $("#memoryMoves").textContent = `Movimientos: ${this.moves}`;
-      $("#memoryPairs").textContent = `Parejas: ${this.matched} / ${this.cards.length / 2}`;
+      $("#memoryMoves").textContent = t("game.memory.moves").replace("{n}", this.moves);
+      $("#memoryPairs").textContent = t("game.memory.pairs").replace("{matched}", this.matched).replace("{total}", this.cards.length / 2);
     },
     flip(uid) {
       if (this.locked) return;
@@ -71,7 +72,7 @@
             playTone("correct");
             this.render();
             if (this.matched === this.cards.length / 2) {
-              toast("¡Memory completado! 🎉");
+              toast(t("game.memory.completed"));
               App.Achievements.check();
             }
           }, 500);
@@ -129,13 +130,16 @@
       });
       $("#hangmanHint").textContent = this.verb.translation;
       $("#hangmanStatus").textContent = "";
+      $("#hangmanNextBtn").style.display = "none";
       if (this.wrong >= this.maxWrong) {
         this.over = true;
-        $("#hangmanStatus").innerHTML = `💀 ¡Perdiste! Era <strong>${this.verb.infinitive}</strong>`;
+        $("#hangmanStatus").innerHTML = t("game.hangman.lost").replace("{verb}", this.verb.infinitive);
+        $("#hangmanNextBtn").style.display = "block";
         this.render2();
       } else if (this.verb.infinitive.split("").every((ch) => this.guessed.includes(ch.toLowerCase()))) {
         this.over = true;
-        $("#hangmanStatus").innerHTML = "🎉 ¡Lo lograste!";
+        $("#hangmanStatus").innerHTML = t("game.hangman.won");
+        $("#hangmanNextBtn").style.display = "block";
         App.Storage.recordAnswer(this.verb.id, true);
         App.Achievements.check();
       }
@@ -192,6 +196,7 @@
       });
       $("#orderHint").textContent = this.verb.translation;
       $("#orderStatus").textContent = "";
+      $("#orderNextBtn").style.display = "none";
     },
     place(tileId) {
       const tile = this.tiles.find((t) => t.id === tileId);
@@ -210,8 +215,9 @@
       App.Storage.recordAnswer(this.verb.id, ok);
       playTone(ok ? "correct" : "incorrect");
       $("#orderStatus").innerHTML = ok
-        ? "🎉 ¡Correcto! Pulsa Enter para la siguiente palabra."
-        : `❌ Era <strong>${this.verb.infinitive}</strong> · Pulsa Retroceso para borrar y reintentar, o Enter para otra palabra.`;
+        ? t("game.order.correctMsg")
+        : t("game.order.wrongMsg").replace("{verb}", this.verb.infinitive);
+      $("#orderNextBtn").style.display = "block";
       if (ok) App.Achievements.check();
     },
     clear() {
@@ -260,10 +266,10 @@
       const s = this.current;
       $("#gapSentence").innerHTML = s.sentenceEn.replace(
         "_____",
-        '<input type="text" id="gapInlineInput" class="gap-inline-input" autocomplete="off" spellcheck="false" aria-label="Escribe la forma correcta">'
+        `<input type="text" id="gapInlineInput" class="gap-inline-input" autocomplete="off" spellcheck="false" aria-label="${t("game.gaps.inputAria")}">`
       );
       $("#gapTranslation").textContent = s.sentenceEs;
-      $("#gapHint").textContent = `${s.form === "pastSimple" ? "Pasado simple" : "Participio pasado"} de "${s.infinitive}" · ${s.translation}`;
+      $("#gapHint").textContent = t("game.gaps.hintTemplate").replace("{form}", s.form === "pastSimple" ? t("game.gaps.formPast") : t("game.gaps.formParticiple")).replace("{infinitive}", s.infinitive).replace("{translation}", s.translation);
       $("#gapLevelChip").textContent = s.level;
       $("#gapFeedback").className = "quiz-feedback";
       $("#gapFeedback").textContent = "";
@@ -284,7 +290,7 @@
       playTone(ok ? "correct" : "incorrect");
       const box = $("#gapFeedback");
       box.classList.add("show", ok ? "ok" : "bad");
-      box.innerHTML = ok ? "✅ ¡Correcto!" : `❌ La respuesta correcta es <strong>${s.answer}</strong>`;
+      box.innerHTML = ok ? t("game.gaps.correctMsg") : t("game.gaps.wrongMsg").replace("{answer}", s.answer);
       inlineInput.disabled = true;
       inlineInput.classList.add(ok ? "cell-correct" : "cell-incorrect");
       $("#gapCheckBtn").style.display = "none";
@@ -308,7 +314,7 @@
     reset() {
       $("#rouletteQuestion").style.display = "none";
       $("#rouletteSpinBtn").disabled = false;
-      $("#rouletteSpinBtn").textContent = "🎡 Girar la ruleta";
+      $("#rouletteSpinBtn").textContent = t("game.roulette.spin");
       const reel = $("#rouletteReel");
       reel.innerHTML = "";
       reel.appendChild(el("div", { class: "reel-item" }, ["?"]));
@@ -343,14 +349,14 @@
         this.verb = finalVerb;
         this.rounds++;
         $("#rouletteSpinBtn").disabled = false;
-        $("#rouletteSpinBtn").textContent = "🎡 Girar de nuevo";
+        $("#rouletteSpinBtn").textContent = t("game.roulette.spinAgain");
         this.askQuestion(finalVerb);
         playTone("click");
       }, 2500);
     },
     askQuestion(verb) {
       $("#rouletteQuestion").style.display = "block";
-      $("#rouletteQtext").textContent = `¿Cuál es el pasado simple de "${verb.infinitive}"?`;
+      $("#rouletteQtext").textContent = t("quiz.mcqQuestion").replace("{verb}", verb.infinitive);
       $("#rouletteHint").textContent = verb.translation;
       const optBox = $("#rouletteOptions");
       optBox.innerHTML = "";
@@ -370,7 +376,7 @@
       if (correct) this.score++;
       App.Storage.recordAnswer(verb.id, correct);
       playTone(correct ? "correct" : "incorrect");
-      $("#rouletteScore").textContent = `Puntuación: ${this.score} / ${this.rounds}`;
+      $("#rouletteScore").textContent = t("game.roulette.scoreTemplate").replace("{score}", this.score).replace("{rounds}", this.rounds);
       if (correct) App.Achievements.check();
     },
   };

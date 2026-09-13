@@ -14,6 +14,7 @@
       theme: "auto", // 'light' | 'dark' | 'auto'
       sounds: true,
       animations: true,
+      lang: "es", // 'es' | 'eu'
     },
     favorites: [],
     progress: {

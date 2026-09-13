@@ -71,8 +71,8 @@
         el("h3", {}, [title]),
         el("p", { class: "text-muted" }, [message]),
         el("div", { class: "modal-actions" }, [
-          el("button", { class: "btn btn-secondary", onclick: () => { closeModal(); resolve(false); } }, ["Cancelar"]),
-          el("button", { class: "btn btn-danger", onclick: () => { closeModal(); resolve(true); } }, [confirmLabel || "Confirmar"]),
+          el("button", { class: "btn btn-secondary", onclick: () => { closeModal(); resolve(false); } }, [App.I18n.t("ui.cancel")]),
+          el("button", { class: "btn btn-danger", onclick: () => { closeModal(); resolve(true); } }, [confirmLabel || App.I18n.t("ui.confirm")]),
         ]),
       ]);
       openModal(wrap);
@@ -82,7 +82,7 @@
   /* --------------------------- Speech synthesis ------------------------------ */
   function speak(text) {
     if (!("speechSynthesis" in window)) {
-      toast("Tu navegador no soporta pronunciación por voz.");
+      toast(App.I18n.t("ui.noVoiceSupport"));
       return;
     }
     window.speechSynthesis.cancel();
@@ -126,10 +126,10 @@
     const speakable = opts.speakable !== false; // por defecto, cada forma se puede escuchar
     const stage = (text, cls) => el("span", {
       class: `triad-stage ${cls} ${speakable ? "speakable" : ""}`,
-      title: speakable ? `Escuchar "${text}"` : null,
+      title: speakable ? App.I18n.t("ui.listenAria").replace("{text}", text) : null,
       tabindex: speakable ? "0" : null,
       role: speakable ? "button" : null,
-      "aria-label": speakable ? `Escuchar ${text}` : null,
+      "aria-label": speakable ? App.I18n.t("ui.listenLabel").replace("{text}", text) : null,
       onclick: speakable ? (e) => { e.stopPropagation(); speak(text); } : null,
       onkeydown: speakable ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); speak(text); } } : null,
     }, [text]);
@@ -149,20 +149,20 @@
   function verbCard(verb) {
     const isFav = App.Storage.isFavorite(verb.id);
     const isLearned = App.Storage.isLearned(verb.id);
-    const card = el("article", { class: "card verb-card", tabindex: "0", role: "button", "aria-label": `Ver detalle de ${verb.infinitive}` }, [
+    const card = el("article", { class: "card verb-card", tabindex: "0", role: "button", "aria-label": App.I18n.t("ui.viewDetailAria").replace("{verb}", verb.infinitive) }, [
       el("div", { class: "verb-card-top" }, [
         el("div", {}, [
           el("span", { class: "verb-chip" }, [verb.level]),
         ]),
         el("button", {
           class: `icon-btn fav-btn ${isFav ? "is-fav" : ""}`,
-          "aria-label": isFav ? "Quitar de favoritos" : "Añadir a favoritos",
+          "aria-label": isFav ? App.I18n.t("ui.removeFav") : App.I18n.t("ui.addFav"),
           onclick: (e) => {
             e.stopPropagation();
             const nowFav = App.Storage.toggleFavorite(verb.id);
             e.currentTarget.classList.toggle("is-fav", nowFav);
             e.currentTarget.innerHTML = favIcon(nowFav);
-            toast(nowFav ? "Añadido a favoritos" : "Quitado de favoritos");
+            toast(nowFav ? App.I18n.t("ui.addedFav") : App.I18n.t("ui.removedFav"));
           },
           html: favIcon(isFav),
         }),
@@ -171,8 +171,8 @@
       el("p", { class: "verb-translation" }, [verb.translation]),
       el("p", { class: "verb-example-preview" }, [`“${verb.example.en}”`]),
       el("div", { class: "verb-card-footer" }, [
-        el("span", { class: `status ${isLearned ? "learned" : "pending"}` }, [isLearned ? "✓ Aprendido" : "Pendiente"]),
-        el("button", { class: "icon-btn", "aria-label": "Escuchar pronunciación", onclick: (e) => { e.stopPropagation(); speak(verb.infinitive); } },
+        el("span", { class: `status ${isLearned ? "learned" : "pending"}` }, [isLearned ? App.I18n.t("ui.learnedSingle") : App.I18n.t("ui.pendingSingle")]),
+        el("button", { class: "icon-btn", "aria-label": App.I18n.t("ui.listenAction"), onclick: (e) => { e.stopPropagation(); speak(verb.infinitive); } },
           [document.createRange().createContextualFragment(speakerIcon())]),
       ]),
     ]);
@@ -190,7 +190,7 @@
     if (!verbs.length) {
       container.appendChild(el("div", { class: "empty-state" }, [
         document.createRange().createContextualFragment(`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>`),
-        el("p", {}, ["No se encontraron verbos con estos filtros."]),
+        el("p", {}, [App.I18n.t("ui.noResultsFilters")]),
       ]));
       return;
     }
@@ -204,24 +204,24 @@
     const wrap = el("div", { class: "verb-detail" }, [
       el("div", { class: "row-between" }, [
         el("h3", { style: "font-family:var(--font-display);font-size:1.6rem;" }, [verb.infinitive]),
-        el("button", { class: "icon-btn", "aria-label": "Escuchar", onclick: () => speak(verb.infinitive) },
+        el("button", { class: "icon-btn", "aria-label": App.I18n.t("ui.listenAction"), onclick: () => speak(verb.infinitive) },
           [document.createRange().createContextualFragment(speakerIcon())]),
       ]),
       el("p", { class: "text-muted" }, [`${verb.translation} · ${verb.level} · ${verb.categoryLabel}`]),
       triad(verb),
       el("div", { class: "verb-detail-grid" }, [
         el("div", { class: "detail-block" }, [
-          el("h4", {}, ["Pronunciación (IPA)"]),
+          el("h4", {}, [App.I18n.t("ui.pronunciationIPA")]),
           el("p", { style: "font-family:var(--font-mono)" }, [`/${verb.ipa.infinitive}/ · /${verb.ipa.pastSimple}/ · /${verb.ipa.pastParticiple}/`]),
         ]),
         el("div", { class: "detail-block" }, [
-          el("h4", {}, ["Ejemplo"]),
+          el("h4", {}, [App.I18n.t("ui.example")]),
           el("p", {}, [verb.example.en]),
           el("p", { class: "text-muted" }, [verb.example.es]),
         ]),
       ]),
       el("div", { class: "detail-block mb-16" }, [
-        el("h4", {}, ["Error frecuente"]),
+        el("h4", {}, [App.I18n.t("ui.commonMistake")]),
         el("p", {}, [verb.mistake]),
       ]),
       el("div", { class: "row" }, [
@@ -229,10 +229,10 @@
           class: `btn ${isFav ? "btn-secondary" : "btn-primary"} btn-block`,
           onclick: (e) => {
             const nowFav = App.Storage.toggleFavorite(verb.id);
-            e.currentTarget.textContent = nowFav ? "★ En favoritos" : "☆ Añadir a favoritos";
+            e.currentTarget.textContent = nowFav ? App.I18n.t("ui.inFavorites") : App.I18n.t("ui.addToFavorites");
             e.currentTarget.className = `btn ${nowFav ? "btn-secondary" : "btn-primary"} btn-block`;
           },
-        }, [isFav ? "★ En favoritos" : "☆ Añadir a favoritos"]),
+        }, [isFav ? App.I18n.t("ui.inFavorites") : App.I18n.t("ui.addToFavorites")]),
       ]),
     ]);
     openModal(wrap);
@@ -241,7 +241,7 @@
   function renderReview(container, results) {
     container.innerHTML = "";
     if (!results.length) {
-      container.appendChild(el("p", { class: "text-muted" }, ["Sin datos para revisar."]));
+      container.appendChild(el("p", { class: "text-muted" }, [App.I18n.t("ui.noReviewData")]));
       return;
     }
     results.forEach((r) => {
@@ -252,8 +252,8 @@
           el("strong", {}, [infinitive]),
           el("span", { class: "review-detail" }, [
             r.correct
-              ? `Respondiste "${r.given}" — correcto`
-              : `Respondiste "${r.given}" — correcto: "${r.correctVal}"`,
+              ? App.I18n.t("ui.youAnsweredCorrect").replace("{given}", r.given)
+              : App.I18n.t("ui.youAnsweredWrong").replace("{given}", r.given).replace("{correct}", r.correctVal),
           ]),
         ]),
       ]));
