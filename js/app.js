@@ -855,6 +855,23 @@
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
   }
 
+  /* -------------------------- Onboarding de idioma ----------------------------- */
+  // Se muestra solo la primera vez que se entra en la app (sin progreso previo
+  // guardado). No se puede cerrar sin elegir: no tiene overlay-click ni Escape.
+  function wireLangOnboarding() {
+    if (!App.Storage.isFreshInstall()) return;
+    const overlay = $("#langOnboarding");
+    overlay.classList.add("open");
+    const choose = (lang) => {
+      App.I18n.setLang(lang);
+      App.Storage.setSetting("langChosen", true);
+      overlay.classList.remove("open");
+      applySettingsUI();
+    };
+    $("#onboardingBtnEs").addEventListener("click", () => choose("es"));
+    $("#onboardingBtnEu").addEventListener("click", () => choose("eu"));
+  }
+
   /* ------------------------ Teclado físico para Ahorcado / Ordenar letras --------- */
   function wireGameKeyboard() {
     document.addEventListener("keydown", (e) => {
@@ -925,6 +942,7 @@
     wireLearnedInfo();
     wireSettings();
     wireModal();
+    wireLangOnboarding();
     refreshDashboard();
     refreshLibrary();
     registerServiceWorker();

@@ -15,6 +15,7 @@
       sounds: true,
       animations: true,
       lang: "es", // 'es' | 'eu'
+      langChosen: false, // true en cuanto el usuario elige idioma (onboarding o ajustes)
     },
     favorites: [],
     progress: {
@@ -102,6 +103,13 @@
     return base;
   }
 
+  // Se comprueba ANTES de load() (que ya rellena defaults con deepMerge):
+  // si no había nada guardado en localStorage, es la primera vez que esta
+  // persona entra en la app -> se usa para mostrar el selector de idioma
+  // de bienvenida una sola vez. Quien ya tuviera progreso guardado antes de
+  // esta función no lo verá (se asume "es" para no interrumpirle).
+  const wasFreshInstall = !localStorage.getItem(KEY);
+
   let state = load();
   let saveTimer = null;
 
@@ -128,6 +136,11 @@
     setSetting(key, value) {
       state.settings[key] = value;
       persist();
+    },
+
+    /* ---------------- Onboarding de idioma ---------------- */
+    isFreshInstall() {
+      return wasFreshInstall;
     },
 
     /* ---------------- Favorites ---------------- */

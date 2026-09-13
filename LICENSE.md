@@ -4,7 +4,7 @@ Copyright © 2026 **goizanetdev**. Todos los derechos reservados a la autora.
 
 ---
 
-## Español
+## Castellano
 
 ### Terceros
 

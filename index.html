@@ -21,6 +21,22 @@
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+<!-- ============================== ONBOARDING: SELECTOR DE IDIOMA ============================== -->
+<!-- Bilingüe a propósito: se muestra ANTES de que la persona elija idioma, así que no puede
+     depender de App.I18n.t(). Solo aparece una vez, en la primera entrada a la app. -->
+<div class="lang-onboarding" id="langOnboarding" role="dialog" aria-modal="true" aria-label="Selección de idioma / Hizkuntza aukeraketa">
+  <div class="lang-onboarding-card">
+    <img class="brand-mark" src="icons/logo-mark.png" alt="" width="40" height="43">
+    <h1 class="lang-onboarding-title">Elige tu idioma<br>Aukeratu hizkuntza</h1>
+    <p class="lang-onboarding-sub">Podrás cambiarlo cuando quieras en Ajustes.<br>Nahi duzunean alda dezakezu Ezarpenetan.</p>
+    <div class="lang-onboarding-options">
+      <button class="btn btn-primary btn-block lang-onboarding-btn" id="onboardingBtnEs" data-lang="es">Castellano</button>
+      <button class="btn btn-primary btn-block lang-onboarding-btn" id="onboardingBtnEu" data-lang="eu">Euskera</button>
+    </div>
+  </div>
+</div>
+
 <a class="skip-link" href="#mainContent" data-i18n="common.skipLink">Saltar al contenido</a>
 
 <!-- ============================== APP BAR ============================== -->
@@ -122,7 +138,7 @@
 
     <div class="search-wrap">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-      <input class="input" id="librarySearch" type="search" placeholder="Buscar en inglés, español o cualquier forma verbal…" aria-label="Buscar verbo" data-i18n-placeholder="common.searchPlaceholder" data-i18n-aria-label="common.searchAria">
+      <input class="input" id="librarySearch" type="search" placeholder="Buscar en inglés, castellano o cualquier forma verbal…" aria-label="Buscar verbo" data-i18n-placeholder="common.searchPlaceholder" data-i18n-aria-label="common.searchAria">
     </div>
 
     <div class="chip-row" id="levelChips" role="group" aria-label="Filtrar por nivel" data-i18n-aria-label="library.filterLevelAria">
@@ -156,7 +172,7 @@
 
     <div class="search-wrap">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
-      <input class="input" id="customSelectionSearch" type="search" placeholder="Buscar en inglés, español o cualquier forma verbal…" aria-label="Buscar verbo" data-i18n-placeholder="common.searchPlaceholder" data-i18n-aria-label="common.searchAria">
+      <input class="input" id="customSelectionSearch" type="search" placeholder="Buscar en inglés, castellano o cualquier forma verbal…" aria-label="Buscar verbo" data-i18n-placeholder="common.searchPlaceholder" data-i18n-aria-label="common.searchAria">
     </div>
     <div class="chip-row" id="customSelectionFilterChips" style="margin-bottom:8px;">
       <button class="filter-chip active" data-filter="all" data-i18n="common.all">Todos</button>
@@ -347,7 +363,7 @@
       <button class="card mode-card" data-action="test-start" data-type="mcq"><h3 data-i18n="test.mcq.title">Elige la respuesta</h3><p data-i18n="test.mcq.desc">Test de opción múltiple. Con teclado: pulsa 1-4.</p></button>
       <button class="card mode-card" data-action="test-start" data-type="writePast"><h3 data-i18n="test.writePast.title">Escribe el pasado</h3><p data-i18n="test.writePast.desc">Escribe el pasado simple.</p></button>
       <button class="card mode-card" data-action="test-start" data-type="writeParticiple"><h3 data-i18n="test.writeParticiple.title">Escribe el participio</h3><p data-i18n="test.writeParticiple.desc">Escribe el past participle.</p></button>
-      <button class="card mode-card" data-action="test-start" data-type="writeTranslation"><h3 data-i18n="test.writeTranslation.title">Escribe la traducción</h3><p data-i18n="test.writeTranslation.desc">Traduce el verbo al español.</p></button>
+      <button class="card mode-card" data-action="test-start" data-type="writeTranslation"><h3 data-i18n="test.writeTranslation.title">Escribe la traducción</h3><p data-i18n="test.writeTranslation.desc">Traduce el verbo al castellano.</p></button>
       <button class="card mode-card" data-action="test-start" data-type="mixed"><h3 data-i18n="test.mixed.title">Mezcla</h3><p data-i18n="test.mixed.desc">Combina todos los tipos anteriores.</p></button>
     </div>
   </section>

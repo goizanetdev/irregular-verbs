@@ -18,7 +18,7 @@ Una web app 100% gratuita, instalable y que funciona sin conexión — construid
 infinitivo, pasado simple, participio pasado, IPA de las tres formas, traducción, nivel CEFR (A1–B2), categoría semántica, ejemplo bilingüe, error frecuente y verbos relacionados.
 
 ### Biblioteca y búsqueda
-- Buscador instantáneo por inglés, español o cualquier forma verbal.
+- Buscador instantáneo por inglés, castellano o cualquier forma verbal.
 - Filtros por nivel CEFR, "más usados", favoritos, aprendidos y pendientes.
 - Tarjetas grandes en cuadrícula de 3 columnas con ejemplo incluido.
 - Pronunciación independiente de cada forma del verbo (infinitivo, pasado y participio son clicables) además del botón de audio de la tarjeta.
@@ -64,7 +64,7 @@ Autoría de **goizanetdev**. Licencia personalizada: uso, modificación y
 distribución libres para fines no comerciales, con atribución obligatoria.
 Queda prohibida la venta, monetización o eliminación de la autoría sin
 permiso explícito y por escrito. Ver [LICENSE.md](LICENSE.md) para el texto
-completo (español/inglés).
+completo (castellano/inglés).
 
 ---
 
