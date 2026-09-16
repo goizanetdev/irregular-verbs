@@ -424,7 +424,7 @@
     const selected = new Set(App.Storage.getCustomSelection());
     let verbs = App.Verbs;
     if (query) {
-      verbs = verbs.filter((v) => [v.infinitive, v.pastSimple, v.pastParticiple, v.translation]
+      verbs = verbs.filter((v) => [v.infinitive, v.pastSimple, v.pastParticiple, v.translation, v.translationEu]
         .some((f) => App.Utils.normalize(f).includes(query)));
     }
     if (customSelectionFilter === "selected") verbs = verbs.filter((v) => selected.has(v.id));
@@ -457,7 +457,7 @@
           el("div", { class: "pick-checkbox" }, [picked ? "✓" : ""]),
         ]),
         App.UI.triad(v, { speakable: false }),
-        el("p", { class: "verb-translation" }, [v.translation]),
+        el("p", { class: "verb-translation" }, [App.VerbLang.translation(v)]),
       ]);
       frag.appendChild(card);
     });
@@ -872,6 +872,20 @@
     $("#onboardingBtnEu").addEventListener("click", () => choose("eu"));
   }
 
+  // Los textos estáticos (data-i18n) se retraducen solos en setLang(), pero el
+  // grid de verbos, la selección personalizada y un detalle de verbo abierto
+  // se pintan con JS a partir de App.VerbLang, así que hay que refrescarlos
+  // a mano cuando cambia el idioma desde Ajustes (no solo en la carga inicial).
+  function wireLangChangeRefresh() {
+    document.addEventListener("app:langchange", () => {
+      App.UI.closeModal();
+      const activeView = document.querySelector(".view.active");
+      const activeId = activeView ? activeView.id : null;
+      if (activeId === "view-library") refreshLibrary();
+      if (activeId === "view-custom-selection") renderCustomSelectionGrid();
+    });
+  }
+
   /* ------------------------ Teclado físico para Ahorcado / Ordenar letras --------- */
   function wireGameKeyboard() {
     document.addEventListener("keydown", (e) => {
@@ -943,6 +957,7 @@
     wireSettings();
     wireModal();
     wireLangOnboarding();
+    wireLangChangeRefresh();
     refreshDashboard();
     refreshLibrary();
     registerServiceWorker();

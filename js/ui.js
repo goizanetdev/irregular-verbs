@@ -168,7 +168,7 @@
         }),
       ]),
       triad(verb),
-      el("p", { class: "verb-translation" }, [verb.translation]),
+      el("p", { class: "verb-translation" }, [App.VerbLang.translation(verb)]),
       el("p", { class: "verb-example-preview" }, [`“${verb.example.en}”`]),
       el("div", { class: "verb-card-footer" }, [
         el("span", { class: `status ${isLearned ? "learned" : "pending"}` }, [isLearned ? App.I18n.t("ui.learnedSingle") : App.I18n.t("ui.pendingSingle")]),
@@ -207,7 +207,7 @@
         el("button", { class: "icon-btn", "aria-label": App.I18n.t("ui.listenAction"), onclick: () => speak(verb.infinitive) },
           [document.createRange().createContextualFragment(speakerIcon())]),
       ]),
-      el("p", { class: "text-muted" }, [`${verb.translation} · ${verb.level} · ${verb.categoryLabel}`]),
+      el("p", { class: "text-muted" }, [`${App.VerbLang.translation(verb)} · ${verb.level} · ${App.VerbLang.categoryLabel(verb)}`]),
       triad(verb),
       el("div", { class: "verb-detail-grid" }, [
         el("div", { class: "detail-block" }, [
@@ -217,12 +217,12 @@
         el("div", { class: "detail-block" }, [
           el("h4", {}, [App.I18n.t("ui.example")]),
           el("p", {}, [verb.example.en]),
-          el("p", { class: "text-muted" }, [verb.example.es]),
+          el("p", { class: "text-muted" }, [App.VerbLang.exampleEs(verb)]),
         ]),
       ]),
       el("div", { class: "detail-block mb-16" }, [
         el("h4", {}, [App.I18n.t("ui.commonMistake")]),
-        el("p", {}, [verb.mistake]),
+        el("p", {}, [App.VerbLang.mistake(verb)]),
       ]),
       el("div", { class: "row" }, [
         el("button", {

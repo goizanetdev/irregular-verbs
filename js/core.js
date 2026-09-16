@@ -148,7 +148,7 @@
       const q = Utils.normalize(this.state.query);
       return App.Verbs.filter((v) => {
         if (q) {
-          const hay = [v.infinitive, v.pastSimple, v.pastParticiple, v.translation]
+          const hay = [v.infinitive, v.pastSimple, v.pastParticiple, v.translation, v.translationEu]
             .some((f) => Utils.normalize(f).includes(q));
           if (!hay) return false;
         }

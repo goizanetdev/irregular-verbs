@@ -60,10 +60,10 @@
       if (!verb) return;
       $("#studyWord").textContent = verb.infinitive;
       $("#studyIpa").textContent = `/${verb.ipa.infinitive}/ → /${verb.ipa.pastSimple}/ → /${verb.ipa.pastParticiple}/`;
-      $("#studyTranslation").textContent = this.showTranslation ? verb.translation : t("study.showTranslation");
+      $("#studyTranslation").textContent = this.showTranslation ? App.VerbLang.translation(verb) : t("study.showTranslation");
       $("#studyTranslation").style.opacity = this.showTranslation ? "1" : "0.5";
-      $("#studyExample").innerHTML = `<strong>${verb.example.en}</strong><br>${verb.example.es}`;
-      $("#studyMistake").textContent = "⚠️ " + verb.mistake;
+      $("#studyExample").innerHTML = `<strong>${verb.example.en}</strong><br>${App.VerbLang.exampleEs(verb)}`;
+      $("#studyMistake").textContent = "⚠️ " + App.VerbLang.mistake(verb);
       const pct = Math.round(((this.index + 1) / this.list.length) * 100);
       $("#studyProgressFill").style.width = pct + "%";
       $("#studyProgressLabel").textContent = `${this.index + 1} / ${this.list.length}`;
@@ -108,7 +108,7 @@
       $("#flashFront").innerHTML = `<div>${v.infinitive}</div><div class="text-muted" style="font-size:1rem;font-family:var(--font-mono)">/${v.ipa.infinitive}/</div>`;
       $("#flashBack").innerHTML = "";
       $("#flashBack").appendChild(App.UI.triad(v));
-      $("#flashBack").appendChild(el("p", { class: "mt-16" }, [v.translation]));
+      $("#flashBack").appendChild(el("p", { class: "mt-16" }, [App.VerbLang.translation(v)]));
       $("#flashBack").appendChild(el("p", { class: "text-muted", style: "font-size:0.85rem" }, [v.example.en]));
       $("#flashProgress").textContent = `${this.index + 1} / ${this.list.length}`;
     },
@@ -168,7 +168,7 @@
 
       if (qtype === "mcq") {
         qBox.querySelector(".qtext").textContent = t("quiz.mcqQuestion").replace("{verb}", verb.infinitive);
-        qBox.querySelector(".qhint").textContent = verb.translation;
+        qBox.querySelector(".qhint").textContent = App.VerbLang.translation(verb);
         const options = App.Utils.smartVerbOptions(verb, "pastSimple");
         options.forEach((opt) => {
           optBox.appendChild(el("button", {
@@ -182,7 +182,7 @@
         const map = {
           writePast: { label: t("quiz.writePastLabel").replace("{verb}", verb.infinitive), answer: verb.pastSimple },
           writeParticiple: { label: t("quiz.writeParticipleLabel").replace("{verb}", verb.infinitive), answer: verb.pastParticiple },
-          writeTranslation: { label: t("quiz.writeTranslationLabel").replace("{verb}", verb.infinitive), answer: verb.translation },
+          writeTranslation: { label: t("quiz.writeTranslationLabel").replace("{verb}", verb.infinitive), answer: App.VerbLang.translation(verb) },
         };
         const conf = map[qtype];
         qBox.querySelector(".qtext").textContent = conf.label;
@@ -223,7 +223,7 @@
       if (correct) {
         box.textContent = t("quiz.correctFeedback");
       } else {
-        box.innerHTML = t("quiz.incorrectFeedback").replace("{answer}", correctText || verb.pastSimple).replace("{mistake}", verb.mistake);
+        box.innerHTML = t("quiz.incorrectFeedback").replace("{answer}", correctText || verb.pastSimple).replace("{mistake}", App.VerbLang.mistake(verb));
       }
       $("#testScore").textContent = `${this.score} / ${this.results.length}`;
       $("#testNextBtn").textContent = t("test.nextQuestion");
@@ -303,7 +303,7 @@
         $("#examWriteInput").value = "";
         $("#examWriteInput").focus();
       }
-      qBox.querySelector(".qhint").textContent = q.verb.translation;
+      qBox.querySelector(".qhint").textContent = App.VerbLang.translation(q.verb);
     },
     answer(correct, given) {
       const q = this.questions[this.index];
@@ -353,7 +353,7 @@
     },
     render() {
       const v = this.list[this.index];
-      $("#writeTranslationHint").textContent = v.translation;
+      $("#writeTranslationHint").textContent = App.VerbLang.translation(v);
       $("#writeInfinitiveLabel").textContent = v.infinitive;
       $("#writePastInput").value = "";
       $("#writeParticipleInput").value = "";
@@ -369,7 +369,7 @@
       const norm = App.Utils.normalize;
       const pastOk = App.Utils.answersMatch($("#writePastInput").value, v.pastSimple);
       const partOk = App.Utils.answersMatch($("#writeParticipleInput").value, v.pastParticiple);
-      const transOk = App.Utils.answersMatch($("#writeThirdInput").value, v.translation);
+      const transOk = App.Utils.answersMatch($("#writeThirdInput").value, App.VerbLang.translation(v));
       const allOk = pastOk && partOk && transOk;
       App.Storage.recordAnswer(v.id, allOk);
       if (allOk) this.score++;
@@ -382,7 +382,7 @@
         : t("quiz.writingResultTemplate")
             .replace("{markPast}", mark(pastOk)).replace("{past}", v.pastSimple)
             .replace("{markPart}", mark(partOk)).replace("{part}", v.pastParticiple)
-            .replace("{markTrans}", mark(transOk)).replace("{trans}", v.translation);
+            .replace("{markTrans}", mark(transOk)).replace("{trans}", App.VerbLang.translation(v));
       $("#writeInputs").querySelectorAll("input").forEach((i) => (i.disabled = true));
       $("#writeNextBtn").style.display = "inline-flex";
     },
@@ -460,7 +460,7 @@
     { key: "infinitive", labelKey: "common.infinitive", get: (v) => v.infinitive },
     { key: "pastSimple", labelKey: "common.pastSimple", get: (v) => v.pastSimple },
     { key: "pastParticiple", labelKey: "common.participle", get: (v) => v.pastParticiple },
-    { key: "translation", labelKey: "common.translation", get: (v) => v.translation },
+    { key: "translation", labelKey: "common.translation", get: (v) => App.VerbLang.translation(v) },
   ];
   const DIFF_BLANKS = { easy: 1, medium: 2, hard: 3 };
 

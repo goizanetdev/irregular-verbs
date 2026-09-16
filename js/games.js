@@ -31,7 +31,7 @@
       const items = [];
       verbs.forEach((v) => {
         items.push({ pairId: v.id, text: v.infinitive, type: "en" });
-        items.push({ pairId: v.id, text: v.translation, type: "es" });
+        items.push({ pairId: v.id, text: App.VerbLang.translation(v), type: "es" });
       });
       this.cards = shuffle(items).map((c, i) => ({ ...c, uid: i, revealed: false, matched: false }));
       this.flipped = []; this.matched = 0; this.moves = 0; this.locked = false;
@@ -128,7 +128,7 @@
           onclick: () => this.guess(ch),
         }, [ch]));
       });
-      $("#hangmanHint").textContent = this.verb.translation;
+      $("#hangmanHint").textContent = App.VerbLang.translation(this.verb);
       $("#hangmanStatus").textContent = "";
       $("#hangmanNextBtn").style.display = "none";
       if (this.wrong >= this.maxWrong) {
@@ -194,7 +194,7 @@
           onclick: () => this.place(t.id),
         }, [t.ch]));
       });
-      $("#orderHint").textContent = this.verb.translation;
+      $("#orderHint").textContent = App.VerbLang.translation(this.verb);
       $("#orderStatus").textContent = "";
       $("#orderNextBtn").style.display = "none";
     },
@@ -357,7 +357,7 @@
     askQuestion(verb) {
       $("#rouletteQuestion").style.display = "block";
       $("#rouletteQtext").textContent = t("quiz.mcqQuestion").replace("{verb}", verb.infinitive);
-      $("#rouletteHint").textContent = verb.translation;
+      $("#rouletteHint").textContent = App.VerbLang.translation(verb);
       const optBox = $("#rouletteOptions");
       optBox.innerHTML = "";
       App.Utils.smartVerbOptions(verb, "pastSimple").forEach((opt) => {

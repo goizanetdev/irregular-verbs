@@ -1,10 +1,3 @@
-/**
- * Base de datos de verbos irregulares en inglés.
- * Generada y curada para IrregularVerbs — no depende de APIs externas.
- * Cada verbo incluye formas, IPA, traducción, nivel CEFR, categoría,
- * un ejemplo bilingüe verificado a mano y específico para ese verbo,
- * verbos relacionados y error frecuente.
- */
 const VERBS = [
   {
     "id": "be-1",
@@ -12,6 +5,7 @@ const VERBS = [
     "pastSimple": "was/were",
     "pastParticiple": "been",
     "translation": "ser / estar",
+    "translationEu": "izan / egon",
     "ipa": {
       "infinitive": "biː",
       "pastSimple": "wɒz / wɜː",
@@ -24,9 +18,11 @@ const VERBS = [
     "rank": 1,
     "example": {
       "en": "I was tired after the trip, but now I have been to Rome three times.",
-      "es": "Estuve cansado después del viaje, pero ya he estado en Roma tres veces."
+      "es": "Estuve cansado después del viaje, pero ya he estado en Roma tres veces.",
+      "eu": "Bidaiaren ondoren nekatuta nengoen, baina jada hiru aldiz egon naiz Erroman."
     },
     "mistake": "No añadas '-ed' a 'be': su pasado es 'was/were' y su participio 'been', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'be'-ri: iraganaldia 'was/were' da eta partizipioa 'been', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "wake",
       "hurt",
@@ -39,6 +35,7 @@ const VERBS = [
     "pastSimple": "had",
     "pastParticiple": "had",
     "translation": "tener",
+    "translationEu": "eduki",
     "ipa": {
       "infinitive": "hæv",
       "pastSimple": "hæd",
@@ -51,9 +48,11 @@ const VERBS = [
     "rank": 2,
     "example": {
       "en": "She had a bad day yesterday, and she has had many like it this month.",
-      "es": "Ella tuvo un mal día ayer, y ha tenido muchos así este mes."
+      "es": "Ella tuvo un mal día ayer, y ha tenido muchos así este mes.",
+      "eu": "Atzo egun txarra izan zuen, eta hilabete honetan horrelako asko izan ditu."
     },
     "mistake": "'had' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'had' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": []
   },
   {
@@ -62,6 +61,7 @@ const VERBS = [
     "pastSimple": "did",
     "pastParticiple": "done",
     "translation": "hacer",
+    "translationEu": "egin",
     "ipa": {
       "infinitive": "duː",
       "pastSimple": "dɪd",
@@ -74,9 +74,11 @@ const VERBS = [
     "rank": 3,
     "example": {
       "en": "She did all her chores before her parents came home.",
-      "es": "Ella hizo todas sus tareas antes de que sus padres llegaran a casa."
+      "es": "Ella hizo todas sus tareas antes de que sus padres llegaran a casa.",
+      "eu": "Gurasoak etxera iritsi baino lehen, bere lan guztiak egin zituen."
     },
     "mistake": "No añadas '-ed' a 'do': su pasado es 'did' y su participio 'done', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'do'-ri: iraganaldia 'did' da eta partizipioa 'done', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "get",
       "take",
@@ -89,6 +91,7 @@ const VERBS = [
     "pastSimple": "said",
     "pastParticiple": "said",
     "translation": "decir",
+    "translationEu": "esan",
     "ipa": {
       "infinitive": "seɪ",
       "pastSimple": "sed",
@@ -101,9 +104,11 @@ const VERBS = [
     "rank": 4,
     "example": {
       "en": "He said nothing at all during the entire meeting.",
-      "es": "Él no dijo nada en absoluto durante toda la reunión."
+      "es": "Él no dijo nada en absoluto durante toda la reunión.",
+      "eu": "Ez zuen ezer esan bileran zehar."
     },
     "mistake": "'said' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'said' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "tell",
       "mean",
@@ -116,6 +121,7 @@ const VERBS = [
     "pastSimple": "went",
     "pastParticiple": "gone",
     "translation": "ir",
+    "translationEu": "joan",
     "ipa": {
       "infinitive": "ɡəʊ",
       "pastSimple": "went",
@@ -128,9 +134,11 @@ const VERBS = [
     "rank": 5,
     "example": {
       "en": "They went to the beach every day last summer.",
-      "es": "Ellos iban a la playa todos los días el verano pasado."
+      "es": "Ellos iban a la playa todos los días el verano pasado.",
+      "eu": "Iaz udan hondartzara joaten ziren egunero."
     },
     "mistake": "No añadas '-ed' a 'go': su pasado es 'went' y su participio 'gone', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'go'-ri: iraganaldia 'went' da eta partizipioa 'gone', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "come",
       "leave",
@@ -143,6 +151,7 @@ const VERBS = [
     "pastSimple": "got",
     "pastParticiple": "gotten",
     "translation": "conseguir / obtener",
+    "translationEu": "lortu / eskuratu",
     "ipa": {
       "infinitive": "ɡet",
       "pastSimple": "ɡɒt",
@@ -155,9 +164,11 @@ const VERBS = [
     "rank": 6,
     "example": {
       "en": "She got a wonderful surprise on her birthday.",
-      "es": "Ella recibió una sorpresa maravillosa en su cumpleaños."
+      "es": "Ella recibió una sorpresa maravillosa en su cumpleaños.",
+      "eu": "Sorpresa zoragarria jaso zuen bere urtebetetzean."
     },
     "mistake": "No añadas '-ed' a 'get': su pasado es 'got' y su participio 'gotten', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'get'-ri: iraganaldia 'got' da eta partizipioa 'gotten', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "do",
       "take",
@@ -170,6 +181,7 @@ const VERBS = [
     "pastSimple": "made",
     "pastParticiple": "made",
     "translation": "hacer / fabricar",
+    "translationEu": "egin / fabrikatu",
     "ipa": {
       "infinitive": "meɪk",
       "pastSimple": "meɪd",
@@ -182,9 +194,11 @@ const VERBS = [
     "rank": 7,
     "example": {
       "en": "He made a beautiful wooden chair for his daughter.",
-      "es": "Él hizo una hermosa silla de madera para su hija."
+      "es": "Él hizo una hermosa silla de madera para su hija.",
+      "eu": "Egurrezko aulki eder bat egin zion bere alabari."
     },
     "mistake": "'made' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'made' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "write",
       "build",
@@ -197,6 +211,7 @@ const VERBS = [
     "pastSimple": "knew",
     "pastParticiple": "known",
     "translation": "saber / conocer",
+    "translationEu": "jakin / ezagutu",
     "ipa": {
       "infinitive": "nəʊ",
       "pastSimple": "njuː",
@@ -209,9 +224,11 @@ const VERBS = [
     "rank": 8,
     "example": {
       "en": "I knew the answer, but I was too nervous to say it.",
-      "es": "Yo sabía la respuesta, pero estaba demasiado nervioso para decirla."
+      "es": "Yo sabía la respuesta, pero estaba demasiado nervioso para decirla.",
+      "eu": "Erantzuna banekien, baina urduriegi nengoen esateko."
     },
     "mistake": "No añadas '-ed' a 'know': su pasado es 'knew' y su participio 'known', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'know'-ri: iraganaldia 'knew' da eta partizipioa 'known', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "think",
       "understand",
@@ -224,6 +241,7 @@ const VERBS = [
     "pastSimple": "thought",
     "pastParticiple": "thought",
     "translation": "pensar",
+    "translationEu": "pentsatu",
     "ipa": {
       "infinitive": "θɪŋk",
       "pastSimple": "θɔːt",
@@ -236,9 +254,11 @@ const VERBS = [
     "rank": 9,
     "example": {
       "en": "She thought about the offer for almost a week.",
-      "es": "Ella pensó en la oferta durante casi una semana."
+      "es": "Ella pensó en la oferta durante casi una semana.",
+      "eu": "Ia astebetez pentsatu zuen eskaintzari buruz."
     },
     "mistake": "'thought' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'thought' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "know",
       "understand",
@@ -251,6 +271,7 @@ const VERBS = [
     "pastSimple": "saw",
     "pastParticiple": "seen",
     "translation": "ver",
+    "translationEu": "ikusi",
     "ipa": {
       "infinitive": "siː",
       "pastSimple": "sɔː",
@@ -263,9 +284,11 @@ const VERBS = [
     "rank": 10,
     "example": {
       "en": "We saw a beautiful rainbow after the storm.",
-      "es": "Vimos un hermoso arcoíris después de la tormenta."
+      "es": "Vimos un hermoso arcoíris después de la tormenta.",
+      "eu": "Ostadar eder bat ikusi genuen ekaitzaren ondoren."
     },
     "mistake": "No añadas '-ed' a 'see': su pasado es 'saw' y su participio 'seen', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'see'-ri: iraganaldia 'saw' da eta partizipioa 'seen', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "feel",
       "hear",
@@ -278,6 +301,7 @@ const VERBS = [
     "pastSimple": "came",
     "pastParticiple": "come",
     "translation": "venir",
+    "translationEu": "etorri",
     "ipa": {
       "infinitive": "kʌm",
       "pastSimple": "keɪm",
@@ -290,9 +314,11 @@ const VERBS = [
     "rank": 11,
     "example": {
       "en": "He came home late every night that week.",
-      "es": "Él llegó a casa tarde todas las noches esa semana."
+      "es": "Él llegó a casa tarde todas las noches esa semana.",
+      "eu": "Aste hartan gauero berandu etorri zen etxera."
     },
     "mistake": "No añadas '-ed' a 'come': su pasado es 'came' y su participio 'come', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'come'-ri: iraganaldia 'came' da eta partizipioa 'come', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "go",
       "leave",
@@ -305,6 +331,7 @@ const VERBS = [
     "pastSimple": "took",
     "pastParticiple": "taken",
     "translation": "tomar / coger",
+    "translationEu": "hartu",
     "ipa": {
       "infinitive": "teɪk",
       "pastSimple": "tʊk",
@@ -317,9 +344,11 @@ const VERBS = [
     "rank": 12,
     "example": {
       "en": "She took the wrong bus and arrived an hour late.",
-      "es": "Ella tomó el autobús equivocado y llegó una hora tarde."
+      "es": "Ella tomó el autobús equivocado y llegó una hora tarde.",
+      "eu": "Autobus okerra hartu zuen eta ordu bete berandu iritsi zen."
     },
     "mistake": "No añadas '-ed' a 'take': su pasado es 'took' y su participio 'taken', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'take'-ri: iraganaldia 'took' da eta partizipioa 'taken', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "give",
       "find",
@@ -332,6 +361,7 @@ const VERBS = [
     "pastSimple": "gave",
     "pastParticiple": "given",
     "translation": "dar",
+    "translationEu": "eman",
     "ipa": {
       "infinitive": "ɡɪv",
       "pastSimple": "ɡeɪv",
@@ -344,9 +374,11 @@ const VERBS = [
     "rank": 13,
     "example": {
       "en": "They gave every child a small gift at the party.",
-      "es": "Le dieron un pequeño regalo a cada niño en la fiesta."
+      "es": "Le dieron un pequeño regalo a cada niño en la fiesta.",
+      "eu": "Opari txiki bat eman zioten festan zegoen haur bakoitzari."
     },
     "mistake": "No añadas '-ed' a 'give': su pasado es 'gave' y su participio 'given', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'give'-ri: iraganaldia 'gave' da eta partizipioa 'given', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "take",
       "find",
@@ -359,6 +391,7 @@ const VERBS = [
     "pastSimple": "found",
     "pastParticiple": "found",
     "translation": "encontrar",
+    "translationEu": "aurkitu",
     "ipa": {
       "infinitive": "faɪnd",
       "pastSimple": "faʊnd",
@@ -371,9 +404,11 @@ const VERBS = [
     "rank": 14,
     "example": {
       "en": "He found his lost wallet under the car seat.",
-      "es": "Él encontró su cartera perdida debajo del asiento del coche."
+      "es": "Él encontró su cartera perdida debajo del asiento del coche.",
+      "eu": "Autoko eserlekuaren azpian galdutako zorroa aurkitu zuen."
     },
     "mistake": "'found' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'found' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "give",
       "take",
@@ -386,6 +421,7 @@ const VERBS = [
     "pastSimple": "told",
     "pastParticiple": "told",
     "translation": "contar / decir",
+    "translationEu": "kontatu / esan",
     "ipa": {
       "infinitive": "tel",
       "pastSimple": "təʊld",
@@ -398,9 +434,11 @@ const VERBS = [
     "rank": 15,
     "example": {
       "en": "She told her brother about the accident.",
-      "es": "Ella le contó a su hermano sobre el accidente."
+      "es": "Ella le contó a su hermano sobre el accidente.",
+      "eu": "Istripuari buruz kontatu zion bere anaiari."
     },
     "mistake": "'told' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'told' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "say",
       "mean",
@@ -413,6 +451,7 @@ const VERBS = [
     "pastSimple": "felt",
     "pastParticiple": "felt",
     "translation": "sentir",
+    "translationEu": "sentitu",
     "ipa": {
       "infinitive": "fiːl",
       "pastSimple": "felt",
@@ -425,9 +464,11 @@ const VERBS = [
     "rank": 16,
     "example": {
       "en": "He felt terrible after eating so much cake.",
-      "es": "Él se sintió fatal después de comer tanto pastel."
+      "es": "Él se sintió fatal después de comer tanto pastel.",
+      "eu": "Oso gaizki sentitu zen hainbeste pastel jan ondoren."
     },
     "mistake": "'felt' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'felt' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "see",
       "hear",
@@ -440,6 +481,7 @@ const VERBS = [
     "pastSimple": "left",
     "pastParticiple": "left",
     "translation": "dejar / salir",
+    "translationEu": "utzi / joan",
     "ipa": {
       "infinitive": "liːv",
       "pastSimple": "left",
@@ -452,9 +494,11 @@ const VERBS = [
     "rank": 17,
     "example": {
       "en": "They left the party before midnight.",
-      "es": "Se fueron de la fiesta antes de medianoche."
+      "es": "Se fueron de la fiesta antes de medianoche.",
+      "eu": "Gauerdia baino lehen festatik joan ziren."
     },
     "mistake": "'left' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'left' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "bring",
       "come",
@@ -467,6 +511,7 @@ const VERBS = [
     "pastSimple": "put",
     "pastParticiple": "put",
     "translation": "poner",
+    "translationEu": "jarri / ipini",
     "ipa": {
       "infinitive": "pʊt",
       "pastSimple": "pʊt",
@@ -479,9 +524,11 @@ const VERBS = [
     "rank": 18,
     "example": {
       "en": "She put the keys on the kitchen table.",
-      "es": "Ella puso las llaves sobre la mesa de la cocina."
+      "es": "Ella puso las llaves sobre la mesa de la cocina.",
+      "eu": "Giltzak sukaldeko mahai gainean jarri zituen."
     },
     "mistake": "'put' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'put' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "keep",
       "let",
@@ -494,6 +541,7 @@ const VERBS = [
     "pastSimple": "kept",
     "pastParticiple": "kept",
     "translation": "mantener / guardar",
+    "translationEu": "mantendu / gorde",
     "ipa": {
       "infinitive": "kiːp",
       "pastSimple": "kept",
@@ -506,9 +554,11 @@ const VERBS = [
     "rank": 19,
     "example": {
       "en": "He kept the old letter for over twenty years.",
-      "es": "Él guardó la vieja carta durante más de veinte años."
+      "es": "Él guardó la vieja carta durante más de veinte años.",
+      "eu": "Gutun zaharra hogei urte baino gehiagoz gorde zuen."
     },
     "mistake": "'kept' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'kept' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "put",
       "let",
@@ -521,6 +571,7 @@ const VERBS = [
     "pastSimple": "let",
     "pastParticiple": "let",
     "translation": "dejar / permitir",
+    "translationEu": "utzi / baimendu",
     "ipa": {
       "infinitive": "let",
       "pastSimple": "let",
@@ -533,9 +584,11 @@ const VERBS = [
     "rank": 20,
     "example": {
       "en": "Her parents let her stay out late that night.",
-      "es": "Sus padres la dejaron quedarse fuera hasta tarde esa noche."
+      "es": "Sus padres la dejaron quedarse fuera hasta tarde esa noche.",
+      "eu": "Gurasoek gau hartan berandura arte kanpoan geratzen utzi zioten."
     },
     "mistake": "'let' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'let' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "keep",
       "begin",
@@ -548,6 +601,7 @@ const VERBS = [
     "pastSimple": "began",
     "pastParticiple": "begun",
     "translation": "empezar",
+    "translationEu": "hasi",
     "ipa": {
       "infinitive": "bɪˈɡɪn",
       "pastSimple": "bɪˈɡæn",
@@ -560,9 +614,11 @@ const VERBS = [
     "rank": 21,
     "example": {
       "en": "The concert began exactly on time.",
-      "es": "El concierto empezó exactamente a tiempo."
+      "es": "El concierto empezó exactamente a tiempo.",
+      "eu": "Kontzertua puntualki hasi zen."
     },
     "mistake": "No añadas '-ed' a 'begin': su pasado es 'began' y su participio 'begun', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'begin'-ri: iraganaldia 'began' da eta partizipioa 'begun', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "let",
       "keep",
@@ -575,6 +631,7 @@ const VERBS = [
     "pastSimple": "brought",
     "pastParticiple": "brought",
     "translation": "traer",
+    "translationEu": "ekarri",
     "ipa": {
       "infinitive": "brɪŋ",
       "pastSimple": "brɔːt",
@@ -587,9 +644,11 @@ const VERBS = [
     "rank": 22,
     "example": {
       "en": "He brought flowers for his mother's birthday.",
-      "es": "Él trajo flores para el cumpleaños de su madre."
+      "es": "Él trajo flores para el cumpleaños de su madre.",
+      "eu": "Loreak ekarri zizkion amari, urtebetetzea zela eta."
     },
     "mistake": "'brought' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'brought' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "stand",
       "leave",
@@ -602,6 +661,7 @@ const VERBS = [
     "pastSimple": "wrote",
     "pastParticiple": "written",
     "translation": "escribir",
+    "translationEu": "idatzi",
     "ipa": {
       "infinitive": "raɪt",
       "pastSimple": "rəʊt",
@@ -614,9 +674,11 @@ const VERBS = [
     "rank": 23,
     "example": {
       "en": "She wrote a long letter to her old friend.",
-      "es": "Ella escribió una larga carta a su vieja amiga."
+      "es": "Ella escribió una larga carta a su vieja amiga.",
+      "eu": "Gutun luze bat idatzi zion bere lagun zaharrari."
     },
     "mistake": "No añadas '-ed' a 'write': su pasado es 'wrote' y su participio 'written', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'write'-ri: iraganaldia 'wrote' da eta partizipioa 'written', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "make",
       "build",
@@ -629,6 +691,7 @@ const VERBS = [
     "pastSimple": "stood",
     "pastParticiple": "stood",
     "translation": "estar de pie / soportar",
+    "translationEu": "zutik egon / jasan",
     "ipa": {
       "infinitive": "stænd",
       "pastSimple": "stʊd",
@@ -641,9 +704,11 @@ const VERBS = [
     "rank": 24,
     "example": {
       "en": "He stood by the door, waiting for the bus.",
-      "es": "Él se quedó de pie junto a la puerta, esperando el autobús."
+      "es": "Él se quedó de pie junto a la puerta, esperando el autobús.",
+      "eu": "Atearen ondoan zutik geratu zen, autobusaren zain."
     },
     "mistake": "'stood' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'stood' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "bring",
       "run",
@@ -656,6 +721,7 @@ const VERBS = [
     "pastSimple": "heard",
     "pastParticiple": "heard",
     "translation": "oír",
+    "translationEu": "entzun",
     "ipa": {
       "infinitive": "hɪə",
       "pastSimple": "hɜːd",
@@ -668,9 +734,11 @@ const VERBS = [
     "rank": 25,
     "example": {
       "en": "I heard a strange sound coming from the basement.",
-      "es": "Oí un ruido extraño que venía del sótano."
+      "es": "Oí un ruido extraño que venía del sótano.",
+      "eu": "Sotoan zetorren zarata arraro bat entzun nuen."
     },
     "mistake": "'heard' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'heard' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "feel",
       "see",
@@ -683,6 +751,7 @@ const VERBS = [
     "pastSimple": "meant",
     "pastParticiple": "meant",
     "translation": "significar",
+    "translationEu": "esan nahi izan",
     "ipa": {
       "infinitive": "miːn",
       "pastSimple": "ment",
@@ -695,9 +764,11 @@ const VERBS = [
     "rank": 26,
     "example": {
       "en": "She meant no harm when she said it.",
-      "es": "Ella no quiso hacer daño al decirlo."
+      "es": "Ella no quiso hacer daño al decirlo.",
+      "eu": "Ez zuen minik egin nahi izan hori esatean."
     },
     "mistake": "'meant' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'meant' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "meet",
       "speak",
@@ -710,6 +781,7 @@ const VERBS = [
     "pastSimple": "set",
     "pastParticiple": "set",
     "translation": "fijar / colocar",
+    "translationEu": "ezarri / jarri",
     "ipa": {
       "infinitive": "set",
       "pastSimple": "set",
@@ -722,9 +794,11 @@ const VERBS = [
     "rank": 27,
     "example": {
       "en": "He set the table before the guests arrived.",
-      "es": "Él puso la mesa antes de que llegaran los invitados."
+      "es": "Él puso la mesa antes de que llegaran los invitados.",
+      "eu": "Gonbidatuak iritsi baino lehen, mahaia jarri zuen."
     },
     "mistake": "'set' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'set' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "let",
       "pay",
@@ -737,6 +811,7 @@ const VERBS = [
     "pastSimple": "met",
     "pastParticiple": "met",
     "translation": "conocer / encontrarse con",
+    "translationEu": "ezagutu / topo egin",
     "ipa": {
       "infinitive": "miːt",
       "pastSimple": "met",
@@ -749,9 +824,11 @@ const VERBS = [
     "rank": 28,
     "example": {
       "en": "They met each other at a friend's wedding.",
-      "es": "Se conocieron en la boda de un amigo."
+      "es": "Se conocieron en la boda de un amigo.",
+      "eu": "Lagun baten ezkontzan ezagutu zuten elkar."
     },
     "mistake": "'met' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'met' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "mean",
       "speak",
@@ -764,6 +841,7 @@ const VERBS = [
     "pastSimple": "ran",
     "pastParticiple": "run",
     "translation": "correr",
+    "translationEu": "korrika egin",
     "ipa": {
       "infinitive": "rʌn",
       "pastSimple": "ræn",
@@ -776,9 +854,11 @@ const VERBS = [
     "rank": 29,
     "example": {
       "en": "She ran five kilometers before breakfast.",
-      "es": "Ella corrió cinco kilómetros antes del desayuno."
+      "es": "Ella corrió cinco kilómetros antes del desayuno.",
+      "eu": "Bost kilometro korrika egin zituen gosaldu aurretik."
     },
     "mistake": "No añadas '-ed' a 'run': su pasado es 'ran' y su participio 'run', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'run'-ri: iraganaldia 'ran' da eta partizipioa 'run', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "sit",
       "lie",
@@ -791,6 +871,7 @@ const VERBS = [
     "pastSimple": "paid",
     "pastParticiple": "paid",
     "translation": "pagar",
+    "translationEu": "ordaindu",
     "ipa": {
       "infinitive": "peɪ",
       "pastSimple": "peɪd",
@@ -803,9 +884,11 @@ const VERBS = [
     "rank": 30,
     "example": {
       "en": "He paid the bill without complaining.",
-      "es": "Él pagó la cuenta sin quejarse."
+      "es": "Él pagó la cuenta sin quejarse.",
+      "eu": "Kontua kexatu gabe ordaindu zuen."
     },
     "mistake": "'paid' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'paid' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "set",
       "lead",
@@ -818,6 +901,7 @@ const VERBS = [
     "pastSimple": "sat",
     "pastParticiple": "sat",
     "translation": "sentarse",
+    "translationEu": "eseri",
     "ipa": {
       "infinitive": "sɪt",
       "pastSimple": "sæt",
@@ -830,9 +914,11 @@ const VERBS = [
     "rank": 31,
     "example": {
       "en": "The old man sat on the bench for hours.",
-      "es": "El anciano se sentó en el banco durante horas."
+      "es": "El anciano se sentó en el banco durante horas.",
+      "eu": "Agurea bankuan eserita egon zen orduetan."
     },
     "mistake": "'sat' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'sat' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "run",
       "lie",
@@ -845,6 +931,7 @@ const VERBS = [
     "pastSimple": "spoke",
     "pastParticiple": "spoken",
     "translation": "hablar",
+    "translationEu": "hitz egin",
     "ipa": {
       "infinitive": "spiːk",
       "pastSimple": "spəʊk",
@@ -857,9 +944,11 @@ const VERBS = [
     "rank": 32,
     "example": {
       "en": "She spoke French fluently after two years abroad.",
-      "es": "Ella hablaba francés con fluidez después de dos años en el extranjero."
+      "es": "Ella hablaba francés con fluidez después de dos años en el extranjero.",
+      "eu": "Frantsesez trebeki hitz egiten zuen atzerrian bi urte igaro ondoren."
     },
     "mistake": "No añadas '-ed' a 'speak': su pasado es 'spoke' y su participio 'spoken', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'speak'-ri: iraganaldia 'spoke' da eta partizipioa 'spoken', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "read",
       "meet",
@@ -872,6 +961,7 @@ const VERBS = [
     "pastSimple": "lay",
     "pastParticiple": "lain",
     "translation": "tumbarse / yacer",
+    "translationEu": "etzan",
     "ipa": {
       "infinitive": "laɪ",
       "pastSimple": "leɪ",
@@ -884,9 +974,11 @@ const VERBS = [
     "rank": 33,
     "example": {
       "en": "The cat lay in the sun all afternoon.",
-      "es": "El gato se tumbó al sol toda la tarde."
+      "es": "El gato se tumbó al sol toda la tarde.",
+      "eu": "Katua eguzkitan etzanda egon zen arratsalde osoan."
     },
     "mistake": "No añadas '-ed' a 'lie': su pasado es 'lay' y su participio 'lain', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'lie'-ri: iraganaldia 'lay' da eta partizipioa 'lain', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "sit",
       "run",
@@ -899,6 +991,7 @@ const VERBS = [
     "pastSimple": "led",
     "pastParticiple": "led",
     "translation": "liderar / conducir",
+    "translationEu": "gidatu / lideratu",
     "ipa": {
       "infinitive": "liːd",
       "pastSimple": "led",
@@ -911,9 +1004,11 @@ const VERBS = [
     "rank": 34,
     "example": {
       "en": "She led the team to victory in the final match.",
-      "es": "Ella lideró al equipo hacia la victoria en el partido final."
+      "es": "Ella lideró al equipo hacia la victoria en el partido final.",
+      "eu": "Taldea garaipenera eraman zuen azken partidan."
     },
     "mistake": "'led' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'led' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "lose",
       "pay",
@@ -926,6 +1021,7 @@ const VERBS = [
     "pastSimple": "read",
     "pastParticiple": "read",
     "translation": "leer",
+    "translationEu": "irakurri",
     "ipa": {
       "infinitive": "riːd",
       "pastSimple": "red",
@@ -938,9 +1034,11 @@ const VERBS = [
     "rank": 35,
     "example": {
       "en": "He read the whole novel in a single weekend.",
-      "es": "Él leyó toda la novela en un solo fin de semana."
+      "es": "Él leyó toda la novela en un solo fin de semana.",
+      "eu": "Nobela osoa asteburu bakar batean irakurri zuen."
     },
     "mistake": "'read' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'read' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "speak",
       "send",
@@ -953,6 +1051,7 @@ const VERBS = [
     "pastSimple": "grew",
     "pastParticiple": "grown",
     "translation": "crecer",
+    "translationEu": "hazi",
     "ipa": {
       "infinitive": "ɡrəʊ",
       "pastSimple": "ɡruː",
@@ -965,9 +1064,11 @@ const VERBS = [
     "rank": 36,
     "example": {
       "en": "The little tree grew almost two meters in one year.",
-      "es": "El pequeño árbol creció casi dos metros en un año."
+      "es": "El pequeño árbol creció casi dos metros en un año.",
+      "eu": "Zuhaitz txikia ia bi metro hazi zen urte batean."
     },
     "mistake": "No añadas '-ed' a 'grow': su pasado es 'grew' y su participio 'grown', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'grow'-ri: iraganaldia 'grew' da eta partizipioa 'grown', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "freeze",
       "spread",
@@ -980,6 +1081,7 @@ const VERBS = [
     "pastSimple": "lost",
     "pastParticiple": "lost",
     "translation": "perder",
+    "translationEu": "galdu",
     "ipa": {
       "infinitive": "luːz",
       "pastSimple": "lɒst",
@@ -992,9 +1094,11 @@ const VERBS = [
     "rank": 37,
     "example": {
       "en": "They lost the match by just one point.",
-      "es": "Perdieron el partido por solo un punto."
+      "es": "Perdieron el partido por solo un punto.",
+      "eu": "Partida puntu bakar batengatik galdu zuten."
     },
     "mistake": "'lost' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'lost' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "lead",
       "break",
@@ -1007,6 +1111,7 @@ const VERBS = [
     "pastSimple": "fell",
     "pastParticiple": "fallen",
     "translation": "caer",
+    "translationEu": "erori",
     "ipa": {
       "infinitive": "fɔːl",
       "pastSimple": "fel",
@@ -1019,9 +1124,11 @@ const VERBS = [
     "rank": 38,
     "example": {
       "en": "She fell on the ice and hurt her wrist.",
-      "es": "Ella se cayó sobre el hielo y se lastimó la muñeca."
+      "es": "Ella se cayó sobre el hielo y se lastimó la muñeca.",
+      "eu": "Izotz gainean erori zen eta eskumuturra min hartu zuen."
     },
     "mistake": "No añadas '-ed' a 'fall': su pasado es 'fell' y su participio 'fallen', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'fall'-ri: iraganaldia 'fell' da eta partizipioa 'fallen', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "lie",
       "sit",
@@ -1034,6 +1141,7 @@ const VERBS = [
     "pastSimple": "sent",
     "pastParticiple": "sent",
     "translation": "enviar",
+    "translationEu": "bidali",
     "ipa": {
       "infinitive": "send",
       "pastSimple": "sent",
@@ -1046,9 +1154,11 @@ const VERBS = [
     "rank": 39,
     "example": {
       "en": "He sent the package a week before her birthday.",
-      "es": "Él envió el paquete una semana antes de su cumpleaños."
+      "es": "Él envió el paquete una semana antes de su cumpleaños.",
+      "eu": "Paketea bere urtebetetzea baino astebete lehenago bidali zuen."
     },
     "mistake": "'sent' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'sent' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "read",
       "speak",
@@ -1061,6 +1171,7 @@ const VERBS = [
     "pastSimple": "built",
     "pastParticiple": "built",
     "translation": "construir",
+    "translationEu": "eraiki",
     "ipa": {
       "infinitive": "bɪld",
       "pastSimple": "bɪlt",
@@ -1073,9 +1184,11 @@ const VERBS = [
     "rank": 40,
     "example": {
       "en": "They built the whole cabin with their own hands.",
-      "es": "Construyeron toda la cabaña con sus propias manos."
+      "es": "Construyeron toda la cabaña con sus propias manos.",
+      "eu": "Etxola osoa beren eskuekin eraiki zuten."
     },
     "mistake": "'built' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'built' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "draw",
       "write",
@@ -1088,6 +1201,7 @@ const VERBS = [
     "pastSimple": "understood",
     "pastParticiple": "understood",
     "translation": "entender",
+    "translationEu": "ulertu",
     "ipa": {
       "infinitive": "ˌʌndəˈstænd",
       "pastSimple": "ˌʌndəˈstʊd",
@@ -1100,9 +1214,11 @@ const VERBS = [
     "rank": 41,
     "example": {
       "en": "She understood the problem much better after his explanation.",
-      "es": "Ella entendió mucho mejor el problema tras su explicación."
+      "es": "Ella entendió mucho mejor el problema tras su explicación.",
+      "eu": "Arazoa askoz hobeto ulertu zuen haren azalpenaren ondoren."
     },
     "mistake": "'understood' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'understood' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "choose",
       "forget",
@@ -1115,6 +1231,7 @@ const VERBS = [
     "pastSimple": "drew",
     "pastParticiple": "drawn",
     "translation": "dibujar / tirar de",
+    "translationEu": "marraztu / tira egin",
     "ipa": {
       "infinitive": "drɔː",
       "pastSimple": "druː",
@@ -1127,9 +1244,11 @@ const VERBS = [
     "rank": 42,
     "example": {
       "en": "He drew a detailed map of the old town.",
-      "es": "Él dibujó un mapa detallado del pueblo antiguo."
+      "es": "Él dibujó un mapa detallado del pueblo antiguo.",
+      "eu": "Herri zaharraren mapa xehea marraztu zuen."
     },
     "mistake": "No añadas '-ed' a 'draw': su pasado es 'drew' y su participio 'drawn', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'draw'-ri: iraganaldia 'drew' da eta partizipioa 'drawn', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "build",
       "write",
@@ -1142,6 +1261,7 @@ const VERBS = [
     "pastSimple": "broke",
     "pastParticiple": "broken",
     "translation": "romper",
+    "translationEu": "hautsi",
     "ipa": {
       "infinitive": "breɪk",
       "pastSimple": "brəʊk",
@@ -1154,9 +1274,11 @@ const VERBS = [
     "rank": 43,
     "example": {
       "en": "The kids broke the window while playing football.",
-      "es": "Los niños rompieron la ventana mientras jugaban al fútbol."
+      "es": "Los niños rompieron la ventana mientras jugaban al fútbol.",
+      "eu": "Haurrek leihoa hautsi zuten futbolean jolasten ari zirela."
     },
     "mistake": "No añadas '-ed' a 'break': su pasado es 'broke' y su participio 'broken', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'break'-ri: iraganaldia 'broke' da eta partizipioa 'broken', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "spend",
       "cut",
@@ -1169,6 +1291,7 @@ const VERBS = [
     "pastSimple": "spent",
     "pastParticiple": "spent",
     "translation": "gastar / pasar (tiempo)",
+    "translationEu": "gastatu / eman (denbora)",
     "ipa": {
       "infinitive": "spend",
       "pastSimple": "spent",
@@ -1181,9 +1304,11 @@ const VERBS = [
     "rank": 44,
     "example": {
       "en": "She spent all her savings on the trip.",
-      "es": "Ella gastó todos sus ahorros en el viaje."
+      "es": "Ella gastó todos sus ahorros en el viaje.",
+      "eu": "Aurrezki guztiak bidaian gastatu zituen."
     },
     "mistake": "'spent' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'spent' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "break",
       "cut",
@@ -1196,6 +1321,7 @@ const VERBS = [
     "pastSimple": "cut",
     "pastParticiple": "cut",
     "translation": "cortar",
+    "translationEu": "moztu",
     "ipa": {
       "infinitive": "kʌt",
       "pastSimple": "kʌt",
@@ -1208,9 +1334,11 @@ const VERBS = [
     "rank": 45,
     "example": {
       "en": "He cut the rope with an old pocket knife.",
-      "es": "Él cortó la cuerda con una vieja navaja."
+      "es": "Él cortó la cuerda con una vieja navaja.",
+      "eu": "Soka labana zahar batekin moztu zuen."
     },
     "mistake": "'cut' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'cut' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "spend",
       "break",
@@ -1223,6 +1351,7 @@ const VERBS = [
     "pastSimple": "rose",
     "pastParticiple": "risen",
     "translation": "subir / levantarse",
+    "translationEu": "igo / altxatu",
     "ipa": {
       "infinitive": "raɪz",
       "pastSimple": "rəʊz",
@@ -1235,9 +1364,11 @@ const VERBS = [
     "rank": 46,
     "example": {
       "en": "The sun rose slowly over the quiet mountains.",
-      "es": "El sol salió lentamente sobre las tranquilas montañas."
+      "es": "El sol salió lentamente sobre las tranquilas montañas.",
+      "eu": "Eguzkia poliki-poliki igo zen mendi lasaien gainetik."
     },
     "mistake": "No añadas '-ed' a 'rise': su pasado es 'rose' y su participio 'risen', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'rise'-ri: iraganaldia 'rose' da eta partizipioa 'risen', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "drive",
       "fly",
@@ -1250,6 +1381,7 @@ const VERBS = [
     "pastSimple": "drove",
     "pastParticiple": "driven",
     "translation": "conducir",
+    "translationEu": "gidatu",
     "ipa": {
       "infinitive": "draɪv",
       "pastSimple": "drəʊv",
@@ -1262,9 +1394,11 @@ const VERBS = [
     "rank": 47,
     "example": {
       "en": "She drove all night to reach the hospital in time.",
-      "es": "Ella condujo toda la noche para llegar al hospital a tiempo."
+      "es": "Ella condujo toda la noche para llegar al hospital a tiempo.",
+      "eu": "Gau osoan gidatu zuen ospitalera garaiz iristeko."
     },
     "mistake": "No añadas '-ed' a 'drive': su pasado es 'drove' y su participio 'driven', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'drive'-ri: iraganaldia 'drove' da eta partizipioa 'driven', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "rise",
       "fly",
@@ -1277,6 +1411,7 @@ const VERBS = [
     "pastSimple": "bought",
     "pastParticiple": "bought",
     "translation": "comprar",
+    "translationEu": "erosi",
     "ipa": {
       "infinitive": "baɪ",
       "pastSimple": "bɔːt",
@@ -1289,9 +1424,11 @@ const VERBS = [
     "rank": 48,
     "example": {
       "en": "He bought a used bicycle for his son.",
-      "es": "Él compró una bicicleta usada para su hijo."
+      "es": "Él compró una bicicleta usada para su hijo.",
+      "eu": "Bigarren eskuko bizikleta bat erosi zion semeari."
     },
     "mistake": "'bought' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'bought' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "wear",
       "cut",
@@ -1304,6 +1441,7 @@ const VERBS = [
     "pastSimple": "wore",
     "pastParticiple": "worn",
     "translation": "llevar puesto",
+    "translationEu": "jantzita eraman",
     "ipa": {
       "infinitive": "weə",
       "pastSimple": "wɔː",
@@ -1316,9 +1454,11 @@ const VERBS = [
     "rank": 49,
     "example": {
       "en": "She wore a bright red dress to the party.",
-      "es": "Ella llevó un vestido rojo brillante a la fiesta."
+      "es": "Ella llevó un vestido rojo brillante a la fiesta.",
+      "eu": "Soineko gorri distiratsua jantzi zuen festarako."
     },
     "mistake": "No añadas '-ed' a 'wear': su pasado es 'wore' y su participio 'worn', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'wear'-ri: iraganaldia 'wore' da eta partizipioa 'worn', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "buy",
       "catch",
@@ -1331,6 +1471,7 @@ const VERBS = [
     "pastSimple": "chose",
     "pastParticiple": "chosen",
     "translation": "elegir",
+    "translationEu": "aukeratu",
     "ipa": {
       "infinitive": "tʃuːz",
       "pastSimple": "tʃəʊz",
@@ -1343,9 +1484,11 @@ const VERBS = [
     "rank": 50,
     "example": {
       "en": "He chose the blue shirt instead of the green one.",
-      "es": "Él eligió la camisa azul en lugar de la verde."
+      "es": "Él eligió la camisa azul en lugar de la verde.",
+      "eu": "Alkandora urdina aukeratu zuen berdea baino lehen."
     },
     "mistake": "No añadas '-ed' a 'choose': su pasado es 'chose' y su participio 'chosen', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'choose'-ri: iraganaldia 'chose' da eta partizipioa 'chosen', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "understand",
       "forget",
@@ -1358,6 +1501,7 @@ const VERBS = [
     "pastSimple": "caught",
     "pastParticiple": "caught",
     "translation": "atrapar / coger",
+    "translationEu": "harrapatu",
     "ipa": {
       "infinitive": "kætʃ",
       "pastSimple": "kɔːt",
@@ -1370,9 +1514,11 @@ const VERBS = [
     "rank": 51,
     "example": {
       "en": "The goalkeeper caught the ball just in time.",
-      "es": "El portero atrapó el balón justo a tiempo."
+      "es": "El portero atrapó el balón justo a tiempo.",
+      "eu": "Atezainak baloia garaiz harrapatu zuen."
     },
     "mistake": "'caught' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'caught' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "wear",
       "buy",
@@ -1385,6 +1531,7 @@ const VERBS = [
     "pastSimple": "flew",
     "pastParticiple": "flown",
     "translation": "volar",
+    "translationEu": "hegan egin",
     "ipa": {
       "infinitive": "flaɪ",
       "pastSimple": "fluː",
@@ -1397,9 +1544,11 @@ const VERBS = [
     "rank": 52,
     "example": {
       "en": "They flew to Japan for their honeymoon.",
-      "es": "Volaron a Japón para su luna de miel."
+      "es": "Volaron a Japón para su luna de miel.",
+      "eu": "Japoniara hegan egin zuten ezteietarako."
     },
     "mistake": "No añadas '-ed' a 'fly': su pasado es 'flew' y su participio 'flown', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'fly'-ri: iraganaldia 'flew' da eta partizipioa 'flown', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "drive",
       "rise",
@@ -1412,6 +1561,7 @@ const VERBS = [
     "pastSimple": "sang",
     "pastParticiple": "sung",
     "translation": "cantar",
+    "translationEu": "abestu / kantatu",
     "ipa": {
       "infinitive": "sɪŋ",
       "pastSimple": "sæŋ",
@@ -1424,9 +1574,11 @@ const VERBS = [
     "rank": 53,
     "example": {
       "en": "She sang beautifully at her cousin's wedding.",
-      "es": "Ella cantó maravillosamente en la boda de su prima."
+      "es": "Ella cantó maravillosamente en la boda de su prima.",
+      "eu": "Bikain kantatu zuen bere lehengusinaren ezkontzan."
     },
     "mistake": "No añadas '-ed' a 'sing': su pasado es 'sang' y su participio 'sung', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'sing'-ri: iraganaldia 'sang' da eta partizipioa 'sung', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "teach",
       "send",
@@ -1439,6 +1591,7 @@ const VERBS = [
     "pastSimple": "sold",
     "pastParticiple": "sold",
     "translation": "vender",
+    "translationEu": "saldu",
     "ipa": {
       "infinitive": "sel",
       "pastSimple": "səʊld",
@@ -1451,9 +1604,11 @@ const VERBS = [
     "rank": 54,
     "example": {
       "en": "He sold his old car to buy a new bike.",
-      "es": "Él vendió su viejo coche para comprarse una bicicleta nueva."
+      "es": "Él vendió su viejo coche para comprarse una bicicleta nueva.",
+      "eu": "Bere auto zaharra saldu zuen bizikleta berri bat erosteko."
     },
     "mistake": "'sold' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'sold' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "hold",
       "shoot",
@@ -1466,6 +1621,7 @@ const VERBS = [
     "pastSimple": "held",
     "pastParticiple": "held",
     "translation": "sujetar / celebrar",
+    "translationEu": "eutsi / heldu",
     "ipa": {
       "infinitive": "həʊld",
       "pastSimple": "held",
@@ -1478,9 +1634,11 @@ const VERBS = [
     "rank": 55,
     "example": {
       "en": "She held her baby close all through the night.",
-      "es": "Ella sostuvo a su bebé cerca durante toda la noche."
+      "es": "Ella sostuvo a su bebé cerca durante toda la noche.",
+      "eu": "Bere umea gau osoan hurbil heldu zuen."
     },
     "mistake": "'held' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'held' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "sell",
       "shoot",
@@ -1493,6 +1651,7 @@ const VERBS = [
     "pastSimple": "shot",
     "pastParticiple": "shot",
     "translation": "disparar",
+    "translationEu": "dispara / argazkia atera",
     "ipa": {
       "infinitive": "ʃuːt",
       "pastSimple": "ʃɒt",
@@ -1505,9 +1664,11 @@ const VERBS = [
     "rank": 56,
     "example": {
       "en": "The photographer shot over two hundred photos that day.",
-      "es": "El fotógrafo tomó más de doscientas fotos ese día."
+      "es": "El fotógrafo tomó más de doscientas fotos ese día.",
+      "eu": "Argazkilariak berrehun argazki baino gehiago atera zituen egun hartan."
     },
     "mistake": "'shot' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'shot' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "hold",
       "sell",
@@ -1520,6 +1681,7 @@ const VERBS = [
     "pastSimple": "taught",
     "pastParticiple": "taught",
     "translation": "enseñar",
+    "translationEu": "irakatsi",
     "ipa": {
       "infinitive": "tiːtʃ",
       "pastSimple": "tɔːt",
@@ -1532,9 +1694,11 @@ const VERBS = [
     "rank": 57,
     "example": {
       "en": "He taught mathematics at the local school for years.",
-      "es": "Él enseñó matemáticas en la escuela local durante años."
+      "es": "Él enseñó matemáticas en la escuela local durante años.",
+      "eu": "Matematika irakatsi zuen bertako eskolan urte askoan."
     },
     "mistake": "'taught' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'taught' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "sing",
       "send",
@@ -1547,6 +1711,7 @@ const VERBS = [
     "pastSimple": "swam",
     "pastParticiple": "swum",
     "translation": "nadar",
+    "translationEu": "igeri egin",
     "ipa": {
       "infinitive": "swɪm",
       "pastSimple": "swæm",
@@ -1559,9 +1724,11 @@ const VERBS = [
     "rank": 58,
     "example": {
       "en": "She swam across the lake despite the cold water.",
-      "es": "Ella nadó a través del lago a pesar del agua fría."
+      "es": "Ella nadó a través del lago a pesar del agua fría.",
+      "eu": "Aintzira igeri igaro zuen ur hotza gorabehera."
     },
     "mistake": "No añadas '-ed' a 'swim': su pasado es 'swam' y su participio 'swum', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'swim'-ri: iraganaldia 'swam' da eta partizipioa 'swum', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "fly",
       "drive",
@@ -1574,6 +1741,7 @@ const VERBS = [
     "pastSimple": "threw",
     "pastParticiple": "thrown",
     "translation": "lanzar",
+    "translationEu": "jaurti / bota",
     "ipa": {
       "infinitive": "θrəʊ",
       "pastSimple": "θruː",
@@ -1586,9 +1754,11 @@ const VERBS = [
     "rank": 59,
     "example": {
       "en": "He threw the ball straight into the basket.",
-      "es": "Él lanzó el balón directo a la canasta."
+      "es": "Él lanzó el balón directo a la canasta.",
+      "eu": "Baloia zuzenean saskira bota zuen."
     },
     "mistake": "No añadas '-ed' a 'throw': su pasado es 'threw' y su participio 'thrown', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'throw'-ri: iraganaldia 'threw' da eta partizipioa 'thrown', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "eat",
       "drink",
@@ -1601,6 +1771,7 @@ const VERBS = [
     "pastSimple": "ate",
     "pastParticiple": "eaten",
     "translation": "comer",
+    "translationEu": "jan",
     "ipa": {
       "infinitive": "iːt",
       "pastSimple": "eɪt",
@@ -1613,9 +1784,11 @@ const VERBS = [
     "rank": 60,
     "example": {
       "en": "They ate dinner together for the first time in months.",
-      "es": "Cenaron juntos por primera vez en meses."
+      "es": "Cenaron juntos por primera vez en meses.",
+      "eu": "Elkarrekin afaldu zuten hilabeteetan lehen aldiz."
     },
     "mistake": "No añadas '-ed' a 'eat': su pasado es 'ate' y su participio 'eaten', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'eat'-ri: iraganaldia 'ate' da eta partizipioa 'eaten', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "throw",
       "drink",
@@ -1628,6 +1801,7 @@ const VERBS = [
     "pastSimple": "drank",
     "pastParticiple": "drunk",
     "translation": "beber",
+    "translationEu": "edan",
     "ipa": {
       "infinitive": "drɪŋk",
       "pastSimple": "dræŋk",
@@ -1640,9 +1814,11 @@ const VERBS = [
     "rank": 61,
     "example": {
       "en": "She drank a whole pot of coffee that morning.",
-      "es": "Ella se bebió toda una cafetera esa mañana."
+      "es": "Ella se bebió toda una cafetera esa mañana.",
+      "eu": "Kafetera oso-osorik edan zuen goiz hartan."
     },
     "mistake": "No añadas '-ed' a 'drink': su pasado es 'drank' y su participio 'drunk', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'drink'-ri: iraganaldia 'drank' da eta partizipioa 'drunk', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "eat",
       "throw",
@@ -1655,6 +1831,7 @@ const VERBS = [
     "pastSimple": "forgot",
     "pastParticiple": "forgotten",
     "translation": "olvidar",
+    "translationEu": "ahaztu",
     "ipa": {
       "infinitive": "fəˈɡet",
       "pastSimple": "fəˈɡɒt",
@@ -1667,9 +1844,11 @@ const VERBS = [
     "rank": 62,
     "example": {
       "en": "He forgot his umbrella at the office again.",
-      "es": "Él olvidó su paraguas en la oficina otra vez."
+      "es": "Él olvidó su paraguas en la oficina otra vez.",
+      "eu": "Aterkia bulegoan ahaztu zuen berriro ere."
     },
     "mistake": "No añadas '-ed' a 'forget': su pasado es 'forgot' y su participio 'forgotten', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'forget'-ri: iraganaldia 'forgot' da eta partizipioa 'forgotten', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "forgive",
       "choose",
@@ -1682,6 +1861,7 @@ const VERBS = [
     "pastSimple": "woke",
     "pastParticiple": "woken",
     "translation": "despertar",
+    "translationEu": "esnatu",
     "ipa": {
       "infinitive": "weɪk",
       "pastSimple": "wəʊk",
@@ -1694,9 +1874,11 @@ const VERBS = [
     "rank": 63,
     "example": {
       "en": "The loud noise woke the whole neighborhood.",
-      "es": "El ruido fuerte despertó a todo el vecindario."
+      "es": "El ruido fuerte despertó a todo el vecindario.",
+      "eu": "Zarata handiak auzo osoa esnatu zuen."
     },
     "mistake": "No añadas '-ed' a 'wake': su pasado es 'woke' y su participio 'woken', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'wake'-ri: iraganaldia 'woke' da eta partizipioa 'woken', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "hurt",
       "cost",
@@ -1709,6 +1891,7 @@ const VERBS = [
     "pastSimple": "won",
     "pastParticiple": "won",
     "translation": "ganar",
+    "translationEu": "irabazi",
     "ipa": {
       "infinitive": "wɪn",
       "pastSimple": "wʌn",
@@ -1721,9 +1904,11 @@ const VERBS = [
     "rank": 64,
     "example": {
       "en": "Their team won the championship for the third year.",
-      "es": "Su equipo ganó el campeonato por tercer año."
+      "es": "Su equipo ganó el campeonato por tercer año.",
+      "eu": "Bere taldeak txapelketa irabazi zuen hirugarren urtez jarraian."
     },
     "mistake": "'won' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'won' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "hit",
       "drink",
@@ -1736,6 +1921,7 @@ const VERBS = [
     "pastSimple": "hit",
     "pastParticiple": "hit",
     "translation": "golpear",
+    "translationEu": "jo",
     "ipa": {
       "infinitive": "hɪt",
       "pastSimple": "hɪt",
@@ -1748,9 +1934,11 @@ const VERBS = [
     "rank": 65,
     "example": {
       "en": "The ball hit the window and broke the glass.",
-      "es": "El balón golpeó la ventana y rompió el cristal."
+      "es": "El balón golpeó la ventana y rompió el cristal.",
+      "eu": "Baloiak leihoa jo eta beira hautsi zuen."
     },
     "mistake": "'hit' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'hit' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "win",
       "shut",
@@ -1763,6 +1951,7 @@ const VERBS = [
     "pastSimple": "hurt",
     "pastParticiple": "hurt",
     "translation": "herir / doler",
+    "translationEu": "min hartu",
     "ipa": {
       "infinitive": "hɜːt",
       "pastSimple": "hɜːt",
@@ -1775,9 +1964,11 @@ const VERBS = [
     "rank": 66,
     "example": {
       "en": "She hurt her ankle during the race.",
-      "es": "Ella se lastimó el tobillo durante la carrera."
+      "es": "Ella se lastimó el tobillo durante la carrera.",
+      "eu": "Orkatila min hartu zuen lasterketan."
     },
     "mistake": "'hurt' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'hurt' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "cost",
       "wake",
@@ -1790,6 +1981,7 @@ const VERBS = [
     "pastSimple": "shut",
     "pastParticiple": "shut",
     "translation": "cerrar",
+    "translationEu": "itxi",
     "ipa": {
       "infinitive": "ʃʌt",
       "pastSimple": "ʃʌt",
@@ -1802,9 +1994,11 @@ const VERBS = [
     "rank": 67,
     "example": {
       "en": "He shut the door quietly so no one would wake up.",
-      "es": "Él cerró la puerta con cuidado para que nadie despertara."
+      "es": "Él cerró la puerta con cuidado para que nadie despertara.",
+      "eu": "Atea kontu handiz itxi zuen inor esna ez zedin."
     },
     "mistake": "'shut' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'shut' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "hit",
       "deal",
@@ -1817,6 +2011,7 @@ const VERBS = [
     "pastSimple": "cost",
     "pastParticiple": "cost",
     "translation": "costar",
+    "translationEu": "balio izan / kostatu",
     "ipa": {
       "infinitive": "kɒst",
       "pastSimple": "kɒst",
@@ -1829,9 +2024,11 @@ const VERBS = [
     "rank": 68,
     "example": {
       "en": "The repairs cost much more than they expected.",
-      "es": "Las reparaciones costaron mucho más de lo que esperaban."
+      "es": "Las reparaciones costaron mucho más de lo que esperaban.",
+      "eu": "Konponketek espero baino askoz gehiago balio izan zuten."
     },
     "mistake": "'cost' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'cost' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "hurt",
       "wake",
@@ -1844,6 +2041,7 @@ const VERBS = [
     "pastSimple": "dealt",
     "pastParticiple": "dealt",
     "translation": "tratar / lidiar con",
+    "translationEu": "aurre egin / kudeatu",
     "ipa": {
       "infinitive": "diːl",
       "pastSimple": "delt",
@@ -1856,9 +2054,11 @@ const VERBS = [
     "rank": 69,
     "example": {
       "en": "She dealt with the crisis calmly and quickly.",
-      "es": "Ella lidió con la crisis con calma y rapidez."
+      "es": "Ella lidió con la crisis con calma y rapidez.",
+      "eu": "Krisiari lasai eta azkar aurre egin zion."
     },
     "mistake": "'dealt' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'dealt' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "dig",
       "shut",
@@ -1871,6 +2071,7 @@ const VERBS = [
     "pastSimple": "dug",
     "pastParticiple": "dug",
     "translation": "cavar",
+    "translationEu": "zulatu / hondeatu",
     "ipa": {
       "infinitive": "dɪɡ",
       "pastSimple": "dʌɡ",
@@ -1883,9 +2084,11 @@ const VERBS = [
     "rank": 70,
     "example": {
       "en": "The dog dug a big hole in the backyard.",
-      "es": "El perro cavó un gran agujero en el patio trasero."
+      "es": "El perro cavó un gran agujero en el patio trasero.",
+      "eu": "Txakurrak zulo handi bat egin zuen atzeko patioan."
     },
     "mistake": "'dug' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'dug' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "deal",
       "feed",
@@ -1898,6 +2101,7 @@ const VERBS = [
     "pastSimple": "fed",
     "pastParticiple": "fed",
     "translation": "alimentar",
+    "translationEu": "elikatu",
     "ipa": {
       "infinitive": "fiːd",
       "pastSimple": "fed",
@@ -1910,9 +2114,11 @@ const VERBS = [
     "rank": 71,
     "example": {
       "en": "She fed the stray cats every morning before work.",
-      "es": "Ella alimentaba a los gatos callejeros cada mañana antes del trabajo."
+      "es": "Ella alimentaba a los gatos callejeros cada mañana antes del trabajo.",
+      "eu": "Kaleko katuei jaten ematen zien goizero lanera joan aurretik."
     },
     "mistake": "'fed' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'fed' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "dig",
       "fight",
@@ -1925,6 +2131,7 @@ const VERBS = [
     "pastSimple": "fought",
     "pastParticiple": "fought",
     "translation": "luchar / pelear",
+    "translationEu": "borrokatu / liskartu",
     "ipa": {
       "infinitive": "faɪt",
       "pastSimple": "fɔːt",
@@ -1937,9 +2144,11 @@ const VERBS = [
     "rank": 72,
     "example": {
       "en": "The two brothers fought over the last slice of pizza.",
-      "es": "Los dos hermanos pelearon por el último trozo de pizza."
+      "es": "Los dos hermanos pelearon por el último trozo de pizza.",
+      "eu": "Bi anaiak pizzaren azken zatiagatik liskartu ziren."
     },
     "mistake": "'fought' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'fought' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "feed",
       "dig",
@@ -1952,6 +2161,7 @@ const VERBS = [
     "pastSimple": "forgave",
     "pastParticiple": "forgiven",
     "translation": "perdonar",
+    "translationEu": "barkatu",
     "ipa": {
       "infinitive": "fəˈɡɪv",
       "pastSimple": "fəˈɡeɪv",
@@ -1964,9 +2174,11 @@ const VERBS = [
     "rank": 73,
     "example": {
       "en": "She forgave him after he apologized sincerely.",
-      "es": "Ella lo perdonó después de que él se disculpara sinceramente."
+      "es": "Ella lo perdonó después de que él se disculpara sinceramente.",
+      "eu": "Berak bihotzez barkamena eskatu ondoren, barkatu zion."
     },
     "mistake": "No añadas '-ed' a 'forgive': su pasado es 'forgave' y su participio 'forgiven', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'forgive'-ri: iraganaldia 'forgave' da eta partizipioa 'forgiven', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "forget",
       "choose",
@@ -1979,6 +2191,7 @@ const VERBS = [
     "pastSimple": "froze",
     "pastParticiple": "frozen",
     "translation": "congelar",
+    "translationEu": "izoztu",
     "ipa": {
       "infinitive": "friːz",
       "pastSimple": "frəʊz",
@@ -1991,9 +2204,11 @@ const VERBS = [
     "rank": 74,
     "example": {
       "en": "The pond froze solid during the cold January night.",
-      "es": "El estanque se congeló por completo durante la fría noche de enero."
+      "es": "El estanque se congeló por completo durante la fría noche de enero.",
+      "eu": "Urtegia guztiz izoztu zen urtarrileko gau hotzean."
     },
     "mistake": "No añadas '-ed' a 'freeze': su pasado es 'froze' y su participio 'frozen', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'freeze'-ri: iraganaldia 'froze' da eta partizipioa 'frozen', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "spread",
       "burn",
@@ -2006,6 +2221,7 @@ const VERBS = [
     "pastSimple": "hung",
     "pastParticiple": "hung",
     "translation": "colgar",
+    "translationEu": "zintzilikatu",
     "ipa": {
       "infinitive": "hæŋ",
       "pastSimple": "hʌŋ",
@@ -2018,9 +2234,11 @@ const VERBS = [
     "rank": 75,
     "example": {
       "en": "He hung the painting right above the fireplace.",
-      "es": "Él colgó el cuadro justo encima de la chimenea."
+      "es": "Él colgó el cuadro justo encima de la chimenea.",
+      "eu": "Koadroa tximiniaren gainean bertan zintzilikatu zuen."
     },
     "mistake": "'hung' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'hung' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "hide",
       "lend",
@@ -2033,6 +2251,7 @@ const VERBS = [
     "pastSimple": "hid",
     "pastParticiple": "hidden",
     "translation": "esconder",
+    "translationEu": "ezkutatu",
     "ipa": {
       "infinitive": "haɪd",
       "pastSimple": "hɪd",
@@ -2045,9 +2264,11 @@ const VERBS = [
     "rank": 76,
     "example": {
       "en": "The children hid behind the old wooden shed.",
-      "es": "Los niños se escondieron detrás del viejo cobertizo de madera."
+      "es": "Los niños se escondieron detrás del viejo cobertizo de madera.",
+      "eu": "Haurrak egurrezko txabola zaharraren atzean ezkutatu ziren."
     },
     "mistake": "No añadas '-ed' a 'hide': su pasado es 'hid' y su participio 'hidden', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'hide'-ri: iraganaldia 'hid' da eta partizipioa 'hidden', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "hang",
       "lend",
@@ -2060,6 +2281,7 @@ const VERBS = [
     "pastSimple": "lent",
     "pastParticiple": "lent",
     "translation": "prestar",
+    "translationEu": "mailegatu",
     "ipa": {
       "infinitive": "lend",
       "pastSimple": "lent",
@@ -2072,9 +2294,11 @@ const VERBS = [
     "rank": 77,
     "example": {
       "en": "She lent her neighbor some sugar and eggs.",
-      "es": "Ella le prestó azúcar y huevos a su vecina."
+      "es": "Ella le prestó azúcar y huevos a su vecina.",
+      "eu": "Azukrea eta arrautzak utzi zizkion bere auzokoari."
     },
     "mistake": "'lent' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'lent' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "hide",
       "light",
@@ -2087,6 +2311,7 @@ const VERBS = [
     "pastSimple": "lit",
     "pastParticiple": "lit",
     "translation": "encender",
+    "translationEu": "piztu",
     "ipa": {
       "infinitive": "laɪt",
       "pastSimple": "lɪt",
@@ -2099,9 +2324,11 @@ const VERBS = [
     "rank": 78,
     "example": {
       "en": "He lit the candles just before the guests arrived.",
-      "es": "Él encendió las velas justo antes de que llegaran los invitados."
+      "es": "Él encendió las velas justo antes de que llegaran los invitados.",
+      "eu": "Kandelak piztu zituen gonbidatuak iritsi baino lehen."
     },
     "mistake": "'lit' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'lit' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "lend",
       "hide",
@@ -2114,6 +2341,7 @@ const VERBS = [
     "pastSimple": "rode",
     "pastParticiple": "ridden",
     "translation": "montar / cabalgar",
+    "translationEu": "ibili (bizikletan)",
     "ipa": {
       "infinitive": "raɪd",
       "pastSimple": "rəʊd",
@@ -2126,9 +2354,11 @@ const VERBS = [
     "rank": 79,
     "example": {
       "en": "She rode her bike to school every single day.",
-      "es": "Ella iba en bicicleta a la escuela todos los días."
+      "es": "Ella iba en bicicleta a la escuela todos los días.",
+      "eu": "Bizikletaz joaten zen eskolara egunero."
     },
     "mistake": "No añadas '-ed' a 'ride': su pasado es 'rode' y su participio 'ridden', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'ride'-ri: iraganaldia 'rode' da eta partizipioa 'ridden', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "creep",
       "swim",
@@ -2141,6 +2371,7 @@ const VERBS = [
     "pastSimple": "rang",
     "pastParticiple": "rung",
     "translation": "sonar / llamar",
+    "translationEu": "jo",
     "ipa": {
       "infinitive": "rɪŋ",
       "pastSimple": "ræŋ",
@@ -2153,9 +2384,11 @@ const VERBS = [
     "rank": 80,
     "example": {
       "en": "The old church bell rang three times at noon.",
-      "es": "La vieja campana de la iglesia sonó tres veces al mediodía."
+      "es": "La vieja campana de la iglesia sonó tres veces al mediodía.",
+      "eu": "Elizako kanpai zaharrak hiru aldiz jo zuen eguerdian."
     },
     "mistake": "No añadas '-ed' a 'ring': su pasado es 'rang' y su participio 'rung', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'ring'-ri: iraganaldia 'rang' da eta partizipioa 'rung', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "swear",
       "teach",
@@ -2168,6 +2401,7 @@ const VERBS = [
     "pastSimple": "shook",
     "pastParticiple": "shaken",
     "translation": "agitar / sacudir",
+    "translationEu": "dardaratu",
     "ipa": {
       "infinitive": "ʃeɪk",
       "pastSimple": "ʃʊk",
@@ -2180,9 +2414,11 @@ const VERBS = [
     "rank": 81,
     "example": {
       "en": "The whole building shook during the earthquake.",
-      "es": "Todo el edificio tembló durante el terremoto."
+      "es": "Todo el edificio tembló durante el terremoto.",
+      "eu": "Eraikin osoa dardaratu zen lurrikararen ondorioz."
     },
     "mistake": "No añadas '-ed' a 'shake': su pasado es 'shook' y su participio 'shaken', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'shake'-ri: iraganaldia 'shook' da eta partizipioa 'shaken', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "light",
       "lend",
@@ -2195,6 +2431,7 @@ const VERBS = [
     "pastSimple": "shone",
     "pastParticiple": "shone",
     "translation": "brillar",
+    "translationEu": "distiratu",
     "ipa": {
       "infinitive": "ʃaɪn",
       "pastSimple": "ʃɒn",
@@ -2207,9 +2444,11 @@ const VERBS = [
     "rank": 82,
     "example": {
       "en": "The stars shone brightly over the quiet desert.",
-      "es": "Las estrellas brillaron intensamente sobre el desierto silencioso."
+      "es": "Las estrellas brillaron intensamente sobre el desierto silencioso.",
+      "eu": "Izarrek bizi-bizi distiratu zuten basamortu isilaren gainean."
     },
     "mistake": "'shone' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'shone' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "sleep",
       "cost",
@@ -2222,6 +2461,7 @@ const VERBS = [
     "pastSimple": "slept",
     "pastParticiple": "slept",
     "translation": "dormir",
+    "translationEu": "lo egin",
     "ipa": {
       "infinitive": "sliːp",
       "pastSimple": "slept",
@@ -2234,9 +2474,11 @@ const VERBS = [
     "rank": 83,
     "example": {
       "en": "The baby slept peacefully through the entire night.",
-      "es": "El bebé durmió plácidamente toda la noche."
+      "es": "El bebé durmió plácidamente toda la noche.",
+      "eu": "Haurtxoak lasai lo egin zuen gau osoan."
     },
     "mistake": "'slept' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'slept' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "shine",
       "cost",
@@ -2249,6 +2491,7 @@ const VERBS = [
     "pastSimple": "smelt",
     "pastParticiple": "smelt",
     "translation": "oler",
+    "translationEu": "usaindu",
     "ipa": {
       "infinitive": "smel",
       "pastSimple": "smelt",
@@ -2261,9 +2504,11 @@ const VERBS = [
     "rank": 84,
     "example": {
       "en": "She smelt smoke coming from the kitchen.",
-      "es": "Ella olió humo que venía de la cocina."
+      "es": "Ella olió humo que venía de la cocina.",
+      "eu": "Sukaldetik zetorren kea usaindu zuen."
     },
     "mistake": "'smelt' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'smelt' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "hear",
       "feel",
@@ -2276,6 +2521,7 @@ const VERBS = [
     "pastSimple": "spread",
     "pastParticiple": "spread",
     "translation": "extender / propagar",
+    "translationEu": "hedatu / zabaldu",
     "ipa": {
       "infinitive": "spred",
       "pastSimple": "spred",
@@ -2288,9 +2534,11 @@ const VERBS = [
     "rank": 85,
     "example": {
       "en": "The wildfire spread quickly across the dry hills.",
-      "es": "El incendio forestal se propagó rápidamente por las colinas secas."
+      "es": "El incendio forestal se propagó rápidamente por las colinas secas.",
+      "eu": "Baso-sua azkar zabaldu zen muino lehorretan zehar."
     },
     "mistake": "'spread' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'spread' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "burn",
       "freeze",
@@ -2303,6 +2551,7 @@ const VERBS = [
     "pastSimple": "stole",
     "pastParticiple": "stolen",
     "translation": "robar",
+    "translationEu": "lapurtu / ostu",
     "ipa": {
       "infinitive": "stiːl",
       "pastSimple": "stəʊl",
@@ -2315,9 +2564,11 @@ const VERBS = [
     "rank": 86,
     "example": {
       "en": "Someone stole her bicycle right outside the shop.",
-      "es": "Alguien le robó la bicicleta justo fuera de la tienda."
+      "es": "Alguien le robó la bicicleta justo fuera de la tienda.",
+      "eu": "Norbaitek bizikleta lapurtu zion dendaren atarian bertan."
     },
     "mistake": "No añadas '-ed' a 'steal': su pasado es 'stole' y su participio 'stolen', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'steal'-ri: iraganaldia 'stole' da eta partizipioa 'stolen', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "stick",
       "sweep",
@@ -2330,6 +2581,7 @@ const VERBS = [
     "pastSimple": "stuck",
     "pastParticiple": "stuck",
     "translation": "pegar / atascar",
+    "translationEu": "itsatsi",
     "ipa": {
       "infinitive": "stɪk",
       "pastSimple": "stʌk",
@@ -2342,9 +2594,11 @@ const VERBS = [
     "rank": 87,
     "example": {
       "en": "The label stuck firmly to the glass jar.",
-      "es": "La etiqueta se pegó firmemente al tarro de cristal."
+      "es": "La etiqueta se pegó firmemente al tarro de cristal.",
+      "eu": "Etiketa sendo itsatsi zen beira-potoari."
     },
     "mistake": "'stuck' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'stuck' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "steal",
       "sweep",
@@ -2357,6 +2611,7 @@ const VERBS = [
     "pastSimple": "swept",
     "pastParticiple": "swept",
     "translation": "barrer",
+    "translationEu": "erratza pasatu",
     "ipa": {
       "infinitive": "swiːp",
       "pastSimple": "swept",
@@ -2369,9 +2624,11 @@ const VERBS = [
     "rank": 88,
     "example": {
       "en": "She swept the porch before the sun went down.",
-      "es": "Ella barrió el porche antes de que se pusiera el sol."
+      "es": "Ella barrió el porche antes de que se pusiera el sol.",
+      "eu": "Terraza erratzatu zuen eguzkia sartu baino lehen."
     },
     "mistake": "'swept' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'swept' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "stick",
       "steal",
@@ -2384,6 +2641,7 @@ const VERBS = [
     "pastSimple": "swore",
     "pastParticiple": "sworn",
     "translation": "jurar / maldecir",
+    "translationEu": "zin egin",
     "ipa": {
       "infinitive": "sweə",
       "pastSimple": "swɔː",
@@ -2396,9 +2654,11 @@ const VERBS = [
     "rank": 89,
     "example": {
       "en": "He swore he would never lie to her again.",
-      "es": "Él juró que nunca más le mentiría."
+      "es": "Él juró que nunca más le mentiría.",
+      "eu": "Ez ziola gehiago gezurrik esango zin egin zuen."
     },
     "mistake": "No añadas '-ed' a 'swear': su pasado es 'swore' y su participio 'sworn', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'swear'-ri: iraganaldia 'swore' da eta partizipioa 'sworn', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "ring",
       "teach",
@@ -2411,6 +2671,7 @@ const VERBS = [
     "pastSimple": "tore",
     "pastParticiple": "torn",
     "translation": "rasgar / romper (tela)",
+    "translationEu": "urratu",
     "ipa": {
       "infinitive": "teə",
       "pastSimple": "tɔː",
@@ -2423,9 +2684,11 @@ const VERBS = [
     "rank": 90,
     "example": {
       "en": "The dog tore the newspaper into tiny pieces.",
-      "es": "El perro rompió el periódico en pedacitos."
+      "es": "El perro rompió el periódico en pedacitos.",
+      "eu": "Txakurrak egunkaria zatitxo-zatitxo urratu zuen."
     },
     "mistake": "No añadas '-ed' a 'tear': su pasado es 'tore' y su participio 'torn', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'tear'-ri: iraganaldia 'tore' da eta partizipioa 'torn', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "blow",
       "sweep",
@@ -2438,6 +2701,7 @@ const VERBS = [
     "pastSimple": "blew",
     "pastParticiple": "blown",
     "translation": "soplar",
+    "translationEu": "putz egin",
     "ipa": {
       "infinitive": "bləʊ",
       "pastSimple": "bluː",
@@ -2450,9 +2714,11 @@ const VERBS = [
     "rank": 91,
     "example": {
       "en": "A strong wind blew all the leaves off the trees.",
-      "es": "Un viento fuerte sopló todas las hojas de los árboles."
+      "es": "Un viento fuerte sopló todas las hojas de los árboles.",
+      "eu": "Haize bortitzak putz egin zuen eta zuhaitzetako hosto guztiak eraman zituen."
     },
     "mistake": "No añadas '-ed' a 'blow': su pasado es 'blew' y su participio 'blown', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'blow'-ri: iraganaldia 'blew' da eta partizipioa 'blown', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "tear",
       "bend",
@@ -2465,6 +2731,7 @@ const VERBS = [
     "pastSimple": "bent",
     "pastParticiple": "bent",
     "translation": "doblar",
+    "translationEu": "makurtu / okertu",
     "ipa": {
       "infinitive": "bend",
       "pastSimple": "bent",
@@ -2477,9 +2744,11 @@ const VERBS = [
     "rank": 92,
     "example": {
       "en": "He bent the metal bar with his bare hands.",
-      "es": "Él dobló la barra de metal con sus propias manos."
+      "es": "Él dobló la barra de metal con sus propias manos.",
+      "eu": "Metalezko barra bere eskuekin okertu zuen."
     },
     "mistake": "'bent' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'bent' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "blow",
       "bite",
@@ -2492,6 +2761,7 @@ const VERBS = [
     "pastSimple": "bit",
     "pastParticiple": "bitten",
     "translation": "morder",
+    "translationEu": "hozka egin",
     "ipa": {
       "infinitive": "baɪt",
       "pastSimple": "bɪt",
@@ -2504,9 +2774,11 @@ const VERBS = [
     "rank": 93,
     "example": {
       "en": "The dog bit the mailman's shoe by accident.",
-      "es": "El perro mordió el zapato del cartero por accidente."
+      "es": "El perro mordió el zapato del cartero por accidente.",
+      "eu": "Txakurrak postariaren zapata hozka egin zuen nahi gabe."
     },
     "mistake": "No añadas '-ed' a 'bite': su pasado es 'bit' y su participio 'bitten', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'bite'-ri: iraganaldia 'bit' da eta partizipioa 'bitten', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "bend",
       "bind",
@@ -2519,6 +2791,7 @@ const VERBS = [
     "pastSimple": "bound",
     "pastParticiple": "bound",
     "translation": "atar / vincular",
+    "translationEu": "lotu",
     "ipa": {
       "infinitive": "baɪnd",
       "pastSimple": "baʊnd",
@@ -2531,9 +2804,11 @@ const VERBS = [
     "rank": 94,
     "example": {
       "en": "They bound the old letters together with a ribbon.",
-      "es": "Ataron las viejas cartas juntas con una cinta."
+      "es": "Ataron las viejas cartas juntas con una cinta.",
+      "eu": "Gutun zahar guztiak zinta batekin lotu zituzten."
     },
     "mistake": "'bound' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'bound' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "bite",
       "bend",
@@ -2546,6 +2821,7 @@ const VERBS = [
     "pastSimple": "burnt",
     "pastParticiple": "burnt",
     "translation": "quemar",
+    "translationEu": "erre",
     "ipa": {
       "infinitive": "bɜːn",
       "pastSimple": "bɜːnt",
@@ -2558,9 +2834,11 @@ const VERBS = [
     "rank": 95,
     "example": {
       "en": "The candle burnt all night on the windowsill.",
-      "es": "La vela se quemó toda la noche en el alféizar."
+      "es": "La vela se quemó toda la noche en el alféizar.",
+      "eu": "Kandela gau osoan erre zen leihoertzean."
     },
     "mistake": "'burnt' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'burnt' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "burst",
       "spread",
@@ -2573,6 +2851,7 @@ const VERBS = [
     "pastSimple": "burst",
     "pastParticiple": "burst",
     "translation": "estallar / reventar",
+    "translationEu": "lehertu",
     "ipa": {
       "infinitive": "bɜːst",
       "pastSimple": "bɜːst",
@@ -2585,9 +2864,11 @@ const VERBS = [
     "rank": 96,
     "example": {
       "en": "The balloon burst with a loud pop.",
-      "es": "El globo estalló con un fuerte estampido."
+      "es": "El globo estalló con un fuerte estampido.",
+      "eu": "Globoa danbateko handi batekin lehertu zen."
     },
     "mistake": "'burst' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'burst' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "burn",
       "spread",
@@ -2600,6 +2881,7 @@ const VERBS = [
     "pastSimple": "crept",
     "pastParticiple": "crept",
     "translation": "arrastrarse / reptar",
+    "translationEu": "poliki-poliki hurbildu",
     "ipa": {
       "infinitive": "kriːp",
       "pastSimple": "krept",
@@ -2612,9 +2894,11 @@ const VERBS = [
     "rank": 97,
     "example": {
       "en": "The cat crept slowly toward the sleeping bird.",
-      "es": "El gato se arrastró lentamente hacia el pájaro dormido."
+      "es": "El gato se arrastró lentamente hacia el pájaro dormido.",
+      "eu": "Katua poliki-poliki hurbildu zen txori lo zegoenarengana."
     },
     "mistake": "'crept' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'crept' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "dive",
       "flee",
@@ -2627,6 +2911,7 @@ const VERBS = [
     "pastSimple": "dreamt",
     "pastParticiple": "dreamt",
     "translation": "soñar",
+    "translationEu": "amets egin",
     "ipa": {
       "infinitive": "driːm",
       "pastSimple": "dremt",
@@ -2639,9 +2924,11 @@ const VERBS = [
     "rank": 98,
     "example": {
       "en": "She dreamt about flying over the ocean.",
-      "es": "Ella soñó que volaba sobre el océano."
+      "es": "Ella soñó que volaba sobre el océano.",
+      "eu": "Ozeanoaren gainean hegan egiten zuela amets egin zuen."
     },
     "mistake": "'dreamt' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'dreamt' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "mistake",
       "prove",
@@ -2654,6 +2941,7 @@ const VERBS = [
     "pastSimple": "dove",
     "pastParticiple": "dived",
     "translation": "bucear / zambullirse",
+    "translationEu": "murgildu",
     "ipa": {
       "infinitive": "daɪv",
       "pastSimple": "dəʊv",
@@ -2666,9 +2954,11 @@ const VERBS = [
     "rank": 99,
     "example": {
       "en": "He dove straight into the cold swimming pool.",
-      "es": "Él se zambulló directo en la piscina fría."
+      "es": "Él se zambulló directo en la piscina fría.",
+      "eu": "Zuzenean igerileku hotzera murgildu zen."
     },
     "mistake": "No añadas '-ed' a 'dive': su pasado es 'dove' y su participio 'dived', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'dive'-ri: iraganaldia 'dove' da eta partizipioa 'dived', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "flee",
       "creep",
@@ -2681,6 +2971,7 @@ const VERBS = [
     "pastSimple": "fit",
     "pastParticiple": "fit",
     "translation": "quedar bien / encajar",
+    "translationEu": "doi-doi sartu",
     "ipa": {
       "infinitive": "fɪt",
       "pastSimple": "fɪt",
@@ -2693,9 +2984,11 @@ const VERBS = [
     "rank": 100,
     "example": {
       "en": "The old key no longer fit the new lock.",
-      "es": "La vieja llave ya no encajaba en la cerradura nueva."
+      "es": "La vieja llave ya no encajaba en la cerradura nueva.",
+      "eu": "Giltza zaharra ez zen jada sarraila berrian sartzen."
     },
     "mistake": "'fit' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'fit' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "sleep",
       "shine",
@@ -2708,6 +3001,7 @@ const VERBS = [
     "pastSimple": "fled",
     "pastParticiple": "fled",
     "translation": "huir",
+    "translationEu": "ihes egin",
     "ipa": {
       "infinitive": "fliː",
       "pastSimple": "fled",
@@ -2720,9 +3014,11 @@ const VERBS = [
     "rank": 101,
     "example": {
       "en": "The villagers fled before the storm arrived.",
-      "es": "Los aldeanos huyeron antes de que llegara la tormenta."
+      "es": "Los aldeanos huyeron antes de que llegara la tormenta.",
+      "eu": "Herritarrak ihes egin zuten ekaitza iritsi baino lehen."
     },
     "mistake": "'fled' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'fled' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "dive",
       "kneel",
@@ -2735,6 +3031,7 @@ const VERBS = [
     "pastSimple": "ground",
     "pastParticiple": "ground",
     "translation": "moler / triturar",
+    "translationEu": "ehotu",
     "ipa": {
       "infinitive": "ɡraɪnd",
       "pastSimple": "ɡraʊnd",
@@ -2747,9 +3044,11 @@ const VERBS = [
     "rank": 102,
     "example": {
       "en": "She ground the coffee beans fresh every morning.",
-      "es": "Ella molía los granos de café frescos cada mañana."
+      "es": "Ella molía los granos de café frescos cada mañana.",
+      "eu": "Kafe-ale freskoak ehotzen zituen goizero."
     },
     "mistake": "'ground' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'ground' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "lay",
       "deal",
@@ -2762,6 +3061,7 @@ const VERBS = [
     "pastSimple": "knelt",
     "pastParticiple": "knelt",
     "translation": "arrodillarse",
+    "translationEu": "belaunikatu",
     "ipa": {
       "infinitive": "niːl",
       "pastSimple": "nelt",
@@ -2774,9 +3074,11 @@ const VERBS = [
     "rank": 103,
     "example": {
       "en": "He knelt down to tie his daughter's shoes.",
-      "es": "Él se arrodilló para atarle los zapatos a su hija."
+      "es": "Él se arrodilló para atarle los zapatos a su hija.",
+      "eu": "Belaunikatu zen bere alabari zapatak lotzeko."
     },
     "mistake": "'knelt' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'knelt' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "flee",
       "leap",
@@ -2789,6 +3091,7 @@ const VERBS = [
     "pastSimple": "laid",
     "pastParticiple": "laid",
     "translation": "colocar / poner (huevos)",
+    "translationEu": "arrautzak egin",
     "ipa": {
       "infinitive": "leɪ",
       "pastSimple": "leɪd",
@@ -2801,9 +3104,11 @@ const VERBS = [
     "rank": 104,
     "example": {
       "en": "The hen laid three eggs that morning.",
-      "es": "La gallina puso tres huevos esa mañana."
+      "es": "La gallina puso tres huevos esa mañana.",
+      "eu": "Oiloak hiru arrautza egin zituen goiz hartan."
     },
     "mistake": "'laid' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'laid' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "grind",
       "overcome",
@@ -2816,6 +3121,7 @@ const VERBS = [
     "pastSimple": "leapt",
     "pastParticiple": "leapt",
     "translation": "saltar",
+    "translationEu": "jauzi egin",
     "ipa": {
       "infinitive": "liːp",
       "pastSimple": "lept",
@@ -2828,9 +3134,11 @@ const VERBS = [
     "rank": 105,
     "example": {
       "en": "The rabbit leapt over the small fence.",
-      "es": "El conejo saltó por encima de la pequeña valla."
+      "es": "El conejo saltó por encima de la pequeña valla.",
+      "eu": "Untxiak hesi txikiaren gainetik jauzi egin zuen."
     },
     "mistake": "'leapt' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'leapt' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "kneel",
       "flee",
@@ -2843,6 +3151,7 @@ const VERBS = [
     "pastSimple": "mistook",
     "pastParticiple": "mistaken",
     "translation": "confundir",
+    "translationEu": "nahastu",
     "ipa": {
       "infinitive": "mɪˈsteɪk",
       "pastSimple": "mɪˈstʊk",
@@ -2855,9 +3164,11 @@ const VERBS = [
     "rank": 106,
     "example": {
       "en": "He mistook her for someone else at the party.",
-      "es": "Él la confundió con otra persona en la fiesta."
+      "es": "Él la confundió con otra persona en la fiesta.",
+      "eu": "Beste norbaitekin nahastu zuen festan."
     },
     "mistake": "No añadas '-ed' a 'mistake': su pasado es 'mistook' y su participio 'mistaken', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'mistake'-ri: iraganaldia 'mistook' da eta partizipioa 'mistaken', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "prove",
       "dream",
@@ -2870,6 +3181,7 @@ const VERBS = [
     "pastSimple": "overcame",
     "pastParticiple": "overcome",
     "translation": "superar",
+    "translationEu": "gainditu",
     "ipa": {
       "infinitive": "ˌəʊvəˈkʌm",
       "pastSimple": "ˌəʊvəˈkeɪm",
@@ -2882,9 +3194,11 @@ const VERBS = [
     "rank": 107,
     "example": {
       "en": "She overcame her fear of public speaking.",
-      "es": "Ella superó su miedo a hablar en público."
+      "es": "Ella superó su miedo a hablar en público.",
+      "eu": "Jendaurrean hitz egiteko beldurra gainditu zuen."
     },
     "mistake": "No añadas '-ed' a 'overcome': su pasado es 'overcame' y su participio 'overcome', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'overcome'-ri: iraganaldia 'overcame' da eta partizipioa 'overcome', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "seek",
       "lay",
@@ -2897,6 +3211,7 @@ const VERBS = [
     "pastSimple": "proved",
     "pastParticiple": "proven",
     "translation": "probar / demostrar",
+    "translationEu": "frogatu",
     "ipa": {
       "infinitive": "pruːv",
       "pastSimple": "pruːvd",
@@ -2909,9 +3224,11 @@ const VERBS = [
     "rank": 108,
     "example": {
       "en": "The new evidence proved his innocence.",
-      "es": "Las nuevas pruebas demostraron su inocencia."
+      "es": "Las nuevas pruebas demostraron su inocencia.",
+      "eu": "Froga berriek haren errugabetasuna frogatu zuten."
     },
     "mistake": "No añadas '-ed' a 'prove': su pasado es 'proved' y su participio 'proven', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'prove'-ri: iraganaldia 'proved' da eta partizipioa 'proven', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "mistake",
       "dream",
@@ -2924,6 +3241,7 @@ const VERBS = [
     "pastSimple": "sought",
     "pastParticiple": "sought",
     "translation": "buscar",
+    "translationEu": "bilatu",
     "ipa": {
       "infinitive": "siːk",
       "pastSimple": "sɔːt",
@@ -2936,9 +3254,11 @@ const VERBS = [
     "rank": 109,
     "example": {
       "en": "They sought shelter from the sudden storm.",
-      "es": "Buscaron refugio de la repentina tormenta."
+      "es": "Buscaron refugio de la repentina tormenta.",
+      "eu": "Ustekabeko ekaitzetik babesa bilatu zuten."
     },
     "mistake": "'sought' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'sought' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "overcome",
       "lay",
@@ -2951,6 +3271,7 @@ const VERBS = [
     "pastSimple": "shrank",
     "pastParticiple": "shrunk",
     "translation": "encoger",
+    "translationEu": "txikitu",
     "ipa": {
       "infinitive": "ʃrɪŋk",
       "pastSimple": "ʃræŋk",
@@ -2963,9 +3284,11 @@ const VERBS = [
     "rank": 110,
     "example": {
       "en": "The wool sweater shrank after the first wash.",
-      "es": "El suéter de lana encogió después del primer lavado."
+      "es": "El suéter de lana encogió después del primer lavado.",
+      "eu": "Artilezko jertsea txikitu egin zen lehen garbiketaren ondoren."
     },
     "mistake": "No añadas '-ed' a 'shrink': su pasado es 'shrank' y su participio 'shrunk', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'shrink'-ri: iraganaldia 'shrank' da eta partizipioa 'shrunk', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "burst",
       "burn",
@@ -2978,6 +3301,7 @@ const VERBS = [
     "pastSimple": "sank",
     "pastParticiple": "sunk",
     "translation": "hundir",
+    "translationEu": "hondoratu",
     "ipa": {
       "infinitive": "sɪŋk",
       "pastSimple": "sæŋk",
@@ -2990,9 +3314,11 @@ const VERBS = [
     "rank": 111,
     "example": {
       "en": "The old boat slowly sank into the lake.",
-      "es": "El viejo barco se hundió lentamente en el lago."
+      "es": "El viejo barco se hundió lentamente en el lago.",
+      "eu": "Ontzi zaharra poliki-poliki hondoratu zen aintziran."
     },
     "mistake": "No añadas '-ed' a 'sink': su pasado es 'sank' y su participio 'sunk', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'sink'-ri: iraganaldia 'sank' da eta partizipioa 'sunk', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "slide",
       "spin",
@@ -3005,6 +3331,7 @@ const VERBS = [
     "pastSimple": "slid",
     "pastParticiple": "slid",
     "translation": "deslizar",
+    "translationEu": "irristatu",
     "ipa": {
       "infinitive": "slaɪd",
       "pastSimple": "slɪd",
@@ -3017,9 +3344,11 @@ const VERBS = [
     "rank": 112,
     "example": {
       "en": "The children slid down the icy hill on a sled.",
-      "es": "Los niños se deslizaron por la colina helada en un trineo."
+      "es": "Los niños se deslizaron por la colina helada en un trineo.",
+      "eu": "Haurrak muino izoztuan behera irristatu ziren trineoan."
     },
     "mistake": "'slid' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'slid' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "sink",
       "spin",
@@ -3032,6 +3361,7 @@ const VERBS = [
     "pastSimple": "spun",
     "pastParticiple": "spun",
     "translation": "girar",
+    "translationEu": "biratu",
     "ipa": {
       "infinitive": "spɪn",
       "pastSimple": "spʌn",
@@ -3044,9 +3374,11 @@ const VERBS = [
     "rank": 113,
     "example": {
       "en": "The dancer spun gracefully across the stage.",
-      "es": "La bailarina giró con gracia por el escenario."
+      "es": "La bailarina giró con gracia por el escenario.",
+      "eu": "Dantzariak grazia handiz biratu zuen agertokian zehar."
     },
     "mistake": "'spun' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'spun' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "slide",
       "sink",
@@ -3059,6 +3391,7 @@ const VERBS = [
     "pastSimple": "spat",
     "pastParticiple": "spat",
     "translation": "escupir",
+    "translationEu": "tu egin",
     "ipa": {
       "infinitive": "spɪt",
       "pastSimple": "spæt",
@@ -3071,9 +3404,11 @@ const VERBS = [
     "rank": 114,
     "example": {
       "en": "The old engine spat smoke into the air.",
-      "es": "El viejo motor escupió humo al aire."
+      "es": "El viejo motor escupió humo al aire.",
+      "eu": "Motor zaharrak kea tu egin zuen airera."
     },
     "mistake": "'spat' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'spat' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "split",
       "strike",
@@ -3086,6 +3421,7 @@ const VERBS = [
     "pastSimple": "split",
     "pastParticiple": "split",
     "translation": "dividir / partir",
+    "translationEu": "zatitu",
     "ipa": {
       "infinitive": "splɪt",
       "pastSimple": "splɪt",
@@ -3098,9 +3434,11 @@ const VERBS = [
     "rank": 115,
     "example": {
       "en": "The heavy log split cleanly in two.",
-      "es": "El pesado tronco se partió limpiamente en dos."
+      "es": "El pesado tronco se partió limpiamente en dos.",
+      "eu": "Enbor astuna bitan garbi zatitu zen."
     },
     "mistake": "'split' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'split' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "spit",
       "strike",
@@ -3113,6 +3451,7 @@ const VERBS = [
     "pastSimple": "sprang",
     "pastParticiple": "sprung",
     "translation": "saltar / brotar",
+    "translationEu": "bat-batean jauzi egin",
     "ipa": {
       "infinitive": "sprɪŋ",
       "pastSimple": "spræŋ",
@@ -3125,9 +3464,11 @@ const VERBS = [
     "rank": 116,
     "example": {
       "en": "The cat sprang suddenly onto the table.",
-      "es": "El gato saltó de repente sobre la mesa."
+      "es": "El gato saltó de repente sobre la mesa.",
+      "eu": "Katua bat-batean mahai gainera jauzi egin zuen."
     },
     "mistake": "No añadas '-ed' a 'spring': su pasado es 'sprang' y su participio 'sprung', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'spring'-ri: iraganaldia 'sprang' da eta partizipioa 'sprung', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "swing",
       "spin",
@@ -3140,6 +3481,7 @@ const VERBS = [
     "pastSimple": "struck",
     "pastParticiple": "struck",
     "translation": "golpear / hacer huelga",
+    "translationEu": "jo / greba egin",
     "ipa": {
       "infinitive": "straɪk",
       "pastSimple": "strʌk",
@@ -3152,9 +3494,11 @@ const VERBS = [
     "rank": 117,
     "example": {
       "en": "Lightning struck the old oak tree during the storm.",
-      "es": "Un rayo golpeó el viejo roble durante la tormenta."
+      "es": "Un rayo golpeó el viejo roble durante la tormenta.",
+      "eu": "Tximistak haritz zaharra jo zuen ekaitzean."
     },
     "mistake": "'struck' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'struck' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "split",
       "spit",
@@ -3167,6 +3511,7 @@ const VERBS = [
     "pastSimple": "swung",
     "pastParticiple": "swung",
     "translation": "balancear",
+    "translationEu": "kulunkatu",
     "ipa": {
       "infinitive": "swɪŋ",
       "pastSimple": "swʌŋ",
@@ -3179,9 +3524,11 @@ const VERBS = [
     "rank": 118,
     "example": {
       "en": "The children swung happily in the park all afternoon.",
-      "es": "Los niños se columpiaron felices en el parque toda la tarde."
+      "es": "Los niños se columpiaron felices en el parque toda la tarde.",
+      "eu": "Haurrak pozik kulunkatu ziren parkean arratsalde osoan."
     },
     "mistake": "'swung' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'swung' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "spring",
       "spin",
@@ -3194,6 +3541,7 @@ const VERBS = [
     "pastSimple": "wept",
     "pastParticiple": "wept",
     "translation": "llorar",
+    "translationEu": "negar egin",
     "ipa": {
       "infinitive": "wiːp",
       "pastSimple": "wept",
@@ -3206,9 +3554,11 @@ const VERBS = [
     "rank": 119,
     "example": {
       "en": "She wept quietly when she heard the news.",
-      "es": "Ella lloró en silencio cuando escuchó la noticia."
+      "es": "Ella lloró en silencio cuando escuchó la noticia.",
+      "eu": "Isilik negar egin zuen berria entzun zuenean."
     },
     "mistake": "'wept' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'wept' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "fit",
       "sleep",
@@ -3221,6 +3571,7 @@ const VERBS = [
     "pastSimple": "wound",
     "pastParticiple": "wound",
     "translation": "enrollar / dar cuerda",
+    "translationEu": "kordoia eman",
     "ipa": {
       "infinitive": "waɪnd",
       "pastSimple": "waʊnd",
@@ -3233,9 +3584,11 @@ const VERBS = [
     "rank": 120,
     "example": {
       "en": "He wound the old clock before going to bed.",
-      "es": "Él le dio cuerda al viejo reloj antes de irse a la cama."
+      "es": "Él le dio cuerda al viejo reloj antes de irse a la cama.",
+      "eu": "Erloju zaharrari kordoia eman zion oheratu baino lehen."
     },
     "mistake": "'wound' se usa igual para el pasado simple y el participio, no lo confundas con verbos donde ambas formas difieren.",
+    "mistakeEu": "'wound' forma bera erabiltzen da iraganaldirako eta partizipiorako; ez nahastu bi forma horiek desberdinak dituzten aditzekin.",
     "similar": [
       "withdraw",
       "strike",
@@ -3248,6 +3601,7 @@ const VERBS = [
     "pastSimple": "withdrew",
     "pastParticiple": "withdrawn",
     "translation": "retirar",
+    "translationEu": "atera (dirua)",
     "ipa": {
       "infinitive": "wɪðˈdrɔː",
       "pastSimple": "wɪðˈdruː",
@@ -3260,9 +3614,11 @@ const VERBS = [
     "rank": 121,
     "example": {
       "en": "He withdrew some money before the trip.",
-      "es": "Él retiró algo de dinero antes del viaje."
+      "es": "Él retiró algo de dinero antes del viaje.",
+      "eu": "Diru pixka bat atera zuen bidaia baino lehen."
     },
     "mistake": "No añadas '-ed' a 'withdraw': su pasado es 'withdrew' y su participio 'withdrawn', formas irregulares que hay que memorizar.",
+    "mistakeEu": "Ez ipini '-ed' 'withdraw'-ri: iraganaldia 'withdrew' da eta partizipioa 'withdrawn', memorizatu beharreko forma irregularrak dira.",
     "similar": [
       "wind",
       "strike",
@@ -3275,3 +3631,30 @@ Object.freeze(VERBS);
 
 window.App = window.App || {};
 window.App.Verbs = VERBS;
+
+/**
+ * VerbLang: capa fina para leer los campos bilingües (traducción, ejemplo,
+ * aviso de error, categoría) de un verbo según el idioma activo de la
+ * interfaz, con fallback automático a castellano si ese verbo aún no tiene
+ * su versión en euskera (traducción en curso por lotes).
+ */
+(function (App) {
+  "use strict";
+  function currentLang() {
+    return (App.I18n && App.I18n.getLang) ? App.I18n.getLang() : "es";
+  }
+  App.VerbLang = {
+    translation(v) {
+      return (currentLang() === "eu" && v.translationEu) ? v.translationEu : v.translation;
+    },
+    exampleEs(v) {
+      return (currentLang() === "eu" && v.example.eu) ? v.example.eu : v.example.es;
+    },
+    mistake(v) {
+      return (currentLang() === "eu" && v.mistakeEu) ? v.mistakeEu : v.mistake;
+    },
+    categoryLabel(v) {
+      return (App.I18n && App.I18n.t) ? App.I18n.t("verbcat." + v.category) : v.categoryLabel;
+    },
+  };
+})(window.App);
