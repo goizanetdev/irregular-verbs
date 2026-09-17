@@ -4,7 +4,7 @@
  * plano (stale-while-revalidate) para que la app funcione 100% offline
  * después de la primera visita.
  */
-const CACHE_NAME = "irregularverbs-cache-v4";
+const CACHE_NAME = "irregularverbs-cache-v5";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -13,6 +13,7 @@ const APP_SHELL = [
   "./js/verbs.js",
   "./js/gapSentences.js",
   "./js/storage.js",
+  "./js/i18n.js",
   "./js/core.js",
   "./js/ui.js",
   "./js/stats.js",
