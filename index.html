@@ -6,12 +6,29 @@
 <title>IrregularVerbs — Aprende los verbos irregulares en inglés</title>
 <meta name="description" content="Aprende y domina los verbos irregulares en inglés jugando: flashcards, tests, exámenes, juegos y estadísticas de progreso. 100% gratis y funciona sin conexión.">
 <meta name="theme-color" content="#0D2652">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="author" content="Goizane Terreros">
+<link rel="canonical" href="https://goizanetdev.github.io/irregular-verbs/">
 
 <!-- Open Graph -->
 <meta property="og:title" content="IrregularVerbs — Aprende los verbos irregulares en inglés">
-<meta property="og:description" content="La forma más divertida de dominar los verbos irregulares en inglés: flashcards, tests, exámenes y minijuegos.">
+<meta property="og:description" content="La forma más divertida de dominar los verbos irregulares en inglés: 121 verbos con pronunciación, flashcards, tests, exámenes y minijuegos. Gratis, en castellano y euskera, y funciona sin conexión.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="icons/icon-512.png">
+<meta property="og:url" content="https://goizanetdev.github.io/irregular-verbs/">
+<meta property="og:site_name" content="IrregularVerbs">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="eu_ES">
+<meta property="og:image" content="https://goizanetdev.github.io/irregular-verbs/docs/screenshots/home-light.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="1000">
+<meta property="og:image:alt" content="Pantalla de inicio de IrregularVerbs con los modos de práctica">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="IrregularVerbs — Aprende los verbos irregulares en inglés">
+<meta name="twitter:description" content="121 verbos irregulares con pronunciación, flashcards, tests, exámenes y minijuegos. Gratis, en castellano y euskera, y funciona sin conexión.">
+<meta name="twitter:image" content="https://goizanetdev.github.io/irregular-verbs/docs/screenshots/home-light.png">
+<meta name="twitter:image:alt" content="Pantalla de inicio de IrregularVerbs con los modos de práctica">
 
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
@@ -19,6 +36,64 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="css/styles.css">
+
+<!-- Datos estructurados: permiten resultados enriquecidos en buscadores -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["WebApplication", "LearningResource"],
+      "@id": "https://goizanetdev.github.io/irregular-verbs/#app",
+      "name": "IrregularVerbs",
+      "url": "https://goizanetdev.github.io/irregular-verbs/",
+      "description": "Web app gratuita para aprender y dominar los 121 verbos irregulares más usados del inglés: pronunciación (IPA), flashcards, tests, exámenes, escritura, dictado y minijuegos, con seguimiento de progreso y logros. Disponible en castellano y euskera, instalable y funciona sin conexión.",
+      "applicationCategory": "EducationalApplication",
+      "applicationSubCategory": "Language learning",
+      "operatingSystem": "Any (navegador web)",
+      "browserRequirements": "Requiere JavaScript",
+      "inLanguage": ["es", "eu"],
+      "isAccessibleForFree": true,
+      "educationalLevel": "A1-C1 (MCER)",
+      "learningResourceType": ["flashcards", "quiz", "game", "reference"],
+      "teaches": "Verbos irregulares del inglés: infinitivo, pasado simple, participio pasado y pronunciación",
+      "educationalUse": ["self study", "practice", "assessment"],
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": ["student", "self learner"]
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "featureList": [
+        "121 verbos irregulares con traducción y pronunciación IPA",
+        "Flashcards y modo estudio",
+        "Tests, exámenes y modo escritura",
+        "Dictado y examen en tabla",
+        "Minijuegos: memoria, ahorcado, ordenar letras, completar huecos y ruleta",
+        "Estadísticas de progreso y 55 logros",
+        "Interfaz en castellano y euskera",
+        "Instalable como app (PWA) y uso sin conexión"
+      ],
+      "screenshot": [
+        "https://goizanetdev.github.io/irregular-verbs/docs/screenshots/home-light.png",
+        "https://goizanetdev.github.io/irregular-verbs/docs/screenshots/library.png",
+        "https://goizanetdev.github.io/irregular-verbs/docs/screenshots/table-test.png"
+      ],
+      "author": { "@id": "https://goizanetdev.github.io/#person" },
+      "creator": { "@id": "https://goizanetdev.github.io/#person" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://goizanetdev.github.io/#person",
+      "name": "Goizane",
+      "url": "https://goizanetdev.github.io/"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -28,7 +103,7 @@
 <div class="lang-onboarding" id="langOnboarding" role="dialog" aria-modal="true" aria-label="Selección de idioma / Hizkuntza aukeraketa">
   <div class="lang-onboarding-card">
     <img class="brand-mark" src="icons/logo-mark.png" alt="" width="40" height="43">
-    <h1 class="lang-onboarding-title">Elige tu idioma<br>Aukeratu hizkuntza</h1>
+    <div class="lang-onboarding-title">Elige tu idioma<br>Aukeratu hizkuntza</div>
     <p class="lang-onboarding-sub">Podrás cambiarlo cuando quieras en Ajustes.<br>Nahi duzunean alda dezakezu Ezarpenetan.</p>
     <div class="lang-onboarding-options">
       <button class="btn btn-primary btn-block lang-onboarding-btn" id="onboardingBtnEs" data-lang="es">Castellano</button>
